@@ -9,9 +9,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Stoa">
-<link rel="manifest" href="manifest.json?v=259fe19e">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=259fe19e">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=259fe19e">
+<link rel="manifest" href="manifest.json?v=7f28bd6f">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=7f28bd6f">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=7f28bd6f">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <script>window.STOA_PWA=true;</script>
 <title>Stoa Docente</title>
@@ -509,16 +509,44 @@ details.lesson[open] > .prose{animation:unfold .45s cubic-bezier(.2,.7,.2,1) bot
 .goal{position:relative;width:38px;height:38px;flex:none;margin-left:auto}
 .goal svg{width:38px;height:38px;transform:rotate(-90deg)}
 .goal em{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:.62rem;font-family:var(--f-mono);color:var(--rail-fg)}
-.tts{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--lapis);padding:6px 12px;border-radius:99px;border:1px solid var(--line);width:max-content}
-.tts:hover{border-color:var(--lapis)}
-.tts.on{background:var(--lapis);color:var(--surface);border-color:var(--lapis)}
-.tts.on .wave i{animation:wave 1s ease-in-out infinite}
+.vp{position:relative;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:12px 16px 12px 12px;border-radius:18px;border:1px solid color-mix(in srgb,var(--lapis) 22%,var(--line));background:linear-gradient(135deg,color-mix(in srgb,var(--lapis-soft) 70%,var(--surface)),var(--surface) 70%);box-shadow:var(--shadow);overflow:hidden;isolation:isolate}
+.vp::before{content:"";position:absolute;inset:-40% auto auto -10%;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 26%,transparent),transparent 70%);z-index:-1;opacity:.55;transition:opacity .4s}
+.vp.on::before{opacity:1;animation:vpglow 4s ease-in-out infinite}
+@keyframes vpglow{50%{transform:translate(18px,10px) scale(1.15)}}
+.vp-play{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--lapis) 70%,#fff),var(--lapis) 60%,var(--lapis-ink));box-shadow:0 6px 18px -6px color-mix(in srgb,var(--lapis) 70%,transparent),inset 0 0 0 1.5px color-mix(in srgb,var(--gold) 55%,transparent);transition:transform .2s}
+:root[data-theme="dark"] .vp-play{color:var(--lapis-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .vp-play{color:var(--lapis-ink)}}
+.vp-play:hover{transform:scale(1.06)}.vp-play:active{transform:scale(.96)}
+.vp-play:focus-visible,.vp-ctl button:focus-visible,.vp-bar:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.vp-play svg{width:18px;height:18px;fill:currentColor}
+.vp-play .i-pause,.vp.on .vp-play .i-play{display:none}.vp.on .vp-play .i-pause{display:block}
+.vp.load .vp-play svg{display:none!important}.vp.load .vp-play::after{content:"";width:18px;height:18px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:vpspin .8s linear infinite}
+@keyframes vpspin{to{transform:rotate(360deg)}}
+.vp-main{min-width:0;display:flex;flex-direction:column;gap:7px}
+.vp-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.vp-t{font-family:var(--f-display);font-size:1.02rem;font-weight:600;color:var(--fg);letter-spacing:.01em}
+.vp-who{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;color:var(--muted);font-family:var(--f-mono);letter-spacing:.02em}
+.vp-who .wave{color:var(--gold);height:11px}
+.vp.on .vp-who .wave i{animation:wave 1s ease-in-out infinite}
+.wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}
+.vp-bar{position:relative;height:6px;border-radius:99px;background:color-mix(in srgb,var(--lapis) 14%,var(--surface-2));cursor:pointer;touch-action:none}
+.vp-bar::after{content:"";position:absolute;inset:-9px 0}
+.vp-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--lapis),color-mix(in srgb,var(--lapis) 50%,var(--gold)) 70%,var(--gold))}
+.vp-knob{position:absolute;top:50%;left:0;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 2px var(--gold),0 2px 6px rgba(0,0,0,.25);transform:scale(0);transition:transform .2s}
+.vp.on .vp-knob,.vp.pz .vp-knob,.vp-bar:hover .vp-knob{transform:scale(1)}
+.vp-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vp-ctl{display:inline-flex;gap:4px}
+.vp-ctl button{all:unset;cursor:pointer;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.7rem;background:var(--surface);transition:border-color .2s,background .2s}
+.vp-ctl button:hover{border-color:var(--lapis)}
+.vp-ctl .vp-spd{min-width:36px;text-align:center;color:var(--lapis);font-weight:600}
+.vp.dev .vp-bar,.vp.dev .vp-ctl [data-vp="back"],.vp.dev .vp-ctl [data-vp="fwd"]{opacity:.35;pointer-events:none}
+@media (max-width:520px){.vp{padding:10px 12px 10px 10px;gap:11px}.vp-play{width:42px;height:42px}.vp-who{font-size:.66rem}}
 .wave{display:inline-flex;gap:2px;align-items:center;height:12px}
 .wave i{display:block;width:2px;height:100%;background:currentColor;border-radius:2px;transform:scaleY(.35)}
 .wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}
 @keyframes wave{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 @media (prefers-reduced-motion:reduce){
-  .view > *,details.lesson[open] > .prose,.mbar .tr i,.dist-row .tr i,.split i,.prio-bar i,.qz-progress i,.bar i,.ring svg circle,.pq.ok,.opt.right,.pq.bad,.opt.wrong,.fcard.flip-anim,.toast,.streak .flame,.tts.on .wave i{animation:none!important}
+  .view > *,details.lesson[open] > .prose,.mbar .tr i,.dist-row .tr i,.split i,.prio-bar i,.qz-progress i,.bar i,.ring svg circle,.pq.ok,.opt.right,.pq.bad,.opt.wrong,.fcard.flip-anim,.toast,.streak .flame,.vp.on .vp-who .wave i,.vp.on::before,.vp.load .vp-play::after{animation:none!important}
   .flip3d .inner,.card,.module,.btn,.opt{transition:none!important}
 }
 .menu-btn{display:none}
@@ -3260,7 +3288,7 @@ function vUnit(id){
 
   <section id="u-lessons" style="display:flex;flex-direction:column;gap:12px">
     <div class="section-title"><h2>Lecciones</h2><p>Explicación conceptual con ejemplos del aula</p></div>
-    ${U.lessons.map((l,i)=>`<details class="lesson" ${i===0?"open":""}><summary><span class="ln">${i+1}</span><h3>${esc(l.h)}</h3><span class="tag">${Math.max(1,Math.round(l.body.replace(/<[^>]+>/g," ").split(/\s+/).length/180))} min</span></summary><div class="prose"><button class="tts" type="button" data-tts="1"><span class="wave" aria-hidden="true"><i></i><i></i><i></i></span><b>Escuchar lección</b></button>${ESS[l.id]?`<div class="ess"><b>Lo esencial</b><ul>${ESS[l.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}${l.body}</div></details>`).join("")}
+    ${U.lessons.map((l,i)=>`<details class="lesson" ${i===0?"open":""}><summary><span class="ln">${i+1}</span><h3>${esc(l.h)}</h3><span class="tag">${Math.max(1,Math.round(l.body.replace(/<[^>]+>/g," ").split(/\s+/).length/180))} min</span></summary><div class="prose">${vpHTML(l)}${ESS[l.id]?`<div class="ess"><b>Lo esencial</b><ul>${ESS[l.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}${l.body}</div></details>`).join("")}
   </section>
 
   <section id="u-src" style="display:flex;flex-direction:column;gap:14px">
@@ -3819,16 +3847,55 @@ function countUp(){if(RM()) return; document.querySelectorAll("#root .stat").for
   (function f(t){const k=Math.min(1,(t-t0)/D), e=1-Math.pow(1-k,3); tn.textContent=fmt(target*e); if(k<1) requestAnimationFrame(f);})(t0);});}
 function onScroll(){const b=$("#scrollbar"); if(!b) return; const max=document.documentElement.scrollHeight-innerHeight; b.style.transform=`scaleX(${max>0?Math.min(1,scrollY/max):0})`;}
 window.addEventListener("scroll",onScroll,{passive:true});
-function postRender(){countUp(); onScroll(); renderStreak(); ttsStop(); splitTitles();}
+function postRender(){countUp(); onScroll(); renderStreak(); vpRebind(); splitTitles();}
 
-/* Escuchar lecciones (síntesis de voz del navegador, si está disponible) */
-let ttsBtn=null;
-function ttsStop(){try{if(window.speechSynthesis) speechSynthesis.cancel();}catch(e){} if(ttsBtn){ttsBtn.classList.remove("on"); ttsBtn.querySelector("b").textContent="Escuchar lección"; ttsBtn=null;}}
-function ttsPlay(btn){if(!("speechSynthesis" in window)){toast("Tu navegador no permite leer en voz alta."); return}
-  if(ttsBtn===btn){ttsStop(); return} ttsStop();
-  const prose=btn.closest(".prose"); const text=prose?prose.innerText.replace(/Escuchar lección|Detener lectura/g,""):""; if(!text) return;
-  try{const u=new SpeechSynthesisUtterance(text); u.lang="es-CO"; u.rate=1; const vs=speechSynthesis.getVoices(); const v=vs.find(v=>/^es(-|_)CO/i.test(v.lang))||vs.find(v=>/^es/i.test(v.lang)); if(v) u.voice=v;
-    u.onend=()=>ttsStop(); speechSynthesis.speak(u); ttsBtn=btn; btn.classList.add("on"); btn.querySelector("b").textContent="Detener lectura";}catch(e){toast("No fue posible iniciar la lectura en voz alta.");}}
+/* Escuchar lecciones: audio neural pregenerado con Kokoro TTS (voz femenina «Dora», ef_dora).
+   Si una lección no tiene audio, se usa la voz del dispositivo como respaldo. */
+const AUD={"l1":[144.8,"0adc8ce1ed86"],"l2":[136.3,"1119191e9281"],"l3":[112.3,"0b15c7d607ea"],"l4":[143.6,"730931fd1a3a"],"l5":[112.7,"717e8e816fbd"],"l6":[160.7,"e2b0429e616e"],"l7":[142.3,"c0f15631904a"],"m2l1":[102.3,"c7e601cfbe21"],"m2l2":[116.1,"b61018c4f0be"],"m2l3":[93.8,"eb230b72fc5a"],"m2l4":[80.7,"4d327c973f7e"],"m2l5":[97.1,"b44b7fb8e4ed"],"m2l6":[109.4,"4c6470924303"],"m2l7":[172.3,"4ab476aa6036"],"m3l1":[143.4,"b2e61ad3f2d0"],"m3l2":[94.0,"c489617aadae"],"m3l3":[95.5,"9aaba5a49d8d"],"m3l4":[106.0,"555fbd4ad00f"],"m3l5":[129.0,"eaa737066688"],"m3l6":[92.6,"345d42b94f56"],"m3l7":[116.4,"efbda163f872"],"m4l1":[117.8,"8c627c0ae7de"],"m4l2":[89.8,"ef7dc1334efc"],"m4l3":[88.4,"d4951e9aa032"],"m4l4":[85.3,"7543c3ccaa1c"],"m4l5":[92.9,"70d493389945"],"m4l6":[113.7,"e8e507cf65fb"],"m4l7":[138.6,"36e5f38e10da"],"m4l8":[98.2,"59ff2e484789"],"m5l1":[100.0,"bbdacd9ec14a"],"m5l2":[102.5,"a1d72aa72104"],"m5l3":[95.5,"3ab6044d4002"],"m5l4":[99.6,"4974e265c5ec"],"m5l5":[96.7,"5795aa49cdbe"],"m5l6":[103.6,"ff0dea0e1892"],"m5l7":[104.8,"0f49ddb66b41"],"m6l1":[103.1,"f1fc6700b518"],"m6l2":[78.5,"1760df4e6bbd"],"m6l3":[72.4,"da190f0839e7"],"m6l4":[66.8,"7fe20e8b3027"],"m6l5":[76.9,"c451196bce35"],"m6l6":[80.9,"f0bac1f973ae"],"m6l7":[67.6,"fcde2d5071b9"],"m7l1":[89.5,"d29acd667ada"],"m7l2":[100.1,"5715f9b77acd"],"m7l3":[108.4,"376b830c5fd6"],"m7l4":[122.2,"4b5ca15feae8"],"m7l5":[111.5,"c9b5a72edb62"],"m7l6":[78.2,"2cfcbb8145a4"],"m7l7":[85.7,"e1914f624a75"]};
+const VP_RATES=[0.9,1,1.15,1.3];
+const vp={a:null,id:null,el:null,dev:false,rate:store.get("vprate",1),pos:store.get("vppos",{})};
+const vpT=t=>{t=Math.max(0,Math.round(t||0)); return Math.floor(t/60)+":"+String(t%60).padStart(2,"0")};
+const PLAY_SVG='<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.3"/><rect x="13.5" y="5" width="4" height="14" rx="1.3"/></svg>';
+function vpHTML(l){const d=AUD[l.id]; const dev=!d; const p0=d&&vp.pos[l.id]?Math.min(100,vp.pos[l.id]/d[0]*100):0;
+  return `<div class="vp${dev?" dev":""}" data-vpid="${l.id}" data-vptitle="${esc(l.h)}"><button class="vp-play" type="button" data-vp="toggle" aria-label="Escuchar lección">${PLAY_SVG}</button><div class="vp-main"><div class="vp-top"><b class="vp-t">${p0?"Continuar donde quedaste":"Escuchar lección"}</b><span class="vp-who"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>${dev?"Voz del dispositivo":"Dora · voz neural Kokoro"}</span></div><div class="vp-bar" data-vp="seek" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="${d?Math.round(d[0]):0}" aria-valuenow="0"><i class="vp-fill" style="width:${p0}%"></i><i class="vp-knob" style="left:${p0}%"></i></div><div class="vp-meta"><span class="vp-cur">${vpT((vp.pos[l.id]||0))}</span><span class="vp-ctl"><button type="button" data-vp="back" aria-label="Retroceder 15 segundos">−15</button><button type="button" class="vp-spd" data-vp="speed" aria-label="Velocidad">${String(vp.rate).replace(".",",")}×</button><button type="button" data-vp="fwd" aria-label="Avanzar 15 segundos">+15</button></span><span class="vp-dur">${d?vpT(d[0]):"—"}</span></div></div></div>`}
+function vpPaint(){const el=vp.el; if(!el||!vp.a) return; const a=vp.a, d=a.duration||(AUD[vp.id]||[0])[0]||1, p=Math.min(1,(a.currentTime||0)/d);
+  el.querySelector(".vp-fill").style.width=(p*100)+"%"; el.querySelector(".vp-knob").style.left=(p*100)+"%";
+  el.querySelector(".vp-cur").textContent=vpT(a.currentTime); el.querySelector(".vp-bar").setAttribute("aria-valuenow",Math.round(a.currentTime||0));}
+function vpState(on,load){const el=vp.el; if(!el) return; el.classList.toggle("on",!!on); el.classList.toggle("load",!!load); el.classList.toggle("pz",!on&&!!vp.a&&vp.a.currentTime>0);
+  el.querySelector(".vp-play").setAttribute("aria-label",on?"Pausar lección":"Escuchar lección"); el.querySelector(".vp-t").textContent=on?"Escuchando…":(vp.a&&vp.a.currentTime>0?"En pausa":"Escuchar lección");}
+function vpSave(){if(vp.a&&vp.id){const t=vp.a.currentTime||0, d=vp.a.duration||0; if(d&&t>d-3) delete vp.pos[vp.id]; else vp.pos[vp.id]=Math.floor(t); store.set("vppos",vp.pos);}}
+function ttsStop(){if(vp.dev){try{speechSynthesis.cancel()}catch(e){} vp.dev=false;}
+  if(vp.a){vpSave(); vp.a.pause(); vp.a.removeAttribute("src"); try{vp.a.load()}catch(e){} vp.a=null;}
+  if(vp.el&&vp.el.isConnected) vpState(false,false); vp.el=null; vp.id=null;}
+function vpDevice(el){if(!("speechSynthesis" in window)){toast("Tu navegador no permite leer en voz alta."); return}
+  const prose=el.closest(".prose"); const c=prose?prose.cloneNode(true):null; if(c) c.querySelectorAll(".vp").forEach(n=>n.remove()); const text=c?c.innerText:""; if(!text) return;
+  try{const u=new SpeechSynthesisUtterance(text); u.lang="es-CO"; u.rate=vp.rate; const vs=speechSynthesis.getVoices(); const v=vs.find(v=>/^es(-|_)CO/i.test(v.lang))||vs.find(v=>/^es/i.test(v.lang)); if(v) u.voice=v;
+    u.onend=()=>{if(vp.el===el) ttsStop()}; speechSynthesis.speak(u); vp.dev=true; vp.el=el; vp.id=el.dataset.vpid; vpState(true);}catch(e){toast("No fue posible iniciar la lectura en voz alta.");}}
+function vpStart(el){const id=el.dataset.vpid, d=AUD[id]; ttsStop(); if(!d){vpDevice(el); return}
+  const a=new Audio(); a.preload="auto"; a.src="audio/"+id+".mp3?v="+d[1]; a.playbackRate=vp.rate; try{a.preservesPitch=true}catch(e){}
+  vp.a=a; vp.el=el; vp.id=id; vpState(false,true);
+  const t0=vp.pos[id]||0; if(t0) a.addEventListener("loadedmetadata",()=>{try{a.currentTime=t0}catch(e){}},{once:true});
+  a.addEventListener("timeupdate",()=>{if(vp.a===a){vpPaint(); if(Math.floor(a.currentTime)%5===0) vpSave();}});
+  a.addEventListener("playing",()=>{if(vp.a===a) vpState(true,false)}); a.addEventListener("waiting",()=>{if(vp.a===a) vpState(true,true)});
+  a.addEventListener("pause",()=>{if(vp.a===a){vpSave(); vpState(false,false)}});
+  a.addEventListener("ended",()=>{if(vp.a===a){delete vp.pos[id]; store.set("vppos",vp.pos); a.currentTime=0; vpPaint(); vpState(false,false); vp.el.querySelector(".vp-t").textContent="Lección escuchada ✓";}});
+  a.addEventListener("error",()=>{if(vp.a===a){vp.a=null; vpState(false,false); toast("No se pudo cargar el audio; uso la voz del dispositivo."); vpDevice(el);}});
+  a.play().catch(()=>{if(vp.a===a) vpState(false,false)});
+  if("mediaSession" in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:el.dataset.vptitle||"Lección",artist:"Dora · Stoa",album:"Concurso docente · Filosofía",artwork:[{src:"icons/icon-512.png",sizes:"512x512",type:"image/png"}]});
+    navigator.mediaSession.setActionHandler("seekbackward",()=>vpSkip(-15)); navigator.mediaSession.setActionHandler("seekforward",()=>vpSkip(15));
+    navigator.mediaSession.setActionHandler("play",()=>vp.a&&vp.a.play()); navigator.mediaSession.setActionHandler("pause",()=>vp.a&&vp.a.pause());}catch(e){}}}
+function vpRebind(){if(!vp.id) return; const el=document.querySelector('.vp[data-vpid="'+vp.id+'"]'); if(!el){ttsStop(); return}
+  vp.el=el; const det=el.closest("details"); if(det) det.open=true; vpPaint(); vpState(vp.dev||(vp.a&&!vp.a.paused),false);}
+function vpSkip(dt){if(vp.a){vp.a.currentTime=Math.max(0,Math.min((vp.a.duration||1e9)-0.5,vp.a.currentTime+dt)); vpPaint();}}
+function vpAct(btn,ev){const el=btn.closest(".vp"); const act=btn.dataset.vp; const mine=vp.el===el;
+  if(act==="toggle"){if(!mine){vpStart(el); return} if(vp.dev){ttsStop(); return} if(vp.a.paused) vp.a.play().catch(()=>{}); else vp.a.pause(); return}
+  if(act==="speed"){const i=VP_RATES.indexOf(vp.rate); vp.rate=VP_RATES[(i+1)%VP_RATES.length]; store.set("vprate",vp.rate);
+    document.querySelectorAll(".vp-spd").forEach(b=>b.textContent=String(vp.rate).replace(".",",")+"×"); if(vp.a) vp.a.playbackRate=vp.rate; return}
+  if(!mine||!vp.a){vpStart(el); return}
+  if(act==="back") vpSkip(-15); else if(act==="fwd") vpSkip(15);
+  else if(act==="seek"&&ev&&ev.clientX!=null){const r=btn.getBoundingClientRect(); const p=Math.min(1,Math.max(0,(ev.clientX-r.left)/r.width)); if(vp.a.duration) vp.a.currentTime=p*vp.a.duration; vpPaint();}}
+document.addEventListener("keydown",e=>{const b=e.target.closest&&e.target.closest('.vp-bar'); if(!b||vp.el!==b.closest(".vp")) return; if(e.key==="ArrowLeft"){vpSkip(-5); e.preventDefault()} else if(e.key==="ArrowRight"){vpSkip(5); e.preventDefault()}});
+document.addEventListener("visibilitychange",()=>{if(document.hidden) vpSave()});
 
 /* Copia de seguridad del progreso */
 function backupJSON(){const o={}; try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); if(k&&k.startsWith("stoa:")) o[k]=localStorage.getItem(k);}}catch(e){} return JSON.stringify({stoa:1,fecha:new Date().toISOString(),datos:o});}
@@ -3949,7 +4016,7 @@ document.addEventListener("click",e=>{
     const n=Object.keys(uans[id]).length, ok=Q.filter((q,j)=>uans[id][j]===q.a).length; const s=$("#uscore"); if(s) s.textContent=`${ok}/${n} correctas · ${Q.length-n} por responder`; return}
   const mr=e.target.closest("[data-ureset]"); if(mr){const id=mr.dataset.ureset; uans[id]={}; store.set(UNITS[id].key,{}); rerender(); return}
   const ins=e.target.closest("[data-install]"); if(ins){installAction(); return}
-  const ts=e.target.closest("[data-tts]"); if(ts){ttsPlay(ts); return}
+  const ts=e.target.closest("[data-vp]"); if(ts){vpAct(ts,e); return}
   const bk=e.target.closest("[data-bk]"); if(bk){bkAction(bk.dataset.bk); return}
   const nf=e.target.closest("[data-nmf]"); if(nf){nmF=nf.dataset.nmf; document.querySelectorAll("[data-nmf]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.nmf===nmF)); renderNormas(); return}
   const tf=e.target.closest("[data-tkf]"); if(tf){tkF=tf.dataset.tkf; store.set("tkF",tkF); rerender(); return}
