@@ -1,6 +1,6 @@
 // Service worker de Stoa: guarda la app para usarla sin conexión.
-const VERSION = "stoa-eae13bb8d9";
-const SHELL = ["./", "./index.html", "./manifest.json?v=7f28bd6f", "./icons/icon-192.png?v=7f28bd6f", "./icons/icon-512.png?v=7f28bd6f", "./icons/maskable-192.png?v=7f28bd6f", "./icons/maskable-512.png?v=7f28bd6f", "./icons/apple-touch-icon.png?v=7f28bd6f"];
+const VERSION = "stoa-56e2b00814";
+const SHELL = ["./", "./index.html", "./manifest.json?v=2a4ec897", "./icons/icon-192.png?v=2a4ec897", "./icons/icon-512.png?v=2a4ec897", "./icons/maskable-192.png?v=2a4ec897", "./icons/maskable-512.png?v=2a4ec897", "./icons/apple-touch-icon.png?v=2a4ec897"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== VERSION && k !== "stoa-fonts" && k !== "stoa-audio").map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

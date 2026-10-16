@@ -9,9 +9,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Stoa">
-<link rel="manifest" href="manifest.json?v=7f28bd6f">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=7f28bd6f">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=7f28bd6f">
+<link rel="manifest" href="manifest.json?v=2a4ec897">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=2a4ec897">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2a4ec897">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <script>window.STOA_PWA=true;</script>
 <title>Stoa Docente</title>
@@ -545,6 +545,28 @@ details.lesson[open] > .prose{animation:unfold .45s cubic-bezier(.2,.7,.2,1) bot
 .wave i{display:block;width:2px;height:100%;background:currentColor;border-radius:2px;transform:scaleY(.35)}
 .wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}
 @keyframes wave{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(120% 80% at 20% 0%,#23307E 0%,#141C52 45%,#0A0C1C 100%);color:#ECEAE0;overflow:auto}
+.gate::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 90%,rgba(221,179,98,.16),transparent 45%);pointer-events:none}
+.gate-card{position:relative;width:min(400px,100%);display:flex;flex-direction:column;gap:14px;padding:30px 26px;border-radius:24px;background:rgba(22,26,51,.72);border:1px solid rgba(221,179,98,.32);box-shadow:0 30px 80px -30px rgba(0,0,0,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.gate-logo{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-size:1.9rem;color:#DDB362}
+.gate-logo svg{width:38px;height:38px}
+.gate h1{margin:0;font-family:var(--f-display);font-weight:500;font-size:1.35rem;color:#ECEAE0}
+.gate p{margin:0;color:#A3A7C2;font-size:.9rem;line-height:1.5}
+.gate label{display:flex;flex-direction:column;gap:6px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#C9B27A}
+.gate input{font:inherit;font-size:1rem;text-transform:none;letter-spacing:0;padding:13px 14px;border-radius:12px;border:1px solid #2A3058;background:#0E1022;color:#ECEAE0;outline:none;transition:border-color .2s,box-shadow .2s}
+.gate input:focus{border-color:#DDB362;box-shadow:0 0 0 3px rgba(221,179,98,.18)}
+.gate .g-main{all:unset;cursor:pointer;text-align:center;padding:14px;border-radius:14px;font-weight:700;color:#0A0C1C;background:linear-gradient(135deg,#F0D398,#DDB362 55%,#B98C3A);box-shadow:0 10px 26px -12px rgba(221,179,98,.7)}
+.gate .g-main:focus-visible,.gate .g-link:focus-visible{outline:2px solid #DDB362;outline-offset:3px}
+.gate .g-main[disabled]{opacity:.6;pointer-events:none}
+.gate .g-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.gate .g-link{all:unset;cursor:pointer;font-size:.84rem;color:#9AA6FF;text-decoration:underline;text-underline-offset:3px}
+.gate .g-msg{min-height:1.2em;font-size:.86rem;color:#F0D398}
+.gate .g-msg.err{color:#F09489}
+.sync-card{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px 18px;border-radius:18px;border:1px solid color-mix(in srgb,var(--gold) 35%,var(--line));background:linear-gradient(135deg,var(--gold-soft),var(--surface) 75%);margin-bottom:18px}
+.sync-dot{width:12px;height:12px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 5px color-mix(in srgb,var(--ok) 22%,transparent)}
+.sync-dot.off{background:var(--warn);box-shadow:0 0 0 5px color-mix(in srgb,var(--warn) 22%,transparent)}
+.sync-card h3{margin:0 0 2px;font-size:1rem}.sync-card p{margin:0;font-size:.85rem;color:var(--muted)}
+.sync-card .acts{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){
   .view > *,details.lesson[open] > .prose,.mbar .tr i,.dist-row .tr i,.split i,.prio-bar i,.qz-progress i,.bar i,.ring svg circle,.pq.ok,.opt.right,.pq.bad,.opt.wrong,.fcard.flip-anim,.toast,.streak .flame,.vp.on .vp-who .wave i,.vp.on::before,.vp.load .vp-play::after{animation:none!important}
   .flip3d .inner,.card,.module,.btn,.opt{transition:none!important}
@@ -2735,7 +2757,7 @@ const SOURCES = [
 /* ======================= ESTADO LOCAL ======================= */
 const store = {
   get(k,d){try{const v=localStorage.getItem("stoa:"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
-  set(k,v){try{localStorage.setItem("stoa:"+k,JSON.stringify(v))}catch(e){}}
+  set(k,v){try{localStorage.setItem("stoa:"+k,JSON.stringify(v)); syncMark("stoa:"+k)}catch(e){}}
 };
 let done = new Set(store.get("done",[]));
 let checks = new Set(store.get("checks",[]));
@@ -3899,7 +3921,7 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden) vpSave()})
 
 /* Copia de seguridad del progreso */
 function backupJSON(){const o={}; try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); if(k&&k.startsWith("stoa:")) o[k]=localStorage.getItem(k);}}catch(e){} return JSON.stringify({stoa:1,fecha:new Date().toISOString(),datos:o});}
-function vRespaldo(){return `<section style="display:flex;flex-direction:column;gap:12px">
+function vRespaldo(){return `${syncPanel()}<section style="display:flex;flex-direction:column;gap:12px">
   <div class="section-title"><h2>Copia de seguridad de tu progreso</h2><p>Tu avance vive en este navegador</p></div>
   <p style="margin:0;color:var(--muted);max-width:70ch">Si cambias de computador, de navegador o borras los datos del sitio, perderías respuestas, tarjetas y racha. Copia tu progreso y guárdalo en una nota o un correo; para restaurarlo, pégalo abajo.</p>
   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="button" data-bk="copy">Copiar mi progreso</button></div>
@@ -3908,7 +3930,7 @@ function vRespaldo(){return `<section style="display:flex;flex-direction:column;
 </section>`;}
 function bkAction(a){
   if(a==="copy"){const s=backupJSON(); const ta=$("#bkTxt"); if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(()=>toast("Progreso copiado. Pégalo en una nota segura.")).catch(()=>{ta.value=s; ta.select(); toast("Selecciona y copia el texto del recuadro.");});} else {ta.value=s; ta.select(); toast("Selecciona y copia el texto del recuadro.");}}
-  if(a==="restore"){const m=$("#bkMsg"); try{const o=JSON.parse($("#bkTxt").value); if(!o||!o.datos) throw 0; Object.entries(o.datos).forEach(([k,v])=>{if(k.startsWith("stoa:")) localStorage.setItem(k,v)}); m.textContent="Restaurado. Recargando…"; setTimeout(()=>location.reload(),600);}catch(e){m.textContent="El texto pegado no es una copia de seguridad válida de Stoa.";}}
+  if(a==="restore"){const m=$("#bkMsg"); try{const o=JSON.parse($("#bkTxt").value); if(!o||!o.datos) throw 0; Object.entries(o.datos).forEach(([k,v])=>{if(k.startsWith("stoa:")){localStorage.setItem(k,v); syncMark(k)}}); syncNow(); m.textContent="Restaurado. Recargando…"; setTimeout(()=>location.reload(),600);}catch(e){m.textContent="El texto pegado no es una copia de seguridad válida de Stoa.";}}
 }
 
 
@@ -3936,6 +3958,95 @@ function applyMin(){document.documentElement.style.setProperty("--minp",MINP()+"
 /* ---------- App instalable (PWA) ---------- */
 const PWA_URL="https://stoa-app-docente.onrender.com/#app"; // app instalable publicada en Render
 const IN_PWA=!!window.STOA_PWA, STANDALONE=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+
+/* ---------- Cuenta privada y sincronización (Supabase) ----------
+   Solo en la app de Render. Cada clave stoa:* guarda su fecha de modificación (stoamt);
+   al sincronizar gana la versión más reciente de cada clave. La sesión vive en «stoaauth». */
+const SB={url:"https://ypgbhtlnwpyjvxboowrt.supabase.co",key:"sb_publishable_beq7nGeZEKawjHQZ0oWbdA_7A665rWZ"};
+const SYNC_ON=IN_PWA;
+let syncT=null, syncBusy=false, syncLast=+(localStorage.getItem("stoasynclast")||0), syncErr="";
+function lsJ(k,d){try{const v=localStorage.getItem(k); return v?JSON.parse(v):d}catch(e){return d}}
+function lsS(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let SESSION=lsJ("stoaauth",null);
+const SYNC_SKIP=new Set(["stoa:view"]);
+function syncMark(k){if(!SYNC_ON||SYNC_SKIP.has(k)) return; const mt=lsJ("stoamt",{}); mt[k]=Date.now(); lsS("stoamt",mt); clearTimeout(syncT); syncT=setTimeout(syncNow,4000);}
+async function sbFetch(path,opt={},auth=true){const h={"apikey":SB.key,"Content-Type":"application/json",...(opt.headers||{})};
+  if(auth){await sbFresh(); if(!SESSION) throw new Error("sin sesión"); h.Authorization="Bearer "+SESSION.access_token;}
+  const r=await fetch(SB.url+path,{...opt,headers:h}); const t=await r.text(); let j=null; try{j=t?JSON.parse(t):null}catch(e){}
+  if(!r.ok){const e=new Error((j&&(j.msg||j.error_description||j.message||j.error))||("HTTP "+r.status)); e.code=j&&(j.error_code||j.code); e.status=r.status; throw e} return j;}
+function sbKeep(j){SESSION={access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600),email:(j.user&&j.user.email)||(SESSION&&SESSION.email)||""}; lsS("stoaauth",SESSION);}
+async function sbFresh(){if(!SESSION||SESSION.expires_at-90>Date.now()/1000) return;
+  try{sbKeep(await sbFetch("/auth/v1/token?grant_type=refresh_token",{method:"POST",body:JSON.stringify({refresh_token:SESSION.refresh_token})},false));}
+  catch(e){if(e.status&&e.status<500){SESSION=null; lsS("stoaauth",null); gateShow("Tu sesión terminó. Vuelve a entrar.");} throw e}}
+function syncLocal(){const o={}; for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); if(k&&k.startsWith("stoa:")&&!SYNC_SKIP.has(k)) o[k]=localStorage.getItem(k);} return o}
+async function syncNow(){if(!SYNC_ON||!SESSION||syncBusy||!navigator.onLine) return false; syncBusy=true; clearTimeout(syncT); let changed=false;
+  try{const rows=await sbFetch("/rest/v1/progreso?select=datos,mt"); const R=rows&&rows[0]||{datos:{},mt:{}};
+    const L=syncLocal(), mt=lsJ("stoamt",{}), out={}, omt={}; const busy=typeof simCur!=="undefined"&&simCur; const first=!syncLast; // en un dispositivo nuevo manda lo que ya está en la nube
+    new Set([...Object.keys(L),...Object.keys(R.datos||{})]).forEach(k=>{const lt=first?0:(mt[k]||(k in L?1:0)), rt=(R.mt||{})[k]||0;
+      if(rt>lt&&!busy&&R.datos[k]!==L[k]){localStorage.setItem(k,R.datos[k]); mt[k]=rt; changed=true; out[k]=R.datos[k]; omt[k]=rt}
+      else if(k in L){out[k]=L[k]; omt[k]=Math.max(lt,1)} else {out[k]=R.datos[k]; omt[k]=rt}});
+    lsS("stoamt",mt);
+    await sbFetch("/rest/v1/progreso",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({datos:out,mt:omt,actualizado:new Date().toISOString()}),keepalive:true});
+    syncLast=Date.now(); localStorage.setItem("stoasynclast",String(syncLast)); syncErr="";
+  }catch(e){syncErr=e.message||"sin conexión"}
+  finally{syncBusy=false; const sp=document.getElementById("syncInfo"); if(sp) sp.innerHTML=syncInfoTxt();}
+  if(changed){try{sessionStorage.setItem("stoa:synced","1")}catch(e){} toast("Trajimos tu progreso de otro dispositivo…"); setTimeout(()=>location.reload(),700);}
+  return changed}
+function syncInfoTxt(){if(!navigator.onLine) return "Sin conexión: guardo en este dispositivo y sincronizo al volver.";
+  if(syncErr) return "No se pudo sincronizar ("+esc(syncErr)+"). Lo intento de nuevo pronto.";
+  return syncLast?"Última sincronización: "+new Date(syncLast).toLocaleString("es-CO",{dateStyle:"medium",timeStyle:"short"}):"Aún sin sincronizar."}
+function syncPanel(){if(!SYNC_ON) return `<div class="sync-card"><span class="sync-dot off"></span><div><h3>Sincronización</h3><p>Disponible en tu app privada: <a href="${PWA_URL.replace("#app","")}" target="_blank" rel="noopener">${PWA_URL.replace("https://","").replace("/#app","")}</a>. Aquí usa la copia de seguridad.</p></div></div>`;
+  return `<div class="sync-card"><span class="sync-dot${syncErr||!navigator.onLine?" off":""}"></span><div><h3>Sincronizado con tu cuenta${SESSION&&SESSION.email?" · "+esc(SESSION.email):""}</h3><p id="syncInfo">${syncInfoTxt()}</p></div>
+  <div class="acts"><button class="btn primary" type="button" data-sync="now">Sincronizar ahora</button><button class="btn" type="button" data-sync="out">Cerrar sesión en este dispositivo</button></div></div>`}
+async function syncAction(a){if(a==="now"){toast("Sincronizando…"); const c=await syncNow(); if(!c) toast(syncErr?"No se pudo sincronizar.":"Todo al día ✓"); rerender();}
+  if(a==="out"){await syncNow(); try{await sbFetch("/auth/v1/logout",{method:"POST"})}catch(e){} SESSION=null; lsS("stoaauth",null); gateShow("Sesión cerrada. Tu progreso quedó guardado en tu cuenta.");}}
+const GATE_LOGO='<svg viewBox="0 0 34 32" aria-hidden="true"><path d="M4 5 17 1l13 4z" fill="#DDB362"/><rect x="2" y="5" width="30" height="3" rx=".6" fill="#DDB362"/><rect x="6" y="10" width="3" height="17" rx=".6" fill="#E8E6DA"/><rect x="13" y="10" width="3" height="17" rx=".6" fill="#E8E6DA"/><rect x="18" y="10" width="3" height="17" rx=".6" fill="#E8E6DA"/><rect x="25" y="10" width="3" height="17" rx=".6" fill="#E8E6DA"/><rect x="2" y="28" width="30" height="3" rx=".6" fill="#DDB362"/></svg>';
+let gateMode="in";
+function gateShow(msg,mode){gateMode=mode||gateMode; let g=document.getElementById("gate"); if(!g){g=document.createElement("div"); g.id="gate"; g.className="gate"; document.body.appendChild(g);}
+  const T={in:["Entra a tu Stoa","Tu plataforma es privada. Entra con tu cuenta para ver y sincronizar tu progreso.","Entrar"],
+    up:["Crea tu cuenta","Solo la primera vez. Te llegará un correo para confirmarla; luego vuelve aquí y entra.","Crear mi cuenta"],
+    rec:["Recupera tu acceso","Te enviaremos un enlace para crear una contraseña nueva.","Enviar enlace"],
+    pw:["Nueva contraseña","Escribe la contraseña nueva para tu cuenta.","Guardar contraseña"]}[gateMode];
+  g.innerHTML=`<form class="gate-card" id="gateForm" novalidate><div class="gate-logo">${GATE_LOGO}Stoa</div><h1>${T[0]}</h1><p>${T[1]}</p>
+  ${gateMode!=="pw"?`<label>Correo<input id="gMail" type="email" autocomplete="username" inputmode="email" required value="${esc((SESSION&&SESSION.email)||lsJ("stoamail","")||"")}"></label>`:""}
+  ${gateMode!=="rec"?`<label>Contraseña<input id="gPass" type="password" autocomplete="${gateMode==="in"?"current-password":"new-password"}" minlength="8" required></label>`:""}
+  <button class="g-main" type="submit">${T[2]}</button><div class="g-msg" id="gMsg" role="status">${msg?esc(msg):""}</div>
+  <div class="g-row">${gateMode==="in"?`<button type="button" class="g-link" data-gm="up">Crear mi cuenta</button><button type="button" class="g-link" data-gm="rec">Olvidé mi contraseña</button>`:gateMode==="pw"?"":`<button type="button" class="g-link" data-gm="in">Ya tengo cuenta: entrar</button>`}</div></form>`;
+  g.querySelectorAll("[data-gm]").forEach(b=>b.onclick=()=>gateShow("",b.dataset.gm));
+  g.querySelector("#gateForm").onsubmit=gateSubmit; const f=g.querySelector("input"); if(f) setTimeout(()=>f.focus(),50);}
+function gateErr(e){const m=(e.message||"").toLowerCase(), c=e.code||"";
+  if(c==="invalid_credentials"||m.includes("invalid login")) return "Correo o contraseña incorrectos.";
+  if(c==="email_not_confirmed"||m.includes("not confirmed")) return "Confirma tu correo primero: revisa tu bandeja (y la carpeta de spam).";
+  if(m.includes("registro no permitido")||m.includes("database error saving")) return "Este correo no está autorizado para usar esta Stoa.";
+  if(c==="user_already_exists"||m.includes("already registered")) return "Ya existe una cuenta con ese correo. Entra con tu contraseña.";
+  if(c==="weak_password"||m.includes("password should")) return "La contraseña debe tener al menos 8 caracteres.";
+  if(c==="over_email_send_rate_limit"||m.includes("rate limit")) return "Demasiados correos seguidos. Espera unos minutos.";
+  if(!navigator.onLine||m.includes("failed to fetch")) return "Sin conexión. Conéctate para entrar.";
+  return "No se pudo completar: "+e.message}
+async function gateSubmit(ev){ev.preventDefault(); const g=document.getElementById("gate"), msg=g.querySelector("#gMsg"), btn=g.querySelector(".g-main");
+  const mail=(g.querySelector("#gMail")||{}).value, pass=(g.querySelector("#gPass")||{}).value; msg.className="g-msg";
+  if(mail!==undefined&&!/^\S+@\S+\.\S+$/.test(mail.trim())){msg.className="g-msg err"; msg.textContent="Escribe un correo válido."; return}
+  if(pass!==undefined&&pass.length<8){msg.className="g-msg err"; msg.textContent="La contraseña debe tener al menos 8 caracteres."; return}
+  btn.disabled=true; msg.textContent="Un momento…"; const back=location.origin+location.pathname;
+  try{if(mail) lsS("stoamail",mail.trim());
+    if(gateMode==="in"){sbKeep(await sbFetch("/auth/v1/token?grant_type=password",{method:"POST",body:JSON.stringify({email:mail.trim(),password:pass})},false)); gateDone();}
+    else if(gateMode==="up"){const j=await sbFetch("/auth/v1/signup?redirect_to="+encodeURIComponent(back),{method:"POST",body:JSON.stringify({email:mail.trim(),password:pass})},false);
+      if(j&&j.access_token){sbKeep(j); gateDone()} else {gateMode="in"; gateShow("Listo. Abre el correo de confirmación que te enviamos y luego entra aquí.");}}
+    else if(gateMode==="rec"){await sbFetch("/auth/v1/recover?redirect_to="+encodeURIComponent(back),{method:"POST",body:JSON.stringify({email:mail.trim()})},false); gateMode="in"; gateShow("Si el correo es el tuyo, te llegó un enlace para cambiar la contraseña.");}
+    else if(gateMode==="pw"){await sbFetch("/auth/v1/user",{method:"PUT",body:JSON.stringify({password:pass})}); gateDone("Contraseña actualizada ✓");}
+  }catch(e){btn.disabled=false; msg.className="g-msg err"; msg.textContent=gateErr(e);}}
+async function gateDone(t){const g=document.getElementById("gate"); if(g) g.remove(); toast(t||"Bienvenido de nuevo ✓"); await syncNow();}
+function syncBoot(){if(!SYNC_ON) return;
+  // Vuelta desde un correo (confirmación o recuperación): la sesión llega en el hash
+  const h=location.hash; if(/access_token=/.test(h)){const p=new URLSearchParams(h.slice(1)); sbKeep({access_token:p.get("access_token"),refresh_token:p.get("refresh_token"),expires_in:+p.get("expires_in")||3600});
+    fetch(SB.url+"/auth/v1/user",{headers:{apikey:SB.key,Authorization:"Bearer "+SESSION.access_token}}).then(r=>r.json()).then(u=>{if(u&&u.email){SESSION.email=u.email; lsS("stoaauth",SESSION)}}).catch(()=>{});
+    history.replaceState(null,"",location.pathname+"#inicio"); if(p.get("type")==="recovery"){gateShow("","pw"); return}}
+  else if(/error_description=/.test(h)){const p=new URLSearchParams(h.slice(1)); history.replaceState(null,"",location.pathname+"#inicio"); gateShow("El enlace no es válido o venció: "+(p.get("error_description")||""),"in"); return}
+  if(!SESSION){gateShow("","in"); return}
+  let again=false; try{again=sessionStorage.getItem("stoa:synced")==="1"; sessionStorage.removeItem("stoa:synced")}catch(e){}
+  if(!again) syncNow();
+  addEventListener("online",()=>syncNow()); setInterval(()=>syncNow(),5*60*1000);
+  document.addEventListener("visibilitychange",()=>{if(document.hidden) syncNow(); else if(Date.now()-syncLast>60000) syncNow();});}
 const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 let deferredPrompt=null;
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault(); deferredPrompt=e; if((location.hash||"").slice(1)==="app") rerender();});
@@ -4017,6 +4128,7 @@ document.addEventListener("click",e=>{
   const mr=e.target.closest("[data-ureset]"); if(mr){const id=mr.dataset.ureset; uans[id]={}; store.set(UNITS[id].key,{}); rerender(); return}
   const ins=e.target.closest("[data-install]"); if(ins){installAction(); return}
   const ts=e.target.closest("[data-vp]"); if(ts){vpAct(ts,e); return}
+  const sy=e.target.closest("[data-sync]"); if(sy){syncAction(sy.dataset.sync); return}
   const bk=e.target.closest("[data-bk]"); if(bk){bkAction(bk.dataset.bk); return}
   const nf=e.target.closest("[data-nmf]"); if(nf){nmF=nf.dataset.nmf; document.querySelectorAll("[data-nmf]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.nmf===nmF)); renderNormas(); return}
   const tf=e.target.closest("[data-tkf]"); if(tf){tkF=tf.dataset.tkf; store.set("tkF",tkF); rerender(); return}
@@ -4099,6 +4211,7 @@ function heroFx(){
 
 if(!location.hash){const v=store.get("view","inicio"); if(VIEWS[v]) history.replaceState(null,"","#"+v)}
 route();
+syncBoot();
 </script>
 
 </body>
