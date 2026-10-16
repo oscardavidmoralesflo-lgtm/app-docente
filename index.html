@@ -3752,7 +3752,7 @@ function applyMin(){document.documentElement.style.setProperty("--minp",MINP()+"
 
 
 /* ---------- App instalable (PWA) ---------- */
-const PWA_URL=""; // dirección pública de la app instalable; se completa al publicarla
+const PWA_URL="https://stoa-app-docente.onrender.com/#app"; // app instalable publicada en Render
 const IN_PWA=!!window.STOA_PWA, STANDALONE=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
 const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 let deferredPrompt=null;
