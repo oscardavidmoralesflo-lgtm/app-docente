@@ -1,5 +1,8 @@
-# Stoa · App docente
+# Stoa · app publicada
 
-Versión instalable (PWA) de Stoa, plataforma de estudio para el concurso docente CNSC 2026–2027, área de Filosofía.
+Versión compilada de la app multi-perfil (Vite + Preact). El código fuente es privado; este repositorio solo contiene
+la interfaz. El contenido de estudio vive en Supabase y se entrega según el perfil y el plan del usuario.
 
-Se genera con `build_pwa.py` a partir de `stoa.html`. No editar estos archivos a mano.
+La versión anterior de un solo archivo quedó en la rama `legado`.
+
+Preguntas de práctica elaboradas por Stoa. No está afiliada a la CNSC ni al Ministerio de Educación.
