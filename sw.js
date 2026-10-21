@@ -1,6 +1,6 @@
-// Service worker de Stoa: la interfaz abre sin conexión (v2: sin audio; borra la caché de audio anterior). Los datos (lecciones, preguntas) los guarda la app en
+// Service worker de Stoa: la app de estudio abre sin conexión (v3: la consola de admin, admin.html, va siempre a la red y no se guarda). Los datos (lecciones, preguntas) los guarda la app en
 // IndexedDB según el perfil y el plan; aquí no se guarda ninguna respuesta de la API.
-const VERSION = "stoa-app-v2";
+const VERSION = "stoa-app-v3";
 
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html"])).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => {
@@ -12,6 +12,7 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin === location.origin) {
+    if (url.pathname.endsWith("/admin.html")) return; // la consola no funciona sin conexión ni se guarda en caché
     if (req.mode === "navigate") {
       e.respondWith(fetch(req).then((r) => { const cp = r.clone(); caches.open(VERSION).then((c) => c.put("./index.html", cp)); return r; }).catch(() => caches.match("./index.html")));
       return;
