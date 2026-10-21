@@ -1,7 +1,7 @@
 {
   "name": "Stoa · Concurso Docente",
   "short_name": "Stoa",
-  "description": "Preparación para el Concurso Docente CNSC 2026–2027: ruta adaptativa, práctica por niveles, lecciones con audio y simulacros.",
+  "description": "Preparación para el Concurso Docente CNSC 2026–2027: ruta adaptativa, práctica por niveles, lecciones y simulacros.",
   "lang": "es-CO",
   "start_url": "./#inicio",
   "scope": "./",
