@@ -1,6 +1,6 @@
 // Service worker de Stoa: la app de estudio abre sin conexión (v3: la consola de admin, admin.html, va siempre a la red y no se guarda). Los datos (lecciones, preguntas) los guarda la app en
 // IndexedDB según el perfil y el plan; aquí no se guarda ninguna respuesta de la API.
-const VERSION = "stoa-app-v3";
+const VERSION = "stoa-app-v4";
 
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html"])).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => {
