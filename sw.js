@@ -1,8 +1,14 @@
 // Service worker de Stoa: la app de estudio abre sin conexión (v3: la consola de admin, admin.html, va siempre a la red y no se guarda). Los datos (lecciones, preguntas) los guarda la app en
 // IndexedDB según el perfil y el plan; aquí no se guarda ninguna respuesta de la API.
-const VERSION = "stoa-app-v7"; // v7: fuentes propias, vistas por partes y avisos del recordatorio diario
+// Al compilar, vite.config.ts reemplaza estas dos líneas con la lista de archivos de la app y una versión
+// calculada a partir de ellos: así la app entera queda guardada desde la primera visita y cada publicación
+// renueva la caché sola. En desarrollo quedan los valores por defecto.
+const ARCHIVOS = ["./assets/app-_GyjxqEi.js","./assets/Buscador-D2AcDfZe.js","./assets/Candado-Dw_SIDYX.js","./assets/Consulta-kOhLm_l9.js","./assets/ModuloVista-CU0ExR2B.js","./assets/NormasCasos-DJblflkJ.js","./assets/Practica-qYwkQAhn.js","./assets/Progreso-BB15yjwQ.js","./assets/Tarjetas-CvM3M5KM.js","./assets/fuentes-Du7u8saV.js","./assets/sanear-Dm4ItCjS.js","./assets/tipos-CnQ6JTEe.js","./assets/app-BC9DjPpJ.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
+const VERSION = "stoa-1e764843d4";
 
-self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html"])).then(() => self.skipWaiting())); });
+self.addEventListener("install", (e) => {
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html", ...ARCHIVOS])).then(() => self.skipWaiting()));
+});
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== VERSION && k !== "stoa-fonts").map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
