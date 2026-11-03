@@ -3,8 +3,8 @@
 // Al compilar, vite.config.ts reemplaza estas dos líneas con la lista de archivos de la app y una versión
 // calculada a partir de ellos: así la app entera queda guardada desde la primera visita y cada publicación
 // renueva la caché sola. En desarrollo quedan los valores por defecto.
-const ARCHIVOS = ["./assets/app-C50QKlLE.js","./assets/Buscador-DN-LQHUw.js","./assets/Candado-Dw_SIDYX.js","./assets/Consulta-DCbyj_Mc.js","./assets/Errores-oQgMORWa.js","./assets/ModuloVista-CawVnxBZ.js","./assets/NormasCasos-PXeia_wR.js","./assets/Practica-B4aeJ7xP.js","./assets/Progreso-BLGOsiIz.js","./assets/Tarjetas-fLxtVrfu.js","./assets/fuentes-CIVNSDib.js","./assets/sanear-Dm4ItCjS.js","./assets/tipos-CnQ6JTEe.js","./assets/app-BnV2eD45.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
-const VERSION = "stoa-ce2343acf3";
+const ARCHIVOS = ["./assets/app-BKDOe6rq.js","./assets/Buscador-Bu-7qF8N.js","./assets/Candado-Dw_SIDYX.js","./assets/Consulta-DdILXsao.js","./assets/Errores-B4Hg5rJg.js","./assets/ModuloVista-DYsaNGdX.js","./assets/NormasCasos-Dtfjxqbm.js","./assets/Practica-Dllx9MN9.js","./assets/Progreso-JkxbhCml.js","./assets/Tarjetas-Bf37jlXO.js","./assets/fuentes-CIVNSDib.js","./assets/sanear-Dm4ItCjS.js","./assets/tipos-CnQ6JTEe.js","./assets/app-CxW-WzXj.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
+const VERSION = "stoa-7600183d26";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html", ...ARCHIVOS])).then(() => self.skipWaiting()));
