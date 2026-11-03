@@ -1,6 +1,6 @@
 // Service worker de Stoa: la app de estudio abre sin conexión (v3: la consola de admin, admin.html, va siempre a la red y no se guarda). Los datos (lecciones, preguntas) los guarda la app en
 // IndexedDB según el perfil y el plan; aquí no se guarda ninguna respuesta de la API.
-const VERSION = "stoa-app-v6"; // v6: fuentes servidas desde la app y vistas por partes
+const VERSION = "stoa-app-v7"; // v7: fuentes propias, vistas por partes y avisos del recordatorio diario
 
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html"])).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => {
@@ -24,4 +24,15 @@ self.addEventListener("fetch", (e) => {
   if (url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com") {
     e.respondWith(caches.open("stoa-fonts").then((c) => c.match(req).then((hit) => { const red = fetch(req).then((r) => { c.put(req, r.clone()); return r; }).catch(() => hit); return hit || red; })));
   }
+});
+
+// Recordatorio diario: al tocar la notificación se abre (o enfoca) la app en Práctica.
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  const url = new URL(e.notification.data?.url ?? "./#practica", self.registration.scope).href;
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((cs) => {
+    const c = cs.find((x) => x.url.startsWith(self.registration.scope));
+    if (c) { c.navigate(url); return c.focus(); }
+    return self.clients.openWindow(url);
+  }));
 });
