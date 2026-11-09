@@ -3,8 +3,8 @@
 // Al compilar, vite.config.ts reemplaza estas dos líneas con la lista de archivos de la app y una versión
 // calculada a partir de ellos: así la app entera queda guardada desde la primera visita y cada publicación
 // renueva la caché sola. En desarrollo quedan los valores por defecto.
-const ARCHIVOS = ["./assets/app-B69Gbia0.js","./assets/Buscador-CjGQFSCT.js","./assets/Candado-B21NfR3h.js","./assets/Concurso-DW-3IVSN.js","./assets/Consulta-UonNePZI.js","./assets/Errores-koJBYYTy.js","./assets/ModuloVista-VNPGa8te.js","./assets/NormasCasos-BW2kFR0L.js","./assets/Practica-B4_RN1C3.js","./assets/Premium-EYOw0DPV.js","./assets/Progreso-Bz4hMC73.js","./assets/Tarjetas-Dm6HUHF9.js","./assets/Temario-2n-JND4W.js","./assets/datos-C-8vs7pG.js","./assets/fuentes-s8-F4Loe.js","./assets/tipos-BRPybsN_.js","./assets/app-CWaoDDa3.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
-const VERSION = "stoa-54ab8ecbdf";
+const ARCHIVOS = ["./assets/app-CLQ3iHKl.js","./assets/Buscador-5eZfRYiG.js","./assets/Candado-BXU16hR5.js","./assets/Concurso-kdUPxOGs.js","./assets/Consulta-sC5EXr43.js","./assets/Errores-CSmffmTV.js","./assets/ModuloVista-JbbZiaFo.js","./assets/NormasCasos-CWzBHxj9.js","./assets/Practica-B3QiG1LI.js","./assets/Premium-hAl2b-6O.js","./assets/Progreso-lsf0xBft.js","./assets/Tarjetas-CFnWA2Wd.js","./assets/Temario-CHGOUNX5.js","./assets/fuentes-OTSifl6m.js","./assets/plan-C2YpcTnq.js","./assets/tipos-CUBkXLMf.js","./assets/app-B0mEEnT4.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
+const VERSION = "stoa-bff3affe7b";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html", ...ARCHIVOS])).then(() => self.skipWaiting()));
@@ -18,6 +18,7 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin === location.origin) {
+    if (url.pathname.startsWith("/bienvenida/")) return; // la presentación pública no reemplaza el HTML de estudio guardado
     if (url.pathname.endsWith("/admin.html")) return; // la consola no funciona sin conexión ni se guarda en caché
     if (req.mode === "navigate") {
       e.respondWith(fetch(req).then((r) => { const cp = r.clone(); caches.open(VERSION).then((c) => c.put("./index.html", cp)); return r; }).catch(() => caches.match("./index.html")));

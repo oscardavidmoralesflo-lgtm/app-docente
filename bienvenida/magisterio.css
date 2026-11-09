@@ -136,8 +136,24 @@ details p { margin-block: 8px 0; }
 .cierre .boton { flex: none; }
 .pie { color: #e4e4ec; background: var(--noche-profunda); border-top: 1px solid #ffffff20; padding-block: 24px; }
 .pie p { margin: 3px 0; font-size: .85rem; }
+.producto { padding-block: clamp(52px, 8vw, 100px); }
+.producto .seccion-cabecera p:last-child { max-width: 60ch; color: var(--gris); }
+.pantallas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 23%); gap: clamp(14px, 3vw, 38px); align-items: center; }
+.pantallas figure { margin: 0; min-width: 0; }
+.pantallas img { display: block; width: 100%; height: auto; border: 1px solid #27304c; box-shadow: 0 12px 30px #12193120; }
+.pantalla-pc img { border-radius: 9px; }
+.pantalla-celular img { border: 5px solid #121931; border-radius: 22px; }
+figcaption, .producto .ficha-nota { margin-top: 12px; font-size: .8rem; color: var(--gris); }
+.precio-seccion { background: #eee8d9; padding-block: clamp(46px, 7vw, 86px); border-block: 1px solid var(--linea); }
+.precio-malla { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 6vw, 80px); align-items: center; }
+.precio-malla > div > p:not(.ceja) { max-width: 53ch; color: var(--gris); }
+.tarjeta-precio { background: var(--papel); padding: clamp(22px, 4vw, 38px); border: 1px solid #cbb792; border-radius: 8px; }
+.importe { font: 580 clamp(2.8rem, 5vw, 4.3rem)/1.1 var(--serif); margin: 10px 0; letter-spacing: -.035em; }
+.importe span { font: 750 .8rem var(--sans); letter-spacing: .05em; }
+.boton-tinta { color: #fff; background: var(--noche); white-space: normal; text-align: center; }
+.precio-nota { font-size: .8rem; color: var(--gris); margin-bottom: 0; }
 @media (max-width: 830px) {
-  .portada-malla, .perfiles-malla, .preguntas { grid-template-columns: 1fr; }
+  .portada-malla, .perfiles-malla, .preguntas, .precio-malla { grid-template-columns: 1fr; }
   .portada-texto { max-width: 680px; }
   h1 { max-width: 16ch; }
   .cuaderno { max-width: 640px; }
@@ -152,4 +168,7 @@ details p { margin-block: 8px 0; }
   .pasos p { max-width: none; }
   .cierre-malla, .pie-malla { align-items: flex-start; flex-direction: column; }
   .portada-acciones { gap: 8px 16px; }
+  .pantallas { grid-template-columns: 1fr; }
+  .pantalla-pc { display: none; }
+  .pantallas .pantalla-celular { display: block; max-width: 320px; margin-inline: auto; }
 }
