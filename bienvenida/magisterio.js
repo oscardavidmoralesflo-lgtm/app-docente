@@ -1,24 +1,66 @@
 "use strict";
 
-const explicaciones = {
-  a: ["Bien razonado.", "La relación se conserva al duplicar ambas cantidades. Comparar los dos cambios permite explicar por qué corresponden 12 tazas."],
-  b: ["Falta contrastar la relación.", "Explicar de dónde salió el 4 hace visible la estrategia, pero dejar la comparación para otra actividad no le permite comprobar si su modelo sirve en esta receta."],
-  c: ["El cálculo necesita una justificación.", "La regla de tres puede dar 12, pero copiarla no muestra si la estudiante distingue entre sumar lo mismo y escalar ambos valores."],
+const casos = {
+  primaria: {
+    folio: "01 / 03", area: "PRIMARIA · MATEMÁTICAS", titulo: "¿Qué revela el procedimiento?",
+    contexto: "Una receta para 4 personas usa 6 tazas de agua. Para 8 personas, una estudiante propone 10 tazas porque sumó 4 al número de tazas.",
+    pregunta: "¿Qué intervención ayuda a revisar su razonamiento?", correcta: 0,
+    opciones: [
+      ["Pedirle que compruebe si al duplicar las personas también se duplica cada ingrediente.", "Comparar los dos cambios muestra que la relación se conserva al duplicar ambas cantidades. Para 8 personas corresponden 12 tazas."],
+      ["Pedirle que explique de dónde salió el 4 y dejar la comparación para otra actividad.", "Explicar de dónde salió el 4 hace visible la estrategia. Para comprobar si funciona en esta receta, la estudiante también necesita contrastar las cantidades."],
+      ["Mostrarle cómo aplicar una regla de tres y pedirle que copie el procedimiento.", "La regla de tres puede producir 12. Copiarla deja abierta la duda de si la estudiante distingue entre sumar lo mismo y duplicar ambos valores."],
+    ],
+  },
+  pedagogia: {
+    folio: "02 / 03", area: "BASE COMÚN · EVALUACIÓN", titulo: "¿Qué evidencia importa?",
+    contexto: "En una actividad de Sociales, el objetivo es comparar dos testimonios sobre un mismo hecho. Un estudiante con baja visión no logra leer uno de los documentos escaneados.",
+    pregunta: "¿Cómo puede participar y demostrar el mismo aprendizaje?", correcta: 1,
+    opciones: [
+      ["Entregarle un resumen de las coincidencias y pedirle que lo exponga al grupo.", "El resumen reduce la barrera de lectura, pero ya entrega la comparación que el estudiante necesita construir con evidencias de los testimonios."],
+      ["Entregarle ambos testimonios en un formato accesible y usar el mismo criterio de comparación.", "Un formato accesible elimina la barrera de lectura y permite evaluar el objetivo compartido: identificar coincidencias y diferencias con evidencia de ambas fuentes."],
+      ["Asignarle una lectura accesible sobre el hecho y pedirle que ordene los eventos.", "La actividad sería accesible, aunque cambia lo que se evalúa. Ordenar hechos no permite valorar cómo compara dos perspectivas."],
+    ],
+  },
+  fisica: {
+    folio: "03 / 03", area: "FÍSICA · MOVIMIENTO", titulo: "El significado de una recta.",
+    contexto: "Al observar una gráfica de posición frente al tiempo, un estudiante ve un tramo horizontal a 3 metros. Afirma que allí el móvil avanza a velocidad constante porque la línea es recta.",
+    pregunta: "¿Qué le pedirías comprobar para interpretar ese tramo?", correcta: 2,
+    opciones: [
+      ["Señalar el valor de 3 metros y compararlo con la posición inicial del móvil.", "Esa comparación ubica el móvil respecto a su inicio. Para saber si se mueve durante el tramo debe comprobar si cambia de posición entre dos instantes de ese tramo."],
+      ["Comparar cuánto dura el tramo horizontal frente al tramo inclinado.", "La duración informa cuánto tiempo pasa en cada tramo. Sin comparar posiciones no permite determinar la velocidad."],
+      ["Elegir dos instantes del tramo y calcular cuánto cambió la posición entre ellos.", "La posición es 3 metros en ambos instantes. Con cambio de posición cero y tiempo transcurrido positivo, la velocidad media del tramo es cero."],
+    ],
+  },
 };
 
-const botones = [...document.querySelectorAll("[data-respuesta]")];
+const alternativas = [...document.querySelectorAll("[data-respuesta]")];
+const botonesCaso = [...document.querySelectorAll("[data-caso]")];
 const retro = document.getElementById("retro");
-for (const boton of botones) {
-  boton.setAttribute("aria-pressed", "false");
-  boton.dataset.correcta = String(boton.dataset.respuesta === "a");
-  boton.addEventListener("click", () => {
-    const [titulo, cuerpo] = explicaciones[boton.dataset.respuesta];
-    for (const alternativa of botones) alternativa.setAttribute("aria-pressed", String(alternativa === boton));
-    const negrita = document.createElement("strong");
-    negrita.textContent = titulo;
-    retro.replaceChildren(negrita, " " + cuerpo);
+let casoActivo = casos.primaria;
+
+function mostrarCaso(clave) {
+  casoActivo = casos[clave];
+  for (const campo of ["folio", "area", "titulo", "contexto", "pregunta"]) {
+    document.getElementById(`caso-${campo}`).textContent = casoActivo[campo];
+  }
+  botonesCaso.forEach(boton => boton.setAttribute("aria-pressed", String(boton.dataset.caso === clave)));
+  alternativas.forEach((boton, posicion) => {
+    boton.setAttribute("aria-pressed", "false");
+    boton.querySelector("b").textContent = casoActivo.opciones[posicion][0];
+    delete boton.dataset.correcta;
   });
+  retro.textContent = "Elige una alternativa para ver la retroalimentación.";
 }
+
+botonesCaso.forEach(boton => boton.addEventListener("click", () => mostrarCaso(boton.dataset.caso)));
+alternativas.forEach((boton, posicion) => boton.addEventListener("click", () => {
+  const correcta = casoActivo.correcta === posicion;
+  alternativas.forEach(alternativa => alternativa.setAttribute("aria-pressed", String(alternativa === boton)));
+  boton.dataset.correcta = String(correcta);
+  const titulo = document.createElement("strong");
+  titulo.textContent = correcta ? "Bien razonado." : "Revisa este detalle.";
+  retro.replaceChildren(titulo, " " + casoActivo.opciones[posicion][1]);
+}));
 
 const grupos = {
   humanidades: ["Humanidades y ciudadanía", "Practica cómo interpretar fuentes, justificar una decisión y llevar los conceptos al aula."],

@@ -3,159 +3,188 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#121931">
-  <meta name="description" content="Prepara el Concurso Docente con una ruta para tu perfil, práctica explicada y una biblioteca de fuentes. Explora una muestra de Magisterio Stoa.">
+  <meta name="theme-color" content="#10172e">
+  <meta name="description" content="Prepara el Concurso Docente en Colombia con un plan semanal, casos explicados y lecciones para tu área o cargo. Resuelve una muestra gratis en Magisterio Stoa.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Magisterio Stoa · Preparación para docentes">
-  <meta property="og:description" content="Lee con propósito, practica decisiones de aula y convierte tus errores en un plan de estudio.">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Magisterio Stoa · Estudia para el Concurso Docente">
+  <meta property="og:description" content="Explora tu temario, resuelve un caso y empieza con un plan de estudio para tu perfil.">
   <meta property="og:url" content="https://magisteriostoa.lat/bienvenida/">
+  <meta property="og:image" content="https://magisteriostoa.lat/bienvenida/pantallas/escritorio.png">
   <link rel="canonical" href="https://magisteriostoa.lat/bienvenida/">
   <link rel="icon" href="../icons/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="stylesheet" href="./magisterio.css">
-  <script src="./magisterio.js" defer></script>
-  <title>Magisterio Stoa · Preparación para el Concurso Docente</title>
+  <script>
+    if (location.hostname === 'stoa-app-docente.onrender.com') {
+      location.replace('https://magisteriostoa.lat/bienvenida/' + location.search + location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="./magisterio.css?v=2">
+  <script src="./magisterio.js?v=2" defer></script>
+  <title>Magisterio Stoa · Estudia para el Concurso Docente</title>
 </head>
 <body>
   <a class="salto" href="#contenido">Ir al contenido</a>
-  <header class="top">
+  <header class="top" id="inicio">
     <div class="marco cabecera">
-      <a class="marca" href="#contenido" aria-label="Magisterio Stoa, inicio">
-        <svg viewBox="0 0 36 36" width="35" height="35" aria-hidden="true"><path fill="currentColor" d="M18 2 34 8v3H2V8l16-6ZM5 14h4v14H5zm7 0h4v14h-4zm8 0h4v14h-4zm7 0h4v14h-4zM2 31h32v3H2z"/></svg>
-        <span>Magisterio <strong>Stoa</strong></span>
+      <a class="marca" href="#inicio" aria-label="Magisterio Stoa, inicio">
+        <svg viewBox="0 0 36 36" width="33" height="33" aria-hidden="true"><path fill="currentColor" d="M18 2 34 8v3H2V8l16-6ZM5 14h4v14H5zm7 0h4v14h-4zm8 0h4v14h-4zm7 0h4v14h-4zM2 31h32v3H2z"/></svg>
+        <span><b>Stoa</b><small>MAGISTERIO</small></span>
       </a>
       <nav aria-label="Navegación principal">
-        <a href="#metodo">El método</a>
-        <a href="#perfiles">Por perfil</a>
-        <a href="#preguntas">Preguntas</a>
+        <a href="#metodo">Cómo funciona</a><a href="#perfiles">Temarios</a><a href="#premium">Premium</a>
       </nav>
-      <a class="boton boton-borde" href="../#inicio">Entrar a Stoa <span aria-hidden="true">↗</span></a>
+      <a class="boton boton-contorno" href="https://magisteriostoa.lat/#inicio">Iniciar sesión <span aria-hidden="true">↗</span></a>
     </div>
   </header>
+
   <main id="contenido">
     <section class="portada" aria-labelledby="titulo">
       <div class="marco portada-malla">
         <div class="portada-texto">
-          <p class="ceja"><span></span> PREPARACIÓN PARA EL CONCURSO DOCENTE</p>
-          <h1 id="titulo">Estudia para las decisiones que <em>importan en el aula.</em></h1>
-          <p class="bajada">Prepara tu concurso con lecciones, práctica explicada y una ruta que combina los temas comunes con el material de tu área o cargo.</p>
-          <div class="portada-acciones">
-            <a class="boton boton-oro" href="#muestra">Resolver un caso <span aria-hidden="true">↓</span></a>
-            <a class="enlace-claro" href="#perfiles">Explorar mi perfil <span aria-hidden="true">↗</span></a>
+          <p class="ceja"><span class="punto"></span> PREPARACIÓN PARA DOCENTES EN COLOMBIA</p>
+          <h1 id="titulo">Estudia para el Concurso Docente <em>con un plan claro.</em></h1>
+          <p class="bajada">Descubre qué estudiar esta semana, practica casos con explicaciones y repasa los errores que más te cuestan. Todo en una ruta para tu área o cargo.</p>
+          <div class="acciones-portada">
+            <a class="boton boton-noche" href="#muestra">Probar Stoa gratis <span aria-hidden="true">↓</span></a>
+            <a class="enlace" href="#premium">Ver qué incluye Premium <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="nota-portada">La muestra se puede resolver sin cuenta.</p>
+          <p class="micro">Resuelve un caso ahora, sin crear una cuenta.</p>
         </div>
-        <article class="cuaderno" id="muestra" aria-labelledby="titulo-muestra">
-          <div class="folio"><span>CUADERNO DE PRÁCTICA</span><span>01 / 01</span></div>
-          <div class="cuaderno-cuerpo">
-            <p class="ceja ceja-oscura">PRIMARIA · MATEMÁTICAS</p>
-            <h2 id="titulo-muestra">¿Qué revela el procedimiento?</h2>
-            <p class="caso">En una receta para 4 personas se usan 6 tazas de agua. Para 8 personas, una estudiante propone 10 tazas porque sumó 4 al número de tazas.</p>
-            <fieldset id="opciones">
-              <legend>¿Qué intervención ayuda a revisar su razonamiento?</legend>
-              <button type="button" class="respuesta" data-respuesta="a"><span>A</span> Pedirle que compruebe si al duplicar las personas también se duplica cada ingrediente.</button>
-              <button type="button" class="respuesta" data-respuesta="b"><span>B</span> Pedirle que explique de dónde salió el 4 y dejar la comprobación para otra actividad.</button>
-              <button type="button" class="respuesta" data-respuesta="c"><span>C</span> Mostrarle cómo aplicar una regla de tres y pedirle que copie el procedimiento.</button>
-            </fieldset>
-            <p id="retro" class="retro" role="status" aria-live="polite">Elige una alternativa para ver qué evidencia aporta.</p>
-            <noscript><p class="retro"><strong>Respuesta A.</strong> La receta conserva la relación si se duplican ambos valores. Comparar las dos cantidades permite explicar por qué corresponden 12 tazas.</p></noscript>
-          </div>
-        </article>
+        <figure class="vistazo">
+          <div class="ventana"><span><i></i><i></i><i></i></span><b>MAGISTERIO STOA</b><span>01 / RUTA</span></div>
+          <img src="./pantallas/escritorio.png" width="1440" height="1000" fetchpriority="high" decoding="async" alt="Pantalla de Stoa con diagnóstico, meta diaria, temario y prioridades de la semana.">
+          <figcaption><span>LA PLATAFORMA POR DENTRO</span><span>Vista con datos de ejemplo</span></figcaption>
+        </figure>
       </div>
+      <dl class="marco evidencias">
+        <div><dt>23</dt><dd>perfiles entre áreas, niveles y cargos</dd></div>
+        <div><dt>796</dt><dd>preguntas de juicio situacional en el catálogo</dd></div>
+        <div><dt>1 cuenta</dt><dd>tu estudio en computador y celular</dd></div>
+      </dl>
     </section>
-    <section class="metodo marco" id="metodo" aria-labelledby="titulo-metodo">
-      <div class="seccion-cabecera">
-        <p class="ceja ceja-oscura">EL MÉTODO STOA</p>
-        <h2 id="titulo-metodo">Cada sesión tiene un propósito.</h2>
-      </div>
+
+    <section class="marco metodo seccion" id="metodo" aria-labelledby="titulo-metodo">
+      <div class="encabezado"><p class="ceja"><span class="punto"></span> TU SEMANA DE ESTUDIO</p><h2 id="titulo-metodo">De «¿por dónde empiezo?» a saber qué hacer hoy.</h2><p>Una sesión tiene un propósito: resolver una duda, tomar una decisión y usar lo que aprendiste en el siguiente caso.</p></div>
       <div class="pasos">
-        <article><span class="numeral">01</span><h3>Elige qué estudiar</h3><p>Define tu perfil y consulta tu temario. La ruta semanal ordena los temas y el tiempo que les puedes dedicar.</p></article>
-        <article><span class="numeral">02</span><h3>Practica el razonamiento</h3><p>Lee la situación, decide y revisa la explicación. Identifica la condición del caso que cambia la respuesta.</p></article>
-        <article><span class="numeral">03</span><h3>Vuelve a lo que fallaste</h3><p>Usa el cuaderno de errores y el repaso exprés para retomar temas. Tu progreso te muestra por dónde seguir.</p></article>
+        <article><span class="numeral">01</span><h3>Prioriza los temas.</h3><p>Configura tu área o cargo, haz el diagnóstico y consulta tu ruta semanal. Ajusta el tiempo de estudio a tu horario.</p></article>
+        <article><span class="numeral">02</span><h3>Entrena tu criterio.</h3><p>Analiza decisiones de aula, convivencia o gestión. Revisa qué hace adecuada una alternativa y qué condición pasan por alto las otras.</p></article>
+        <article><span class="numeral">03</span><h3>Vuelve a practicar.</h3><p>Retoma tus errores, mide tu constancia y usa el simulacro con cronómetro para trabajar tu ritmo antes de la prueba.</p></article>
       </div>
     </section>
-    <section class="perfiles" id="perfiles" aria-labelledby="titulo-perfiles">
-      <div class="marco perfiles-malla">
-        <div>
-          <p class="ceja ceja-oscura">TU ÁREA, TU RUTA</p>
-          <h2 id="titulo-perfiles">Empieza por el perfil con el que vas a concursar.</h2>
-          <p>En Stoa encuentras una base común de pedagogía, convivencia y normativa. El programa de cada perfil reúne el material específico que tiene disponible.</p>
-          <label for="selector-perfil">Explora un perfil</label>
-          <select id="selector-perfil">
-            <option value="filosofia">Filosofía</option>
-            <option value="primaria">Primaria</option>
-            <option value="preescolar">Preescolar</option>
-            <option value="matematicas">Matemáticas</option>
-            <option value="fisica">Física</option>
-            <option value="quimica">Química</option>
-            <option value="ciencias">Ciencias naturales</option>
-            <option value="lenguaje">Lenguaje y humanidades</option>
-            <option value="ingles">Inglés</option>
-            <option value="sociales">Ciencias sociales</option>
-            <option value="etica">Ética y valores</option>
-            <option value="religion">Educación religiosa</option>
-            <option value="economia_politica">Ciencias económicas y políticas</option>
-            <option value="artistica">Educación artística</option>
-            <option value="artistica_plasticas">Artes plásticas</option>
-            <option value="artistica_escenicas">Artes escénicas</option>
-            <option value="artistica_musica">Música</option>
-            <option value="educacion_fisica">Educación física</option>
-            <option value="tecnologia">Tecnología e informática</option>
-            <option value="orientador">Orientación escolar</option>
-            <option value="coordinador">Coordinación</option>
-            <option value="rector">Rectoría</option>
-            <option value="director_rural">Dirección rural</option>
-          </select>
+
+    <section class="laboratorio" id="muestra" aria-labelledby="titulo-muestra">
+      <div class="marco laboratorio-malla seccion">
+        <div class="laboratorio-texto"><p class="ceja"><span class="punto"></span> PRUEBA EL MÉTODO</p><h2 id="titulo-muestra">¿Qué harías tú en este caso?</h2><p>Elige una decisión y lee la explicación. Luego prueba otra situación para ver cómo se estudia una respuesta en Stoa.</p>
+          <div class="selector-casos" aria-label="Casos de ejemplo">
+            <button type="button" data-caso="primaria" aria-pressed="true">Primaria</button>
+            <button type="button" data-caso="pedagogia" aria-pressed="false">Pedagogía</button>
+            <button type="button" data-caso="fisica" aria-pressed="false">Física</button>
+          </div>
+          <p class="micro">Ejercicios originales de preparación. En tu cuenta encontrarás los casos publicados para tu perfil.</p>
         </div>
-        <article class="ficha" data-grupo="humanidades" id="ficha-perfil" aria-live="polite">
-          <div class="folio"><span>VISTA DEL TEMARIO</span><span>STOA</span></div>
-          <div class="ficha-cuerpo">
-            <p class="ceja ceja-oscura" id="grupo-perfil">HUMANIDADES</p>
-            <h3 id="nombre-perfil">Filosofía</h3>
-            <p id="texto-perfil">Organiza el estudio de conceptos, argumentos y decisiones didácticas en el aula.</p>
-            <ul id="temas-perfil"><li>Argumentación</li><li>Lectura crítica</li><li>Didáctica filosófica</li></ul>
-            <p class="ficha-nota">Ejes de ejemplo. El temario dentro de Stoa muestra la cobertura disponible para tu cuenta.</p>
+        <article class="cuaderno" aria-labelledby="caso-titulo">
+          <div class="folio"><span>CUADERNO DE PRÁCTICA</span><span id="caso-folio">01 / 03</span></div>
+          <div class="cuaderno-cuerpo">
+            <p class="ceja" id="caso-area">PRIMARIA · MATEMÁTICAS</p>
+            <h3 id="caso-titulo">¿Qué revela el procedimiento?</h3>
+            <p class="caso" id="caso-contexto">Una receta para 4 personas usa 6 tazas de agua. Para 8 personas, una estudiante propone 10 tazas porque sumó 4 al número de tazas.</p>
+            <fieldset>
+              <legend id="caso-pregunta">¿Qué intervención ayuda a revisar su razonamiento?</legend>
+              <button type="button" class="respuesta" data-respuesta="0" aria-pressed="false"><span aria-hidden="true">A</span><b>Pedirle que compruebe si al duplicar las personas también se duplica cada ingrediente.</b></button>
+              <button type="button" class="respuesta" data-respuesta="1" aria-pressed="false"><span aria-hidden="true">B</span><b>Pedirle que explique de dónde salió el 4 y dejar la comparación para otra actividad.</b></button>
+              <button type="button" class="respuesta" data-respuesta="2" aria-pressed="false"><span aria-hidden="true">C</span><b>Mostrarle cómo aplicar una regla de tres y pedirle que copie el procedimiento.</b></button>
+            </fieldset>
+            <div class="retro" id="retro" role="status" aria-atomic="true">Elige una alternativa para ver la retroalimentación.</div>
+            <a class="enlace muestra-cta" href="https://magisteriostoa.lat/#crear">Crear mi cuenta gratis <span aria-hidden="true">↗</span></a>
+            <noscript><p>Al duplicar ambas cantidades, se conserva la proporción y se obtienen 12 tazas. Activa JavaScript para explorar los demás casos.</p></noscript>
           </div>
         </article>
       </div>
     </section>
-    <section class="producto marco" aria-labelledby="titulo-producto">
-      <div class="seccion-cabecera"><p class="ceja ceja-oscura">ASÍ SE VE TU ESPACIO DE ESTUDIO</p><h2 id="titulo-producto">Una preparación que va contigo.</h2><p>Consulta tu ruta en el computador. Retoma desde el celular con la misma cuenta y tu progreso sincronizado cuando tienes conexión.</p></div>
-      <div class="pantallas">
-        <figure class="pantalla-pc"><img src="./pantallas/escritorio.png" width="1440" height="1000" loading="lazy" decoding="async" alt="Inicio de Stoa en computador: diagnóstico, meta diaria, temario y prioridades de estudio."><figcaption>Espacio en computador · prioridades y progreso a la vista.</figcaption></figure>
-        <figure class="pantalla-celular"><img src="./pantallas/celular.png" width="390" height="844" loading="lazy" decoding="async" alt="El mismo inicio de Stoa en celular, con tarjetas adaptadas y navegación inferior."><figcaption>El mismo diseño, adaptado a tu celular.</figcaption></figure>
+
+    <section class="perfiles seccion" id="perfiles" aria-labelledby="titulo-perfiles">
+      <div class="marco perfiles-malla">
+        <div class="perfil-intro">
+          <p class="ceja"><span class="punto"></span> TEMARIO POR PERFIL</p>
+          <h2 id="titulo-perfiles">Estudia para la plaza que quieres.</h2>
+          <p>Empieza por la base común de pedagogía, convivencia y normativa. Después concéntrate en los temas y casos de tu área, nivel o cargo.</p>
+          <label for="selector-perfil">Explora ejemplos de tu temario</label>
+          <select id="selector-perfil">
+            <option value="filosofia">Filosofía</option><option value="primaria">Primaria</option><option value="preescolar">Preescolar</option>
+            <option value="matematicas">Matemáticas</option><option value="fisica">Física</option><option value="quimica">Química</option><option value="ciencias">Ciencias naturales</option>
+            <option value="lenguaje">Lenguaje y humanidades</option><option value="ingles">Inglés</option><option value="sociales">Ciencias sociales</option>
+            <option value="etica">Ética y valores</option><option value="religion">Educación religiosa</option><option value="economia_politica">Ciencias económicas y políticas</option>
+            <option value="artistica">Educación artística</option><option value="artistica_plasticas">Artes plásticas</option><option value="artistica_escenicas">Artes escénicas</option><option value="artistica_musica">Música</option>
+            <option value="educacion_fisica">Educación física</option><option value="tecnologia">Tecnología e informática</option><option value="orientador">Orientación escolar</option>
+            <option value="coordinador">Coordinación</option><option value="rector">Rectoría</option><option value="director_rural">Dirección rural</option>
+          </select>
+          <p class="micro">La cantidad de lecciones y preguntas varía según el perfil. Consulta el inventario completo en tu cuenta antes de comprar.</p>
+        </div>
+        <article class="ficha" data-grupo="humanidades" id="ficha-perfil" aria-live="polite" aria-atomic="true">
+          <div class="folio"><span>VISTA DEL TEMARIO</span><span>STOA</span></div>
+          <div class="ficha-cuerpo"><p class="ceja" id="grupo-perfil">HUMANIDADES Y CIUDADANÍA</p><h3 id="nombre-perfil">Filosofía</h3>
+            <p id="texto-perfil">Practica cómo interpretar fuentes, justificar una decisión y llevar los conceptos al aula.</p>
+            <ul id="temas-perfil"><li>Argumentación</li><li>Lectura crítica</li><li>Didáctica filosófica</li></ul>
+            <p class="micro">Ejemplos de temas. La convocatoria y la OPEC de tu plaza definen los requisitos oficiales.</p></div>
+        </article>
       </div>
-      <p class="ficha-nota">Capturas reales de la interfaz con datos de demostración. El temario y el contenido se adaptan al perfil que elijas.</p>
     </section>
-    <section class="precio-seccion" aria-labelledby="titulo-premium">
-      <div class="marco precio-malla">
-        <div><p class="ceja ceja-oscura">STOA PREMIUM</p><h2 id="titulo-premium">Deja de reunir archivos.<br>Empieza a conectar lo que estudias.</h2><p>Lecciones, casos explicados, simulacros, cuaderno de errores y ruta de estudio en un mismo lugar.</p><p>Antes de pagar, revisa el número de lecciones y preguntas que realmente hay para tu perfil.</p></div>
-        <article class="tarjeta-precio"><p class="ceja ceja-oscura">UN SOLO PAGO</p><p class="importe">$199.900 <span>COP</span></p><p>Acceso hasta el <strong>31 de diciembre de 2027</strong>.</p><a class="boton boton-tinta" href="../#premium">Ver cobertura y condiciones <span aria-hidden="true">↗</span></a><p class="precio-nota">Si la CNSC fija la prueba escrita después del 1 de diciembre de 2027, ampliamos el acceso sin costo hasta 30 días después de la nueva fecha. Consulta los términos.</p></article>
+
+    <section class="herramientas marco seccion" aria-labelledby="titulo-herramientas">
+      <figure class="muestra-movil"><img src="./pantallas/celular.png" width="390" height="844" loading="lazy" decoding="async" alt="Stoa en el celular, con acceso al diagnóstico, progreso, temario y navegación inferior."><figcaption>Interfaz real en celular · Datos de ejemplo</figcaption></figure>
+      <div>
+        <p class="ceja"><span class="punto"></span> TODO EN TU ESPACIO DE ESTUDIO</p>
+        <h2 id="titulo-herramientas">Llega a cada etapa con práctica detrás.</h2>
+        <dl class="beneficios">
+          <div><dt>Prueba escrita y psicotécnica</dt><dd>Practica por tema o nivel, revisa competencias comportamentales y ensaya con cronómetro.</dd></div>
+          <div><dt>Antecedentes y entrevista</dt><dd>Ordena tu formación y experiencia con una calculadora orientativa. Ensaya respuestas para la entrevista con grabación.</dd></div>
+          <div><dt>Normas y referentes</dt><dd>Consulta el normograma y la biblioteca. Vuelve del caso a la fuente para entender cómo se aplica.</dd></div>
+          <div><dt>Progreso que puedes retomar</dt><dd>Revisa el cuaderno de errores, el repaso exprés y tu ruta con la misma cuenta en celular o computador.</dd></div>
+        </dl>
+        <p class="micro">Las herramientas orientan tu preparación. Verifica etapas, requisitos y ponderaciones con la convocatoria de tu plaza.</p>
       </div>
     </section>
-    <section class="preguntas marco" id="preguntas" aria-labelledby="titulo-preguntas">
-      <div><p class="ceja ceja-oscura">ANTES DE EMPEZAR</p><h2 id="titulo-preguntas">Lo que conviene saber.</h2></div>
+
+    <section class="oferta seccion" id="premium" aria-labelledby="titulo-premium">
+      <div class="marco">
+        <div class="encabezado"><p class="ceja"><span class="punto"></span> TÚ ELIGES CUÁNDO DAR EL PASO</p><h2 id="titulo-premium">Prueba primero. Avanza con Premium cuando te sirva.</h2><p>Revisa la cobertura de tu área o cargo antes de pagar. El acceso Premium reúne la base común y los contenidos publicados del perfil elegido.</p></div>
+        <div class="planes">
+          <article class="plan plan-gratis" aria-labelledby="titulo-gratis">
+            <p class="ceja">PARA EMPEZAR</p><h3 id="titulo-gratis">Cuenta gratis</h3><p class="importe">$0 <span>COP</span></p>
+            <p>Ubica tu punto de partida y prueba el método a tu ritmo.</p>
+            <ul class="lista-plan"><li>Perfil y vista del temario disponible</li><li>Diagnóstico y contenido abierto</li><li>Ruta semanal y seguimiento de tu práctica</li></ul>
+            <a class="boton boton-claro" href="https://magisteriostoa.lat/#crear">Crear mi cuenta gratis <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="plan plan-premium" aria-labelledby="titulo-plan-premium">
+            <p class="ceja">PAGO ÚNICO · SIN RENOVACIÓN AUTOMÁTICA</p><h3 id="titulo-plan-premium">Stoa Premium</h3><p class="importe">$199.900 <span>COP</span></p>
+            <p>Acceso hasta el <strong>31 de diciembre de 2027</strong>, hora de Colombia.</p>
+            <ul class="lista-plan"><li>Lecciones y banco publicado de tu perfil</li><li>Simulacros y práctica explicada</li><li>Normograma, antecedentes y ensayo de entrevista</li></ul>
+            <a class="boton boton-oro" href="https://magisteriostoa.lat/#premium">Ver cobertura y comprar <span aria-hidden="true">↗</span></a>
+            <p class="micro">Pago procesado por Wompi. Si la CNSC fija la prueba escrita después del 1 de diciembre de 2027, el acceso se amplía sin costo hasta 30 días después de esa fecha.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="preguntas marco seccion" id="preguntas" aria-labelledby="titulo-preguntas">
+      <div><p class="ceja"><span class="punto"></span> ANTES DE INSCRIBIRTE</p><h2 id="titulo-preguntas">Preguntas frecuentes.</h2><p>¿Tienes una duda sobre tu perfil? <a class="enlace" href="https://wa.me/573133247071" rel="noopener" target="_blank">Escríbenos por WhatsApp <span aria-hidden="true">↗</span></a></p></div>
       <div class="acordeon">
-        <details><summary>¿Quién puede usar Stoa?</summary><p>Docentes de aula, orientadores y directivos que quieren preparar el Concurso Docente en Colombia. El contenido disponible depende del área y el cargo que selecciones.</p></details>
-        <details><summary>¿Qué puedo ver con una cuenta gratis?</summary><p>Puedes configurar tu perfil, conocer el temario disponible y usar el contenido abierto. La muestra de esta página se puede resolver antes de registrarte.</p></details>
-        <details><summary>¿Cómo funciona Premium?</summary><p>El precio es <strong>199.900 COP, pago único</strong>, con acceso hasta el 31 de diciembre de 2027 y la ampliación prevista en los términos. Entra con tu propio correo y consulta la cobertura de tu perfil antes de pagar. El acceso se activa cuando Wompi confirma un pago aprobado y correctamente asociado a tu cuenta.</p></details>
-        <details><summary>¿Stoa pertenece a la CNSC?</summary><p>Stoa es una plataforma independiente. Los ejercicios son material de preparación. Para fechas, requisitos, ponderaciones y reglas oficiales, consulta la convocatoria correspondiente en la CNSC.</p></details>
+        <details><summary>¿Cómo empiezo a estudiar?</summary><p>Resuelve una muestra aquí o crea tu cuenta gratis. Confirma tu correo y elige el cargo, área o nivel que vas a preparar. En Mi temario verás los módulos disponibles para tu perfil.</p></details>
+        <details><summary>¿Qué cubre un pago de Premium?</summary><p>Cada compra es personal y cubre un solo perfil de estudio: un área, nivel o cargo, además de la base común. Revisa tu elección antes de pagar. La compra fija ese perfil en tu cuenta.</p></details>
+        <details><summary>¿Puedo usar Stoa en mi celular y computador?</summary><p>Sí. Entra con el mismo correo en ambos dispositivos. Tu progreso se guarda en tu cuenta cuando tienes conexión.</p></details>
+        <details><summary>¿Cómo se activa el acceso?</summary><p>Inicia la compra desde tu cuenta de Stoa. Wompi procesa el pago y Stoa habilita el acceso al confirmar la transacción aprobada y asociada a tu cuenta.</p></details>
+        <details><summary>¿Los casos son preguntas oficiales?</summary><p>Son ejercicios originales de Stoa para practicar el razonamiento. Stoa es independiente de la CNSC. Para las reglas, etapas y fechas de tu plaza, consulta la <a href="https://www.cnsc.gov.co/convocatorias/docentes-y-directivos-docentes-2026" target="_blank" rel="noopener">convocatoria en la CNSC</a>.</p></details>
       </div>
     </section>
-    <section class="cierre">
-      <div class="marco cierre-malla">
-        <div><p class="ceja"><span></span> MAGISTERIO STOA</p><h2>Tu próxima sesión empieza con una decisión.</h2><p>Entra, configura tu perfil y revisa el temario disponible.</p></div>
-        <a class="boton boton-oro" href="../#inicio">Explorar Stoa <span aria-hidden="true">↗</span></a>
-      </div>
+
+    <section class="cierre" aria-labelledby="titulo-cierre">
+      <div class="marco cierre-malla"><div><p class="ceja"><span class="punto"></span> MAGISTERIO STOA</p><h2 id="titulo-cierre">Elige tu perfil y empieza a estudiar.</h2></div><a class="boton boton-oro" href="https://magisteriostoa.lat/#crear">Empezar gratis <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
+
   <footer class="pie">
-    <div class="marco pie-malla">
-      <div><b>Magisterio Stoa</b><p>Preparación independiente para docentes · Colombia</p></div>
-      <nav aria-label="Información y soporte">
-        <a href="../#legal/terminos">Términos</a>
-        <a href="../#legal/privacidad">Privacidad</a>
-        <a href="https://wa.me/573133247071" target="_blank" rel="noopener">Soporte por WhatsApp ↗</a>
-      </nav>
+    <div class="marco pie-malla"><div><b>Magisterio Stoa</b><p>Preparación independiente para docentes en Colombia.</p></div>
+      <nav aria-label="Información y soporte"><a href="https://magisteriostoa.lat/#legal/terminos">Términos</a><a href="https://magisteriostoa.lat/#legal/privacidad">Privacidad</a><a href="https://wa.me/573133247071" target="_blank" rel="noopener">Soporte <span aria-hidden="true">↗</span></a></nav>
     </div>
   </footer>
 </body>
