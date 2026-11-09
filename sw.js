@@ -3,8 +3,8 @@
 // Al compilar, vite.config.ts reemplaza estas dos líneas con la lista de archivos de la app y una versión
 // calculada a partir de ellos: así la app entera queda guardada desde la primera visita y cada publicación
 // renueva la caché sola. En desarrollo quedan los valores por defecto.
-const ARCHIVOS = ["./assets/app-DaFlAvMS.js","./assets/Buscador-BDlPbM1u.js","./assets/Candado-B21NfR3h.js","./assets/Concurso-DOiq6Tmo.js","./assets/Consulta-C7lTdrMl.js","./assets/Errores-CXg5v-wf.js","./assets/ModuloVista-4oTdf3gk.js","./assets/NormasCasos-DmWVoVoU.js","./assets/Practica-JSfEtp62.js","./assets/Premium-B-RW1dBe.js","./assets/Progreso-SsLx_Q20.js","./assets/Tarjetas-CfylaMXj.js","./assets/fuentes-s8-F4Loe.js","./assets/tipos-BRPybsN_.js","./assets/app-BDG7vtCY.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
-const VERSION = "stoa-e38c4195f8";
+const ARCHIVOS = ["./assets/app-CT_NWXg1.js","./assets/Buscador-D-JN9TKD.js","./assets/Candado-B21NfR3h.js","./assets/Concurso-BY7e_fgX.js","./assets/Consulta-D6c0C7hb.js","./assets/Errores-OJJtfrfE.js","./assets/ModuloVista-CrUOdnT-.js","./assets/NormasCasos-x1uFCYzg.js","./assets/Practica-DM35NmAz.js","./assets/Premium-DMkIYia3.js","./assets/Progreso-BqffMvFx.js","./assets/Tarjetas-B-qqYkI_.js","./assets/fuentes-s8-F4Loe.js","./assets/tipos-BRPybsN_.js","./assets/app-BDG7vtCY.css","./assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2","./assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2","./assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2","./assets/jetbrains-mono-latin-wght-normal-B9CIFXIH.woff2","./manifest.json","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch-icon.png"];
+const VERSION = "stoa-a083297e34";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(["./", "./index.html", ...ARCHIVOS])).then(() => self.skipWaiting()));
