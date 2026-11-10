@@ -1,91 +1,10 @@
 {
   "formato": 1,
-  "fuente": "07118fc07924af2f151f77dbd3c698f86b3545ae",
-  "fuenteArbol": "e4be141e24a22fd313ae20015ce03d51e962e359",
-  "manifiestoSha256": "00d7e33280f533850cd849b8bc2fc9a37b8f59a4c452dbbf60c4bafc51faffed",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/42834416453",
-  "publicoAnterior": "8db749ed6e923bc1475701ffecf918655fbc35c3",
-  "conservados": [
-    {
-      "ruta": "assets/app-DvNLNrJz.js",
-      "sha256": "ebcd26cbdd8013f2041f658a1aa3296b672e08fb9477f15875bb85c09d5d4b17",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Buscador-w1DmKdpB.js",
-      "sha256": "ad29e0ed9e955f084ac1c1678db7e43445f4931afe7337e5dceff54a37458c47",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Candado-BXU16hR5.js",
-      "sha256": "581bad694f0ae32a614dc55a869e09eb93d07f93d0202e14e9c25de5b76956f7",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Concurso-DdpfKbni.js",
-      "sha256": "8b98de936a9e292b61ae700edf42d88fbb592a985ec577261e8f3837bd9b469c",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Consulta-3bwVOuYV.js",
-      "sha256": "9973c4e50da70e9651de39a2a843b37095f9df526ff54950646d256ca3c20545",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Errores-gDFlihZg.js",
-      "sha256": "fd70f7b249518bf101a55d59aa2d7710d21483d10a5324926fe46e957d8baf66",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/fuentes-OTSifl6m.js",
-      "sha256": "d48e54c13d1214ae62b9113eb4e1bec93f0e1324618ca5b4ea92044f56561a2a",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/ModuloVista-BuCCjT07.js",
-      "sha256": "4660db1f764125ec1b04479a786ff28a2005feecc6d939481402b8005181c6c0",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/NormasCasos-BhrkoCrz.js",
-      "sha256": "4fb2c38ee713f811e345017bc218f1619e708d984faa4a9a782926718248534c",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/plan-Cv5QjojQ.js",
-      "sha256": "947ec6e7f4f2e253a807526e96f0e70ae4052d0529d2508806c59209111a9269",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Practica-FqJ315kT.js",
-      "sha256": "b13d3fe8b0854814f1c0474aab2aaa065492d3ab0cca312d41b46b58e21f414a",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Premium-DYq-mfG_.js",
-      "sha256": "5abafc09e83b94e5beab8e265583e72e7e45f4aab76558f35fc3ba254ea9ba5b",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Progreso-DrQyoxSx.js",
-      "sha256": "dee1cb9944bc57ccc69c04463e96d9c08dd62718d667c916edf0c1603d02ff8c",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Tarjetas-C-NbOjYT.js",
-      "sha256": "92cd689ea5f5fb3b8739bfbfaee2240f6197082cfdb0490ff87ca57b7c0046e7",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/Temario-CzXLMJy5.js",
-      "sha256": "4df78db18652c415af2bf42edb78a3447c32e406770d13d5af3a2698f379cd9b",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    },
-    {
-      "ruta": "assets/tipos-CUBkXLMf.js",
-      "sha256": "e4c3fbd100620e1b59991be908a17dafffa26ce2798e11593e1523b55a44ce0e",
-      "commit": "e559965aff7c4bfc40046ec7cc2625a2582e74c8"
-    }
-  ],
+  "fuente": "6e03f95d16ac55f4a6334b7e27dc4829f2e48972",
+  "fuenteArbol": "be0f011150357840ab637e14008f7b99275e2ccc",
+  "manifiestoSha256": "fe1d047514962218ba04ba744482b7ca5b16172315396d95643ceb9644934d0e",
+  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/42855141893",
+  "publicoAnterior": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1",
+  "conservados": [],
   "automatizacion_conservada": []
 }
