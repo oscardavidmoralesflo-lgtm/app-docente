@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#172846"/>
+  <rect x="25" y="25" width="1150" height="580" rx="2" fill="none" stroke="#e4c282" stroke-opacity=".32"/>
+  <g transform="translate(70 57) scale(1.25)" fill="#e4c282"><path d="M18 2 34 8v3H2V8l16-6ZM5 14h4v14H5zm7 0h4v14h-4zm8 0h4v14h-4zm7 0h4v14h-4zM2 31h32v3H2z"/></g>
+  <g fill="#fffdf7" font-family="Arial, sans-serif"><text x="134" y="83" font-size="30" font-weight="700" letter-spacing="3">STOA</text><text x="135" y="106" font-size="13" letter-spacing="3.4" fill="#e4c282">MAGISTERIO</text></g>
+  <text x="74" y="172" fill="#e4c282" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">PREPARA EL CONCURSO DOCENTE</text>
+  <g fill="#fffdf7" font-family="Bodoni MT, Georgia, serif" font-size="87"><text x="68" y="270">Tu preparación,</text><text x="68" y="355" font-style="italic" fill="#e4c282">con dirección.</text></g>
+  <text x="74" y="407" fill="#fffdf7" font-family="Arial, sans-serif" font-size="23">Casos explicados · Ruta de estudio · Tu progreso</text>
+  <path d="M74 446H1126" stroke="#e4c282" stroke-opacity=".38"/>
+  <g font-family="Arial, sans-serif"><text x="74" y="499" fill="#fffdf7" font-size="35" font-weight="700">Premium $199.900 COP</text><text x="76" y="532" fill="#fffdf7" font-size="18">Pago único · Una especialidad + base común</text><text x="76" y="569" fill="#e4c282" font-size="17" letter-spacing=".4">magisteriostoa.lat · Consulta cobertura y vigencia en tu cuenta</text></g>
+  <g transform="translate(897 164)"><rect x="0" y="0" width="230" height="252" rx="5" fill="#fffdf7"/><path d="M25 83H205M25 166H205" stroke="#d6cebd"/>
+    <g font-family="Arial, sans-serif" fill="#172846"><text x="25" y="45" font-size="14" fill="#785622">01 / COMPRENDE</text><text x="25" y="69" font-size="22">El caso</text><text x="25" y="128" font-size="14" fill="#785622">02 / DECIDE</text><text x="25" y="152" font-size="22">Tu respuesta</text><text x="25" y="211" font-size="14" fill="#785622">03 / CONTRASTA</text><text x="25" y="235" font-size="22">La explicación</text></g>
+  </g>
+</svg>

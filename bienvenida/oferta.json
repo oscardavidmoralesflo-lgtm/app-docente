@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "capturado": "2026-11-10T14:30:30.019Z",
+  "plan": {
+    "id": "premium",
+    "precio_cop": 199900,
+    "vence_fijo": "2028-01-01T04:59:59+00:00",
+    "activo": true
+  }
+}

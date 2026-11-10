@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "capturado": "2026-11-10T14:30:29.061Z",
+  "ofertas": [
+    {
+      "clave": "filosofia",
+      "nombre": "Filosofía",
+      "contexto": "no_rural",
+      "lecciones_propias": 15,
+      "preguntas_propias": 138,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 485
+    }
+  ],
+  "perfiles": [
+    {
+      "clave": "filosofia",
+      "nombre": "Filosofía",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "primaria",
+      "nombre": "Primaria",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "preescolar",
+      "nombre": "Preescolar",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "matematicas",
+      "nombre": "Matemáticas",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "lenguaje",
+      "nombre": "Lenguaje",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "ciencias",
+      "nombre": "Ciencias Naturales",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "sociales",
+      "nombre": "Ciencias Sociales",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "ingles",
+      "nombre": "Inglés",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "educacion_fisica",
+      "nombre": "Educación Física",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "tecnologia",
+      "nombre": "Tecnología e Informática",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "etica",
+      "nombre": "Ética y Valores",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "artistica",
+      "nombre": "Educación Artística",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "artistica_plasticas",
+      "nombre": "Artes Plásticas",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "artistica_escenicas",
+      "nombre": "Artes Escénicas",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "artistica_musica",
+      "nombre": "Música",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "religion",
+      "nombre": "Educación Religiosa",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "fisica",
+      "nombre": "Física",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "quimica",
+      "nombre": "Química",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "economia_politica",
+      "nombre": "Ciencias Económicas y Políticas",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "orientador",
+      "nombre": "Docente orientador",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "coordinador",
+      "nombre": "Coordinador",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "rector",
+      "nombre": "Rector",
+      "contexto": "no_rural"
+    },
+    {
+      "clave": "director_rural",
+      "nombre": "Director rural",
+      "contexto": "rural"
+    }
+  ]
+}

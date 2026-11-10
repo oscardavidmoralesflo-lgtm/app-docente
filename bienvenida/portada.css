@@ -1,0 +1,33 @@
+/* D-2: proporciones de la primera pantalla. La tipografía y el resto de
+   las secciones continúan en magisterio.css. */
+.portada { padding-top: clamp(28px, 3.6vw, 52px); }
+.portada-ceja { margin-bottom: 18px; }
+.portada-composicion { grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr); gap: clamp(24px, 4.2vw, 60px); }
+.portada h1 { font-size: clamp(3.5rem, 6.2vw, 6rem); margin-bottom: 0; }
+.portada-intro .bajada { line-height: 1.35; font-weight: 720; max-width: 39ch; margin-bottom: 0; }
+.portada-intro > p.portada-formato { color: #d0d9e6; font-size: .97rem; line-height: 1.5; max-width: 49ch; margin-top: 8px; }
+.portada-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; margin-top: 16px; }
+.portada-intro .boton { width: auto; margin: 0; }
+.portada-intro .enlace { font-size: .89rem; margin-top: 0; }
+.portada-precio { color: #d0d9e6; font-size: .87rem; line-height: 1.45; margin-top: 10px; }
+.portada-precio strong { color: var(--oro); }
+.portada-precio time { white-space: nowrap; }
+.portada-pruebas { color: #d0d9e6; border-top: 1px solid var(--linea-oscura); font-size: .8rem; line-height: 1.45; margin-top: 10px; padding-top: 8px; overflow-wrap: anywhere; }
+.escena { margin-top: clamp(22px, 3vw, 44px); }
+@media (max-width: 1150px) {
+  .portada-composicion { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+}
+@media (max-width: 880px) {
+  .portada-composicion { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .portada h1 { font-size: clamp(3.2rem, 8vw, 4.7rem); }
+}
+@media (max-width: 700px) {
+  .portada { padding-top: 24px; }
+  .portada-ceja { font-size: .62rem; letter-spacing: .09em; gap: 8px; margin-bottom: 15px; }
+  .portada h1 { font-size: clamp(2.45rem, 10.6vw, 3.1rem); line-height: 1; }
+  .portada-composicion { gap: 15px; }
+  .portada-intro .bajada { font-size: 1.12rem; }
+  .portada-intro > p.portada-formato { font-size: .94rem; }
+  .portada-acciones { column-gap: 12px; }
+  .portada-acciones .boton { gap: 9px; padding-inline: 14px; }
+}

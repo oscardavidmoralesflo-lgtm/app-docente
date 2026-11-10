@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /bienvenida/
+Disallow: /admin.html
+
+Sitemap: https://magisteriostoa.lat/sitemap.xml

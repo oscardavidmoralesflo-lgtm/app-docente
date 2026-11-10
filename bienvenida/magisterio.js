@@ -1,4 +1,8 @@
-"use strict";
+import { instanteISO } from "./oferta.js";
+
+if (location.hostname === "stoa-app-docente.onrender.com") {
+  location.replace("https://magisteriostoa.lat/bienvenida/" + location.search + location.hash);
+}
 
 const casos = {
   primaria: {
@@ -39,6 +43,7 @@ const retro = document.getElementById("retro");
 let casoActivo = casos.primaria;
 
 function mostrarCaso(clave) {
+  if (!Object.hasOwn(casos, clave)) return;
   casoActivo = casos[clave];
   for (const campo of ["folio", "area", "titulo", "contexto", "pregunta"]) {
     document.getElementById(`caso-${campo}`).textContent = casoActivo[campo];
@@ -96,19 +101,234 @@ const temarios = {
 };
 
 const selector = document.getElementById("selector-perfil");
+const perfiles = new Map([...selector.options].map(opcion => [opcion.value, {
+  nombre: opcion.textContent, contexto: opcion.dataset.contexto || "no_rural", opcion,
+}]));
+const conteosIds = ["propias-lecciones", "propias-preguntas", "comunes-lecciones", "comunes-preguntas"];
+const camposConteo = ["lecciones_propias", "preguntas_propias", "lecciones_comunes", "preguntas_comunes"];
+const camposPerfil = ["clave", "nombre", "contexto"];
+const formatoNumero = new Intl.NumberFormat("es-CO");
+const formatoFecha = new Intl.DateTimeFormat("es-CO", { dateStyle: "medium", timeZone: "America/Bogota" });
+const etiquetaCobertura = document.getElementById("cobertura-etiqueta");
+const detalleCobertura = document.getElementById("cobertura-detalle");
+const conteos = document.getElementById("conteos-perfil");
+const ficha = document.getElementById("ficha-perfil");
+const vigenciaCatalogo = 7 * 24 * 60 * 60 * 1000;
+let ofertas = new Map();
+let capturado = null;
+
+function capturaReciente(fecha, ahora = Date.now()) {
+  return fecha !== null && fecha <= ahora && ahora - fecha <= vigenciaCatalogo;
+}
+
 function mostrarPerfil() {
-  const [grupo, ...temas] = temarios[selector.value] ?? temarios.filosofia;
-  const [etiqueta, descripcion] = grupos[grupo];
-  document.getElementById("ficha-perfil").dataset.grupo = grupo;
+  const clave = selector.value;
+  const perfil = perfiles.get(clave);
+  if (!perfil) return;
+  const [grupo, ...temas] = Object.hasOwn(temarios, clave) ? temarios[clave] : ["humanidades"];
+  const [etiqueta, descripcion] = temas.length ? grupos[grupo] : ["Tu especialidad", "Consulta las lecciones y practica con casos de tu perfil."];
+  ficha.dataset.grupo = grupo;
   document.getElementById("grupo-perfil").textContent = etiqueta.toLocaleUpperCase("es-CO");
-  document.getElementById("nombre-perfil").textContent = selector.selectedOptions[0].textContent;
+  document.getElementById("nombre-perfil").textContent = perfil.nombre;
   document.getElementById("texto-perfil").textContent = descripcion;
-  const lista = temas.map(tema => {
+  document.getElementById("ayuda-perfil").textContent = perfil.contexto === "rural"
+    ? "Contexto de referencia: plaza rural. Confirma tu perfil desde tu cuenta."
+    : "Contexto de referencia: plaza no rural. Confirma tu perfil desde tu cuenta.";
+  document.getElementById("temas-perfil").replaceChildren(...temas.map(tema => {
     const li = document.createElement("li");
     li.textContent = tema;
     return li;
+  }));
+  ficha.hidden = false;
+
+  const oferta = ofertas.get(clave);
+  const referencia = capturaReciente(capturado) && oferta?.contexto === perfil.contexto;
+  etiquetaCobertura.dataset.estado = referencia ? "referencia" : "sin-confirmar";
+  etiquetaCobertura.textContent = referencia ? "Cobertura de referencia" : "Consulta la cobertura en tu cuenta";
+  detalleCobertura.textContent = referencia ? `Datos del ${formatoFecha.format(capturado)}. Consulta la cobertura en tu cuenta.` : "";
+  detalleCobertura.hidden = !referencia;
+  conteos.hidden = !referencia;
+  conteosIds.forEach((id, i) => {
+    document.getElementById(id).textContent = referencia ? formatoNumero.format(oferta[camposConteo[i]]) : "";
   });
-  document.getElementById("temas-perfil").replaceChildren(...lista);
 }
+
+function validarFilas(filas, sonOfertas) {
+  if (!Array.isArray(filas) || filas.length > 100) return null;
+  const campos = sonOfertas ? [...camposPerfil, ...camposConteo] : camposPerfil;
+  const validadas = new Map();
+  for (const fila of filas) {
+    if (!fila || typeof fila !== "object" || Object.keys(fila).length !== campos.length
+      || !campos.every(campo => Object.hasOwn(fila, campo))
+      || typeof fila.clave !== "string" || !/^[a-z0-9_-]{1,64}$/.test(fila.clave) || validadas.has(fila.clave)
+      || typeof fila.nombre !== "string" || !fila.nombre.trim() || fila.nombre.length > 120
+      || !["rural", "no_rural"].includes(fila.contexto)) return null;
+    if (sonOfertas && (!camposConteo.every(campo => Number.isSafeInteger(fila[campo]) && fila[campo] >= 0 && fila[campo] <= 100000)
+      || fila.preguntas_propias < 60 || fila.lecciones_propias < 10)) return null;
+    validadas.set(fila.clave, fila);
+  }
+  return validadas;
+}
+
+function incorporarPerfiles(filas) {
+  for (const [clave, fila] of filas) {
+    const anterior = perfiles.get(clave);
+    const opcion = anterior?.opcion || document.createElement("option");
+    const nombre = fila.nombre.trim();
+    opcion.value = clave;
+    opcion.textContent = nombre;
+    perfiles.set(clave, { nombre, contexto: fila.contexto, opcion });
+    if (!anterior) selector.add(opcion);
+  }
+}
+
+async function leerCatalogo(ruta) {
+  const controlador = new AbortController();
+  const limite = setTimeout(() => controlador.abort(), 2000);
+  try {
+    const respuesta = await fetch(new URL(ruta, location.origin), {
+      mode: "same-origin",
+      credentials: "omit",
+      redirect: "error",
+      referrerPolicy: "no-referrer",
+      signal: controlador.signal,
+    });
+    if (respuesta.status !== 200 || !/^application\/json(?:\s*;|$)/i.test(respuesta.headers.get("content-type") ?? "") || !respuesta.body) return null;
+    const lector = respuesta.body.getReader();
+    const decodificador = new TextDecoder("utf-8", { fatal: true });
+    let bytes = 0;
+    let texto = "";
+    try {
+      for (;;) {
+        const { value, done } = await lector.read();
+        if (done) break;
+        bytes += value.byteLength;
+        if (bytes > 40000) {
+          await lector.cancel();
+          return null;
+        }
+        texto += decodificador.decode(value, { stream: true });
+      }
+      return JSON.parse(texto + decodificador.decode());
+    } finally {
+      lector.releaseLock();
+    }
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(limite);
+  }
+}
+
+function mostrarTotalPerfiles() {
+  const pruebas = document.getElementById("hero-pruebas");
+  if (!pruebas || !perfiles.size) return;
+  pruebas.textContent = `${formatoNumero.format(perfiles.size)} perfiles para explorar`;
+  pruebas.hidden = false;
+}
+
+async function cargarPerfiles() {
+  const ruta = document.documentElement.dataset.catalogo;
+  if (!ruta || !ruta.endsWith(".json") || !/^\/datos\/publico\/catalogo-[a-f0-9]{64}\.json$/.test(ruta)) return;
+  const copia = await leerCatalogo(ruta);
+  if (copia?.version !== 1) return;
+  const fecha = instanteISO(copia.capturado);
+  if (!capturaReciente(fecha)) return;
+  const directorio = validarFilas(copia.perfiles, false);
+  const referencias = validarFilas(copia.ofertas, true);
+  if (!directorio?.size || !referencias || [...referencias.values()].some(fila => directorio.get(fila.clave)?.contexto !== fila.contexto)) return;
+
+  incorporarPerfiles(directorio);
+  ofertas = referencias;
+  capturado = fecha;
+  mostrarTotalPerfiles();
+  mostrarPerfil();
+  setTimeout(mostrarPerfil, Math.max(0, fecha + vigenciaCatalogo - Date.now() + 1));
+  window.addEventListener("pageshow", mostrarPerfil);
+  document.addEventListener("visibilitychange", mostrarPerfil);
+}
+
 selector.addEventListener("change", mostrarPerfil);
+mostrarTotalPerfiles();
 mostrarPerfil();
+void cargarPerfiles();
+
+// El contenido permanece visible si no hay animaciones, JavaScript o esta API.
+if ("IntersectionObserver" in window) {
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const revelar = new IntersectionObserver(entradas => entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add("esta-visto");
+        revelar.unobserve(entrada.target);
+      }
+    }), { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach(elemento => revelar.observe(elemento));
+  }
+  const secciones = [...document.querySelectorAll("[data-nav-section]")];
+  const enlaces = [...document.querySelectorAll("[data-nav]")];
+  const visibles = new Set();
+  const navegacion = new IntersectionObserver(entradas => {
+    entradas.forEach(entrada => entrada.isIntersecting ? visibles.add(entrada.target.id) : visibles.delete(entrada.target.id));
+    const actual = secciones.find(seccion => visibles.has(seccion.id));
+    enlaces.forEach(enlace => {
+      if (actual?.id === enlace.dataset.nav) enlace.setAttribute("aria-current", "location");
+      else enlace.removeAttribute("aria-current");
+    });
+  }, { rootMargin: "-120px 0px -45% 0px", threshold: 0 });
+  secciones.forEach(seccion => navegacion.observe(seccion));
+}
+
+// Navegación estrecha y CTA: no se oculta ningún control que conserve el foco.
+const menuEstrecho = document.querySelector(".navegacion");
+const accesoMovil = document.querySelector(".acceso-movil");
+const seccionPremium = document.getElementById("premium");
+const cabeceraLanding = document.querySelector(".cabecera");
+let actualizacionMovil = null;
+
+function actualizarControlesMoviles() {
+  actualizacionMovil = null;
+  if (menuEstrecho) {
+    const desplazable = window.matchMedia("(max-width: 360px)").matches
+      && menuEstrecho.scrollWidth > menuEstrecho.clientWidth;
+    if (desplazable) menuEstrecho.setAttribute("tabindex", "0");
+    else menuEstrecho.removeAttribute("tabindex");
+  }
+  if (!accesoMovil) return;
+  // visibility:hidden conserva la medida, también cuando cambian fuente o safe-area.
+  const alto = Math.ceil(accesoMovil.getBoundingClientRect().height);
+  const raiz = document.documentElement;
+  if (alto > 0 && raiz.style.getPropertyValue("--alto-acceso-movil") !== `${alto}px`) {
+    raiz.style.setProperty("--alto-acceso-movil", `${alto}px`);
+  }
+  if (!seccionPremium) return;
+  const limites = seccionPremium.getBoundingClientRect();
+  const bordeCabecera = Math.max(0, cabeceraLanding?.getBoundingClientRect().bottom || 0);
+  const premiumVisible = limites.bottom > bordeCabecera && limites.top < window.innerHeight;
+  const ocultar = premiumVisible && !accesoMovil.contains(document.activeElement);
+  accesoMovil.dataset.oculto = String(ocultar);
+  if (ocultar) accesoMovil.setAttribute("aria-hidden", "true");
+  else accesoMovil.removeAttribute("aria-hidden");
+}
+
+function programarControlesMoviles() {
+  if (actualizacionMovil === null) actualizacionMovil = requestAnimationFrame(actualizarControlesMoviles);
+}
+
+menuEstrecho?.addEventListener("focusin", evento => {
+  if (!window.matchMedia("(max-width: 360px)").matches) return;
+  const enlace = evento.target.closest("a");
+  if (enlace) enlace.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
+});
+accesoMovil?.addEventListener("focusin", programarControlesMoviles);
+accesoMovil?.addEventListener("focusout", programarControlesMoviles);
+window.addEventListener("scroll", programarControlesMoviles, { passive: true });
+window.addEventListener("resize", programarControlesMoviles, { passive: true });
+if ("ResizeObserver" in window) {
+  const medidasMoviles = new ResizeObserver(programarControlesMoviles);
+  if (accesoMovil) medidasMoviles.observe(accesoMovil);
+  if (menuEstrecho) medidasMoviles.observe(menuEstrecho);
+  if (cabeceraLanding) medidasMoviles.observe(cabeceraLanding);
+}
+// Sin ResizeObserver quedan la reserva CSS, resize y la medida al cargar fuentes.
+document.fonts?.ready.then(programarControlesMoviles);
+actualizarControlesMoviles();
