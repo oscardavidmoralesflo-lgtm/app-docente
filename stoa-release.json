@@ -3,9 +3,9 @@
   "tipo": "app",
   "fuente": {
     "repositorio": "oscardavidmoralesflo-lgtm/stoa",
-    "sha": "3167fd297d8f18ebd53b7b59d57b5519d10a428c",
-    "arbol": "2a211f66c9344ae9e38b41db0fdf21cd76cf5886",
-    "fechaCommit": "2026-11-10T21:57:43-05:00",
+    "sha": "fe887ca41f37137ef74187f160a1562779b7916c",
+    "arbol": "9d116cd747b663d903822b8a7d6d1be10d73f460",
+    "fechaCommit": "2026-11-10T22:11:52-05:00",
     "lockSha256": "2e676b37a2b037a68b2ae9266eaef690264e6f5aad17b2b841af1b10ab112227",
     "node": "24.22.1",
     "vite": "8.3.4",
@@ -13,14 +13,14 @@
   },
   "archivos": [
     {
-      "ruta": "assets/app-B_Qa3Oh6.js",
-      "bytes": 102463,
-      "sha256": "9f11d3e0fc3b28e0a9d8373a0f1b2d59096fb906ab4c070772c02cd725ac3071"
+      "ruta": "assets/app-CYTu5mVO.js",
+      "bytes": 104996,
+      "sha256": "701204cc3a1f0aa318e0ac338d74bd7745092c5265a088444f60f7bc2656e973"
     },
     {
-      "ruta": "assets/app-B0mEEnT4.css",
-      "bytes": 138820,
-      "sha256": "7e443f9edd2c9937bdbe01c573b9e23003ae9a5732f2c65d23e281342c5bdd9a"
+      "ruta": "assets/app-sKFRdcFQ.css",
+      "bytes": 139339,
+      "sha256": "dac63e5d764be97c07823900788d9b3dcbb16618d7495774c4f4ff9b8d670759"
     },
     {
       "ruta": "assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2",
@@ -33,39 +33,39 @@
       "sha256": "c032219ef636f7b4932f7d1dc91bdab602c970f090770b546bea4effaab3463c"
     },
     {
-      "ruta": "assets/Buscador-bTvmhY5O.js",
+      "ruta": "assets/Buscador-BHofkQwt.js",
       "bytes": 5762,
-      "sha256": "3e1b4510d34a9be3d130695ea8b0e99a4f2778d8040f10226141df3f4e8a2147"
+      "sha256": "7b03aa94f623faf16e863c021100f044182be5ee20e2403f3d044a16b70a2cc2"
     },
     {
-      "ruta": "assets/Candado-DkhXSUM-.js",
+      "ruta": "assets/Candado-CiNqi_wI.js",
       "bytes": 563,
-      "sha256": "e5a74b59098c6ed4cc6aea061418410b42dbfc005fc541fa8fddc86db9a493e3"
+      "sha256": "546848e15cb80789ebe10614a4208855eb14c41a7b74057cef4c4d695e86777d"
     },
     {
-      "ruta": "assets/Concurso-DpHyIJ__.js",
+      "ruta": "assets/Concurso-huzh0LYJ.js",
       "bytes": 24017,
-      "sha256": "232af29636e443418dc4188bd48378e792133cd3d6f6a044bc5d8bdb595f6ca5"
+      "sha256": "4dc419d1eada8332d0e049b4d30194b8cfc399eebed2620767be007fe022962e"
     },
     {
-      "ruta": "assets/Consulta-B0e1rnun.js",
+      "ruta": "assets/Consulta-Ck1OkvvV.js",
       "bytes": 5229,
-      "sha256": "e8b63dd6728050cdf20836c0262091e72e248c1574e5a9ac526cc448c6ef5946"
+      "sha256": "2dfcf7fa5a3864836c558f02ef63eaf4edc0339abcc29d34eebf48977cab6b4d"
     },
     {
-      "ruta": "assets/datos-kCn2C5j0.js",
-      "bytes": 265161,
-      "sha256": "e6ac50da3dffb46fc5802306176908db82fa5a36acef48266d6f956221bdaf8a"
+      "ruta": "assets/datos-D0ZUrlFa.js",
+      "bytes": 265790,
+      "sha256": "63e43dfce76065a24b8d750492de685a4b393645a002c57665768e236bb6a1c3"
     },
     {
-      "ruta": "assets/Errores-BwawbZB7.js",
+      "ruta": "assets/Errores-NUSFQnK1.js",
       "bytes": 2736,
-      "sha256": "8f6cd0633abf045d09dc5ec7ce9db7749a07e715b88edd786e8df5858797ffd7"
+      "sha256": "f7d2dd4c42fec4b1229ed041e6c7ffb2d6a9c752104a438d521c59aa51a296fd"
     },
     {
-      "ruta": "assets/fuentes-BK4qeVq0.js",
-      "bytes": 4412,
-      "sha256": "41420887412eb2acca2711800ac8ad23a8eae53fb3304582015638a225514c08"
+      "ruta": "assets/fuentes-D0-FvmkR.js",
+      "bytes": 4428,
+      "sha256": "3dd57a11a77fea430e356e424a8fc809e94225244914be547d3d6dc3f8e6f041"
     },
     {
       "ruta": "assets/hanken-grotesk-latin-wght-normal-CaVRRdDk.woff2",
@@ -78,49 +78,49 @@
       "sha256": "18be452724bfdc236c074ca94a249a7f41a86752c7d04ab258ce9ed5651f6a7e"
     },
     {
-      "ruta": "assets/ModuloVista-Cg8V2GtE.js",
+      "ruta": "assets/ModuloVista-shjlaeLt.js",
       "bytes": 4400,
-      "sha256": "3533d9b4ca9031e7dafd4272199be963b4f4110aaee34581fa737fd471023a74"
+      "sha256": "1a8abbbeef0c320726ec7ea961b390a1ff970bafd5c100f78caa8d49e380e41d"
     },
     {
-      "ruta": "assets/NormasCasos-Br0Ky5eD.js",
+      "ruta": "assets/NormasCasos-BErHtCz5.js",
       "bytes": 6049,
-      "sha256": "5317468619e5b6f26e7081ae66edc5be891ddb9db5cafee6f2d7fc8e8e7d9c3e"
+      "sha256": "9dff1e9424dbd95b7356b4b5558efc3bbd5df54bcfd22bc19e1bd94099f2576e"
     },
     {
-      "ruta": "assets/Practica-BsYs0Hmi.js",
-      "bytes": 29251,
-      "sha256": "e1b972945d2288c7608cd9b7faac98d5ec836d8c22a3295f2d5c468e9e447d2d"
+      "ruta": "assets/Practica-DTIV5S0F.js",
+      "bytes": 30202,
+      "sha256": "c1a617f70302c0f390967f2d6f4e69f3888af38e2c5db14f1e313013c3f980dc"
     },
     {
-      "ruta": "assets/Premium-C56rY3lU.js",
-      "bytes": 19396,
-      "sha256": "a63086d47a1e374fd4fef48007efec12e16fe1abd08718bc2bb46539d61b1e06"
+      "ruta": "assets/Premium-EZSkq2sT.js",
+      "bytes": 20015,
+      "sha256": "57068e69a28ecc714f8bed2092acce25061d1d361255f08fae8b866caa3743c4"
     },
     {
-      "ruta": "assets/Progreso-Bi1iSNMF.js",
+      "ruta": "assets/Progreso-CQdL4_Yl.js",
       "bytes": 6730,
-      "sha256": "050fc404590829cf4b4c05efffe35499686c65268eeb370e07c86062e0d61542"
+      "sha256": "efd54c1b47f7a1e99ab9bd3db510472b78d2d21e9ee97626d34f2dcd61543fe0"
     },
     {
-      "ruta": "assets/ReportarError-BNb6b0F9.js",
+      "ruta": "assets/ReportarError-SdBJGmDk.js",
       "bytes": 2013,
-      "sha256": "789cac6ab292ac14ddee7da183b28e95db818e7fcc66e2171da076c759d808bd"
+      "sha256": "225baed477e884b446871d10b5b92215f2d80ada6fef69da750dd7166aa7b622"
     },
     {
-      "ruta": "assets/Tarjetas-Dz8NFnZh.js",
+      "ruta": "assets/Tarjetas-BoTtBCSM.js",
       "bytes": 5991,
-      "sha256": "0cad907079eec9950a16258ad548164a4f17531f13fa93a88ccdf2b002974b87"
+      "sha256": "04eb7dc32751b7a7392d0fa2511bfeddd707a2cfbecf7dac392b5956ca7eab46"
     },
     {
-      "ruta": "assets/Temario-DAhA97Sz.js",
+      "ruta": "assets/Temario-1UVyQZYO.js",
       "bytes": 3390,
-      "sha256": "4ba8cda2bb33c2fdb28c0fe495ad81d4931662d0c0ebc6e98703680961856b93"
+      "sha256": "120bf5df4af82da2a2bbf12a04e6b4fdbcbc2375c3968864298c568c7ad08eab"
     },
     {
       "ruta": "bienvenida/index.html",
       "bytes": 41390,
-      "sha256": "b370d11f7f4e975bce42fce2c7bd57e2596d231914d62b17c56b73989e82eaa3"
+      "sha256": "8349c72c000487d7658d85eb511958023fd846566ce08cad2acb19903fed7cff"
     },
     {
       "ruta": "bienvenida/magisterio.css",
@@ -145,7 +145,7 @@
     {
       "ruta": "bienvenida/oferta.json",
       "bytes": 192,
-      "sha256": "8b6e950169480f27734d12fea6c22be5f95c4c32bd19922a15c3815a6e808d29"
+      "sha256": "12df75fb13a4ecd68546bf0fe6bfb0d6d64e1ad5c01de95f4f2e7e2d78d2ffed"
     },
     {
       "ruta": "bienvenida/og-stoa.png",
@@ -223,19 +223,19 @@
       "sha256": "b6fb57ff16141bf3b598cfca897eb05f9691001b5fa6ae5069d4bf57ba3b9c66"
     },
     {
-      "ruta": "datos/publico/catalogo-93676690e6e75795730a00c1eb8e93ce21d73af539bfad5125f6bae954f9079f.json",
+      "ruta": "datos/publico/catalogo-6e01e08890cecb6a5773cb7858cb2a5c6f4aca8a86420e7f9b058361cc666d05.json",
       "bytes": 4381,
-      "sha256": "93676690e6e75795730a00c1eb8e93ce21d73af539bfad5125f6bae954f9079f"
+      "sha256": "6e01e08890cecb6a5773cb7858cb2a5c6f4aca8a86420e7f9b058361cc666d05"
     },
     {
-      "ruta": "datos/publico/perfiles-31222cb5ec33045db470d7cca36b04ddf99fc33b855d9acd5ad743e09ac101d1.json",
+      "ruta": "datos/publico/perfiles-500c8c6c73d6bc412f379e447daa3a8d54ab36cb27664f3a70a4208c13423bcb.json",
       "bytes": 2317,
-      "sha256": "31222cb5ec33045db470d7cca36b04ddf99fc33b855d9acd5ad743e09ac101d1"
+      "sha256": "500c8c6c73d6bc412f379e447daa3a8d54ab36cb27664f3a70a4208c13423bcb"
     },
     {
-      "ruta": "datos/publico/planes-d1eb65b8542e1d726869220fcf286a7f84fd39303fbf21f99c81e0c7f02d4262.json",
+      "ruta": "datos/publico/planes-3895e7972da31cecd54dce03db8feb3be5fed554d1185ee6be170037700864a2.json",
       "bytes": 404,
-      "sha256": "d1eb65b8542e1d726869220fcf286a7f84fd39303fbf21f99c81e0c7f02d4262"
+      "sha256": "3895e7972da31cecd54dce03db8feb3be5fed554d1185ee6be170037700864a2"
     },
     {
       "ruta": "icons/apple-touch-icon.png",
@@ -265,7 +265,7 @@
     {
       "ruta": "index.html",
       "bytes": 4705,
-      "sha256": "df2fbf9f0592cc5246d1f2e8366b6363b16955fb6aeb02b7e447d63228087c04"
+      "sha256": "324c8e69aed17a3581990ca21beb6e3c02a501ffd136e8b777636a43c9e6531e"
     },
     {
       "ruta": "inicio.js",
@@ -355,7 +355,7 @@
     {
       "ruta": "sw.js",
       "bytes": 3694,
-      "sha256": "a8bcf35bacc4785d7f2b9d8c0a774d069300c97cd3e5d4671c624068017894b7"
+      "sha256": "289d75d14bebfb09057363d46ab3d3f43c060549d8bfb274467aa805545ccf4c"
     }
   ]
 }
