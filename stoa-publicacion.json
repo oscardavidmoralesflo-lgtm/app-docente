@@ -1,65 +1,65 @@
 {
   "formato": 1,
-  "fuente": "e15617963d46d0708b8cbcf067620c2fb8d5e550",
-  "fuenteArbol": "c968f80cc4fa519348848c95b708423458667a58",
-  "manifiestoSha256": "80e695aac3bfcb166d73687e64eed6cab8ce662deb418fa4cd9a93ce499008d7",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/42889478172",
-  "publicoAnterior": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50",
+  "fuente": "3167fd297d8f18ebd53b7b59d57b5519d10a428c",
+  "fuenteArbol": "2a211f66c9344ae9e38b41db0fdf21cd76cf5886",
+  "manifiestoSha256": "9965c16802f3c181ccfc0921750cfa1199972449f4bf406f436ae1fe0d80f914",
+  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/42949526176",
+  "publicoAnterior": "6c3601743343aa5710e18c82dc437682842a7573",
   "conservados": [
     {
       "ruta": "assets/app-6_Io_Uxa.js",
       "sha256": "c665c7fa4abf73e317c3266a7ebc6dd174667e0dd35200e79431acd0d056dd97",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Concurso-DFtIusMq.js",
       "sha256": "d02b5a679767a37e63a72d32da54860dcf9b4d02a1ffa5261bf5a95992c046b1",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Consulta-D7Hq1BEN.js",
       "sha256": "2580933a1ec38b3423a670a5622fb8fcc019879a0ab01ccc93dd41f2aa9a5c8b",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Errores-DmqNgcwF.js",
       "sha256": "d657dc29f827b9336ecbc209e2d2272cbbd91e3650dcd0fd15c45375591ae5b5",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/ModuloVista-BsTyYGgB.js",
       "sha256": "231ddaaecaa063c7d7971d3765ff5492d6c6f3f24f1d3a50b5cd25c962c0cc40",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/NormasCasos-DAqPPJUP.js",
       "sha256": "fe8cc909b15decd085ccfa132be34f8f706d62fdc9a86ec5005bb33e5a71a4f1",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Practica-BNWvKmv0.js",
       "sha256": "947de2bb1a42bda4264ecb0bbb7ad6d6240dd93a9bed550b37fd2bcb79740996",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Premium-Dv4lKbta.js",
       "sha256": "0d0aaec2ef2a59986027900b3c6ea6eac2422d476f6b81f121cc98fcf1f0cf46",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Progreso-DGH8FmhM.js",
       "sha256": "f5595756d6027755a1f9928db16af8d1eb860f37b4dd38a4d6811306ec2a6db3",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Tarjetas-d7Sl6qIY.js",
       "sha256": "d5fcebe56530095c377d0e5d148bc359a7f72e1da4aaa380bcd32fa5baf8a06c",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     },
     {
       "ruta": "assets/Temario-OhdDfNH8.js",
       "sha256": "10b5ae6ebe1d74405aa4281fc716ed67fdbea043c5563a5a9e9fc9d316f5fd01",
-      "commit": "f3711cb7bed4dec3e4b980d9caaa14686f4047c1"
+      "commit": "32f3aef5de6bcdc400bf2f17c86f09fc9b40aa50"
     }
   ],
   "automatizacion_conservada": []
