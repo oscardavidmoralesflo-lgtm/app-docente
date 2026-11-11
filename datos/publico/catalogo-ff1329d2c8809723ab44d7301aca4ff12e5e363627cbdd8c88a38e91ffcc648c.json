@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "capturado": "2026-11-11T18:40:08.141Z",
+  "capturado": "2026-11-11T23:20:46.973Z",
   "ofertas": [
     {
       "clave": "filosofia",
       "nombre": "Filosofía",
       "contexto": "no_rural",
-      "lecciones_propias": 21,
-      "preguntas_propias": 168,
+      "lecciones_propias": 27,
+      "preguntas_propias": 252,
       "lecciones_comunes": 38,
       "preguntas_comunes": 485
     },
@@ -69,8 +69,8 @@
       "clave": "artistica_escenicas",
       "nombre": "Educación artística · artes escénicas",
       "contexto": "no_rural",
-      "lecciones_propias": 22,
-      "preguntas_propias": 180,
+      "lecciones_propias": 28,
+      "preguntas_propias": 264,
       "lecciones_comunes": 38,
       "preguntas_comunes": 485
     }
