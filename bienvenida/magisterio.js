@@ -243,6 +243,7 @@ async function leerCatalogo(ruta) {
   const limite = setTimeout(() => controlador.abort(), 2000);
   try {
     const respuesta = await fetch(new URL(ruta, location.origin), {
+      priority: "low",
       mode: "same-origin",
       credentials: "omit",
       redirect: "error",
@@ -279,8 +280,8 @@ async function leerCatalogo(ruta) {
 function mostrarTotalPerfiles() {
   const pruebas = document.getElementById("hero-pruebas");
   if (!pruebas || !perfiles.size) return;
-  pruebas.textContent = `${formatoNumero.format(perfiles.size)} perfiles para explorar`;
-  pruebas.hidden = false;
+  const texto = `${formatoNumero.format(perfiles.size)} perfiles para explorar`;
+  if (pruebas.textContent !== texto) pruebas.textContent = texto;
 }
 
 async function cargarPerfiles() {
@@ -345,17 +346,10 @@ function actualizarControlesMoviles() {
   actualizacionMovil = null;
   const raiz = document.documentElement;
   const bordeCabecera = Math.ceil(cabeceraLanding?.getBoundingClientRect().height || 0);
-  if (raiz.style.getPropertyValue("--alto-cabecera-landing") !== `${bordeCabecera}px`) {
-    raiz.style.setProperty("--alto-cabecera-landing", `${bordeCabecera}px`);
-  }
-  if (!accesoMovil) return;
   // visibility:hidden conserva la medida, también cuando cambian fuente o safe-area.
-  const alto = Math.ceil(accesoMovil.getBoundingClientRect().height);
-  if (raiz.style.getPropertyValue("--alto-acceso-movil") !== `${alto}px`) {
-    raiz.style.setProperty("--alto-acceso-movil", `${alto}px`);
-  }
+  const alto = Math.ceil(accesoMovil?.getBoundingClientRect().height || 0);
   // Ocultar solo si un CTA completo ya está al alcance, sin taparlo con la barra.
-  const accionVisible = accionesEnPagina.some(accion => {
+  const accionVisible = accesoMovil && accionesEnPagina.some(accion => {
     const limites = accion.getBoundingClientRect();
     // Al enfocar un CTA del contenido, retirar la barra libera también el
     // espacio que ocupaba. Evita taparlo tras el desplazamiento de Tab/focus().
@@ -363,10 +357,20 @@ function actualizarControlesMoviles() {
     return limites.height > 0 && limites.top >= bordeCabecera + (enfocada ? 0 : 12)
       && limites.bottom <= window.innerHeight - (enfocada ? 0 : alto + 12);
   });
+  // Leer toda la geometría antes de cambiar estilos evita recalcular el layout en el mismo cuadro.
+  if (raiz.style.getPropertyValue("--alto-cabecera-landing") !== `${bordeCabecera}px`) {
+    raiz.style.setProperty("--alto-cabecera-landing", `${bordeCabecera}px`);
+  }
+  if (!accesoMovil) return;
+  if (raiz.style.getPropertyValue("--alto-acceso-movil") !== `${alto}px`) {
+    raiz.style.setProperty("--alto-acceso-movil", `${alto}px`);
+  }
   const ocultar = accionVisible && !accesoMovil.contains(document.activeElement);
-  accesoMovil.dataset.oculto = String(ocultar);
-  if (ocultar) accesoMovil.setAttribute("aria-hidden", "true");
-  else accesoMovil.removeAttribute("aria-hidden");
+  if (accesoMovil.dataset.oculto !== String(ocultar)) {
+    accesoMovil.dataset.oculto = String(ocultar);
+    if (ocultar) accesoMovil.setAttribute("aria-hidden", "true");
+    else accesoMovil.removeAttribute("aria-hidden");
+  }
 }
 
 function programarControlesMoviles() {
@@ -385,4 +389,4 @@ if ("ResizeObserver" in window) {
 }
 // Sin ResizeObserver quedan la reserva CSS, resize y la medida al cargar fuentes.
 document.fonts?.ready.then(programarControlesMoviles);
-actualizarControlesMoviles();
+programarControlesMoviles();
