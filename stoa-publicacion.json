@@ -1,10 +1,10 @@
 {
   "formato": 1,
-  "fuente": "5078f6110603d98c91c62a9dfb0f6a1f5afae3fb",
-  "fuenteArbol": "0ffc5c800fefbb012adbd0a0273189f354307adf",
-  "manifiestoSha256": "9e042da8362a2dcb3d25929fea0e2a07613130f8499980a77f778c6248a2dafd",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43208298534",
-  "publicoAnterior": "4c2a7806f4c3268c4e2949c630f60a0c6d52e9ee",
+  "fuente": "43fa5eb705eac3e88e4e1842a5068060d441aa2c",
+  "fuenteArbol": "4bbdeed1a6d7af2f55f433b2ed5dc0d5b4c6adf4",
+  "manifiestoSha256": "76536ec4365a67fc8281adbbd2d5b31d9deb7304ca7ba5a39e3f5a0e43bd0fe3",
+  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43256272609",
+  "publicoAnterior": "58ef1b671a313d5b92b16ecabc93b122056e6156",
   "conservados": [],
   "automatizacion_conservada": []
 }

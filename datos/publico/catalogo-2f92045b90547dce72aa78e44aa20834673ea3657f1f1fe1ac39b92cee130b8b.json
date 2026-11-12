@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "capturado": "2026-11-12T11:24:58.478Z",
+  "capturado": "2026-11-12T16:19:16.673Z",
   "ofertas": [
     {
       "clave": "filosofia",
       "nombre": "Filosofía",
       "contexto": "no_rural",
       "lecciones_propias": 27,
-      "preguntas_propias": 184,
+      "preguntas_propias": 208,
       "lecciones_comunes": 38,
       "preguntas_comunes": 252
     },
