@@ -1,66 +1,10 @@
 {
   "formato": 1,
-  "fuente": "48062d1443a0f70bf0b148bb802e04dacf2f50d5",
-  "fuenteArbol": "b49ee2ebe6a4435a0726214c831f95edfdd4c69d",
-  "manifiestoSha256": "566f5267d077ee6341147a82ae2c4652902c537259b1885ca4d0252e4b0f86fb",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43127682615",
-  "publicoAnterior": "b3ba4b8c2df741bd09e2c76be00cef72cddcf9f4",
-  "conservados": [
-    {
-      "ruta": "assets/app-NxlGD1AS.js",
-      "sha256": "6125fd6790a88566d0b05c6782c99b88739b0cce28a8bf170c6eba029de46c64",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/app-VmzLIfKu.css",
-      "sha256": "31999be1f287d9f8215e500b698b4cee286172d0b6aa82f9321410283747f462",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Concurso-Bvs93xQZ.js",
-      "sha256": "8ef7cb3ac21e02478eca69fb0a8183735590081ce74ebe2b540a6d00ddad72fa",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Errores-6-XELJxD.js",
-      "sha256": "808d1c3df53738197e868136ef7a82635464e7e5715820cda305b7253f8fcf31",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/ModuloVista-B7xhNp39.js",
-      "sha256": "d4d53675cf30dd18414eb48f1464d413d4216e4b44a3473e139d572a3109c526",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/NormasCasos-BzxUSRSB.js",
-      "sha256": "c5147ac0b80bda0c14180e19e406f66e3d172b784d6feed08cd8686cc804d48a",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Practica-Bg-bXeaw.js",
-      "sha256": "eec6cb4e8881643b614f0d13813934602b76be36eefd5c1286b2d77a1c1b8aa5",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Premium-CchG_rE6.js",
-      "sha256": "fdcd4482d536b541d9c68c2910b65b946db298af96800ea6522efcd1581f033f",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Progreso-NfSuXaW6.js",
-      "sha256": "bcc1e0325ba6163c4b63b6a77d04282c3ef65487f5baefd0206843ed2013955a",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Tarjetas-BQ7_VJrx.js",
-      "sha256": "cfe34cefaecc0abfbbcb7a034511d823596fc012d063f0a9a1f73dcf85cde97c",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    },
-    {
-      "ruta": "assets/Temario-Cm2PpbYG.js",
-      "sha256": "cd2748e21220425660e4acfe38814a1281e21ccec26287e6bf1a06a05a266fb2",
-      "commit": "88183fdd377795629981cba04f507beec380206f"
-    }
-  ],
+  "fuente": "85c668e4d90dc8287bf23de355ad5d7ebe6a8775",
+  "fuenteArbol": "abb25c5f974e8c4317a0b3d815aaa1a650b51ee0",
+  "manifiestoSha256": "613aac0f9a81799d24141b5e8fc2bb30ec34fe3fa0fc07a7af4810ce2e8d02a0",
+  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43148177500",
+  "publicoAnterior": "c7475be589c4781e880f646c61de5f64303db500",
+  "conservados": [],
   "automatizacion_conservada": []
 }

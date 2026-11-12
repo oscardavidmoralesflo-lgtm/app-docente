@@ -5,8 +5,28 @@ if (location.hostname === "stoa-app-docente.onrender.com") {
 }
 
 const casos = {
+  filosofia: {
+    folio: "01 / 05", area: "FILOSOFÍA · ARGUMENTACIÓN", titulo: "¿Tener una cifra basta?",
+    contexto: "En décimo, un estudiante afirma que todo cartel que presenta una cifra ofrece evidencia suficiente para defender su conclusión. La clase examina carteles de una feria escolar y acepta los datos que cada ejemplo registra.",
+    pregunta: "¿Cuál de los carteles constituye un contraejemplo a esa afirmación?", correcta: 1,
+    opciones: [
+      ["Un cartel afirma que el patio está vacío y muestra una fotografía del patio completo en el momento descrito, sin indicar cifras.", "Ilustra que se puede sostener una afirmación sin cifras. La tesis examinada habla de carteles que sí presentan una cifra, por eso este ejemplo queda fuera de su condición."],
+      ["Un cartel afirma que aumentó el reciclaje y registra diez bolsas recogidas hoy, sin informar cuánto se recogía antes.", "El cartel cumple la condición de presentar una cifra, pero diez bolsas solo informa cuánto se recogió hoy. Para defender que hubo un aumento hace falta compararlo con un registro previo."],
+      ["Un cartel afirma que llegaron veinte estudiantes y muestra el registro de entrada completo con veinte nombres distintos verificados.", "La cifra se apoya en un registro pertinente y completo para esa afirmación. Es un caso compatible con la tesis, así que no la refuta."],
+    ],
+  },
+  artes: {
+    folio: "02 / 05", area: "ARTES ESCÉNICAS · COMPOSICIÓN", titulo: "¿Desde dónde se entiende la escena?",
+    contexto: "En octavo, tres estudiantes muestran cómo una carta cambia de destinatario sin usar palabras. Desde el frente se ve la entrega. Desde un costado, el cuerpo de una intérprete la tapa y el público cree que la carta sigue con la primera persona.",
+    pregunta: "¿Qué ajuste permite comprobar si la entrega se entiende desde ambos lugares?", correcta: 2,
+    opciones: [
+      ["Mantener la posición y prolongar la pausa antes de la entrega para dirigir la atención del público hacia la carta.", "Una pausa puede orientar la atención. Mientras el cuerpo siga bloqueando la vista lateral, ese público seguirá sin ver el instante de la entrega."],
+      ["Cambiar a la intérprete que recibe la carta y conservar la posición para comparar la claridad del gesto entre ambas versiones.", "Cambiar a la intérprete permite comparar la ejecución del gesto, pero deja sin probar la relación espacial que causó el problema desde el costado."],
+      ["Girar la entrega hacia un espacio libre y pedir a observadores de ambos lados que identifiquen quién recibió la carta.", "El giro cambia la línea de visión sin añadir diálogo. Preguntar por el destinatario desde ambos lugares permite comprobar si se entendió la acción, además de si llegó a verse."],
+    ],
+  },
   primaria: {
-    folio: "01 / 03", area: "PRIMARIA · MATEMÁTICAS", titulo: "¿Qué revela el procedimiento?",
+    folio: "03 / 05", area: "PRIMARIA · MATEMÁTICAS", titulo: "¿Qué revela el procedimiento?",
     contexto: "Una receta para 4 personas usa 6 tazas de agua. Para 8 personas, una estudiante propone 10 tazas porque sumó 4 al número de tazas.",
     pregunta: "¿Qué intervención ayuda a revisar su razonamiento?", correcta: 0,
     opciones: [
@@ -16,7 +36,7 @@ const casos = {
     ],
   },
   pedagogia: {
-    folio: "02 / 03", area: "BASE COMÚN · EVALUACIÓN", titulo: "¿Qué evidencia importa?",
+    folio: "04 / 05", area: "BASE COMÚN · EVALUACIÓN", titulo: "¿Qué evidencia importa?",
     contexto: "En una actividad de Sociales, el objetivo es comparar dos testimonios sobre un mismo hecho. Un estudiante con baja visión no logra leer uno de los documentos escaneados.",
     pregunta: "¿Cómo puede participar y demostrar el mismo aprendizaje?", correcta: 1,
     opciones: [
@@ -26,7 +46,7 @@ const casos = {
     ],
   },
   fisica: {
-    folio: "03 / 03", area: "FÍSICA · MOVIMIENTO", titulo: "El significado de una recta.",
+    folio: "05 / 05", area: "FÍSICA · MOVIMIENTO", titulo: "El significado de una recta.",
     contexto: "Al observar una gráfica de posición frente al tiempo, un estudiante ve un tramo horizontal a 3 metros. Afirma que allí el móvil avanza a velocidad constante porque la línea es recta.",
     pregunta: "¿Qué le pedirías comprobar para interpretar ese tramo?", correcta: 2,
     opciones: [
@@ -40,10 +60,24 @@ const casos = {
 const alternativas = [...document.querySelectorAll("[data-respuesta]")];
 const botonesCaso = [...document.querySelectorAll("[data-caso]")];
 const retro = document.getElementById("retro");
-let casoActivo = casos.primaria;
+const explicaciones = document.getElementById("explicaciones-muestra");
+const cuaderno = document.getElementById("cuaderno");
+const movimiento = window.matchMedia("(prefers-reduced-motion: reduce)");
+let casoActivo = casos.filosofia;
+let animacionMuestra;
+
+function asentarMuestra(elemento, distancia, duracion) {
+  animacionMuestra?.cancel();
+  if (movimiento.matches || typeof elemento.animate !== "function") return;
+  animacionMuestra = elemento.animate(
+    [{ transform: `translateY(${distancia}px)`, opacity: .88 }, { transform: "translateY(0)", opacity: 1 }],
+    { duration: duracion, easing: "cubic-bezier(.2,.75,.25,1)" },
+  );
+}
+movimiento.addEventListener("change", () => { if (movimiento.matches) animacionMuestra?.cancel(); });
 
 function mostrarCaso(clave) {
-  if (!Object.hasOwn(casos, clave)) return;
+  if (!Object.hasOwn(casos, clave) || casos[clave] === casoActivo) return;
   casoActivo = casos[clave];
   for (const campo of ["folio", "area", "titulo", "contexto", "pregunta"]) {
     document.getElementById(`caso-${campo}`).textContent = casoActivo[campo];
@@ -54,17 +88,39 @@ function mostrarCaso(clave) {
     boton.querySelector("b").textContent = casoActivo.opciones[posicion][0];
     delete boton.dataset.correcta;
   });
-  retro.textContent = "Elige una alternativa para ver la retroalimentación.";
+  retro.textContent = "Elige una alternativa para ver el resultado.";
+  delete retro.dataset.resultado;
+  explicaciones.hidden = true;
+  explicaciones.replaceChildren();
+  asentarMuestra(cuaderno, 5, 230);
 }
 
 botonesCaso.forEach(boton => boton.addEventListener("click", () => mostrarCaso(boton.dataset.caso)));
 alternativas.forEach((boton, posicion) => boton.addEventListener("click", () => {
   const correcta = casoActivo.correcta === posicion;
-  alternativas.forEach(alternativa => alternativa.setAttribute("aria-pressed", String(alternativa === boton)));
-  boton.dataset.correcta = String(correcta);
+  alternativas.forEach((alternativa, indice) => {
+    alternativa.setAttribute("aria-pressed", String(alternativa === boton));
+    alternativa.dataset.correcta = String(indice === casoActivo.correcta);
+  });
   const titulo = document.createElement("strong");
-  titulo.textContent = correcta ? "Bien razonado." : "Revisa este detalle.";
-  retro.replaceChildren(titulo, " " + casoActivo.opciones[posicion][1]);
+  const letra = "ABC"[casoActivo.correcta];
+  titulo.textContent = correcta ? `Acertaste. La opción ${letra} es correcta.` : `La opción ${letra} es la más adecuada.`;
+  retro.dataset.resultado = correcta ? "acierto" : "revision";
+  retro.replaceChildren(titulo);
+  const tarjetas = casoActivo.opciones.map(([, razon], indice) => {
+    const tarjeta = document.createElement("div");
+    tarjeta.dataset.correcta = String(indice === casoActivo.correcta);
+    const encabezado = document.createElement("p");
+    encabezado.className = "explicacion-titulo";
+    encabezado.textContent = `Por qué ${"ABC"[indice]} ${indice === casoActivo.correcta ? "es correcta" : "no lo es"}`;
+    const detalle = document.createElement("p");
+    detalle.textContent = razon;
+    tarjeta.append(encabezado, detalle);
+    return tarjeta;
+  });
+  explicaciones.replaceChildren(...tarjetas);
+  explicaciones.hidden = false;
+  asentarMuestra(explicaciones, 6, 260);
 }));
 
 const grupos = {
