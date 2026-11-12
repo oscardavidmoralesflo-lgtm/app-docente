@@ -11,7 +11,7 @@
   --serif: Bodoni, Georgia, serif; --sans: Hanken, system-ui, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-padding-top: 112px; scroll-padding-bottom: 90px; }
+html { scroll-padding-top: calc(var(--alto-cabecera-landing, 100px) + 12px); scroll-padding-bottom: calc(var(--alto-acceso-movil, 0px) + 12px); }
 body { background: var(--crema); color: var(--tinta); font: 1rem/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
 body, h1, h2, h3, p, figure, dl, dd { margin: 0; }
 img { display: block; max-width: 100%; height: auto; }
@@ -150,6 +150,10 @@ legend { font-size: .95rem; font-weight: 820; padding: 0; margin-bottom: 12px; }
 .herramientas dd { color: #c6d2e1; font-size: .93rem; padding-left: 30px; margin-top: 4px; }
 .experiencia .nota { color: #b8c5d7; }
 .experiencia .enlace { margin-top: 14px; }
+.instalacion { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--linea-oscura); }
+.instalacion h3 { font: 790 1.08rem/1.4 var(--sans); letter-spacing: 0; }
+.instalacion > p { color: #c6d2e1; font-size: .93rem; line-height: 1.65; margin-top: 12px; max-width: 60ch; }
+.instalacion > .nota { margin-top: 8px; font-size: .9rem; }
 
 .perfiles-malla { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr); gap: clamp(26px, 6.5vw, 96px); align-items: start; }
 .explorador { min-width: 0; }
@@ -185,7 +189,7 @@ legend { font-size: .95rem; font-weight: 820; padding: 0; margin-bottom: 12px; }
 .plan-premium .ceja { color: var(--oro); }
 .etiqueta-pago { border-bottom: 1px solid #ad9667; padding-bottom: 3px; font-size: .72rem; color: var(--oro); font-weight: 800; }
 .pliego-planes h3 { font-size: clamp(2rem, 3vw, 3rem); }
-.importe { font: 580 clamp(3.4rem, 6vw, 5.4rem)/1 var(--serif); letter-spacing: -.055em; margin-block: 25px 16px; white-space: nowrap; }
+.importe { font: 580 clamp(3.4rem, 6vw, 5.4rem)/1 var(--serif); letter-spacing: -.055em; margin-block: 25px 16px; }
 .importe > span { font: 780 .74rem/1 var(--sans); letter-spacing: .07em; }
 .plan-gratis > p:not(.importe, .ceja) { color: var(--gris); }
 .alcance-plan { color: #d5deeb; font-size: 1.04rem; }
@@ -216,7 +220,7 @@ legend { font-size: .95rem; font-weight: 820; padding: 0; margin-bottom: 12px; }
 .preguntas-intro > p:not(.ceja) { color: var(--gris); margin-top: 19px; max-width: 30ch; }
 .preguntas-intro > .enlace { margin-top: 17px; }
 .preguntas-intro > .nota { display: block; }
-.grupo-faq { font-family: var(--sans); font-size: .65rem; line-height: 1.4; font-weight: 820; letter-spacing: .13em; color: var(--oro-tinta); border-bottom: 1px solid var(--linea); padding-bottom: 15px; }
+.grupo-faq { font-family: var(--sans); font-size: .75rem; line-height: 1.4; font-weight: 820; letter-spacing: .1em; color: var(--oro-tinta); border-bottom: 1px solid var(--linea); padding-bottom: 15px; }
 .grupo-faq:not(:first-child) { margin-top: 31px; }
 details { border-bottom: 1px solid var(--linea); }
 summary { cursor: pointer; list-style: none; padding-block: 18px; padding-right: 30px; font-size: .98rem; line-height: 1.45; font-weight: 780; position: relative; }
@@ -285,7 +289,6 @@ details a { color: var(--tinta); font-weight: 650; }
   .cierre-malla { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
 }
 @media (max-width: 700px) {
-  html { scroll-padding-top: 120px; }
   main { padding-bottom: var(--alto-acceso-movil, calc(77px + env(safe-area-inset-bottom, 0px))); }
   .pie { padding-bottom: calc(23px + var(--alto-acceso-movil, calc(77px + env(safe-area-inset-bottom, 0px)))); }
   .marco { width: calc(100% - 38px); }
@@ -293,7 +296,8 @@ details a { color: var(--tinta); font-weight: 650; }
   .marca b { font-size: 1.75rem; }
   .marca svg { width: 29px; height: 29px; }
   .marca small { font-size: .47rem; margin-top: 5px; }
-  .acceso { margin-left: auto; }
+  .acceso { margin-left: auto; gap: 14px; }
+  .instalar-cabecera { text-decoration: underline; text-decoration-color: var(--oro-tinta); }
   .navegacion { width: 100%; order: 3; justify-content: space-between; flex-wrap: wrap; gap: 0 8px; }
   .navegacion a { display: flex; align-items: center; min-height: 44px; padding-block: 9px; font-size: .85rem; }
   .navegacion a::after { bottom: 6px; }
@@ -371,7 +375,7 @@ details a { color: var(--tinta); font-weight: 650; }
   .cuaderno-cuerpo { padding: 20px 15px; }
   .respuesta { padding-inline: 8px; gap: 8px; }
   .plan-gratis, .plan-premium { padding-inline: 21px; }
-  .importe { font-size: 3.8rem; }
+  .importe { font-size: 3.2rem; }
   .conteos dd { font-size: .91rem; }
   .conteos dd > span { margin-inline: 4px; }
 }
@@ -401,6 +405,7 @@ details a { color: var(--tinta); font-weight: 650; }
 .comparacion:focus-visible { outline: 3px solid var(--oro-tinta); outline-offset: 4px; }
 .comparacion table { width: 100%; min-width: 560px; border-collapse: collapse; table-layout: fixed; font-size: .94rem; line-height: 1.6; }
 .comparacion caption { padding: 22px 24px; text-align: left; font: 580 clamp(1.4rem, 2.3vw, 1.8rem)/1.25 var(--serif); letter-spacing: -.025em; color: var(--lapis); }
+.ayuda-comparacion { display: none; }
 .comparacion th, .comparacion td { padding: 18px 20px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 .comparacion thead { background: var(--lapis); color: var(--crema); }
 .comparacion thead th { font-size: .86rem; font-weight: 800; }
@@ -415,11 +420,7 @@ details a { color: var(--tinta); font-weight: 650; }
 @media (max-width: 700px) {
   .navegacion a { font-size: .8125rem; }
   .acceso-movil[data-oculto="true"] { visibility: hidden; pointer-events: none; }
-}
-@media (max-width: 360px) {
-  .navegacion { min-width: 0; max-width: 100%; flex-wrap: nowrap; justify-content: flex-start; gap: 20px; overflow-x: auto; overscroll-behavior-x: contain; scroll-padding-inline: 6px; scrollbar-width: thin; padding: 4px 4px 7px; }
-  .navegacion a { flex: none; display: inline-flex; align-items: center; min-height: 44px; font-size: .875rem; padding-block: 10px; }
-  .navegacion:focus-visible { outline-offset: -3px; }
-  .navegacion a:focus-visible { outline-offset: 1px; }
+  .comparacion caption > span { display: block; max-width: calc(100vw - 88px); }
+  .comparacion .ayuda-comparacion { margin-top: 12px; color: var(--gris); font: 650 .8125rem/1.5 var(--sans); letter-spacing: 0; }
 }
 @media print { main { padding-bottom: 0; } .pie { padding-bottom: 23px; } }

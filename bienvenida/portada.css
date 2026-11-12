@@ -31,3 +31,6 @@
   .portada-acciones { column-gap: 12px; }
   .portada-acciones .boton { gap: 9px; padding-inline: 14px; }
 }
+@media (max-width: 365px) {
+  .portada-acciones .boton { width: 100%; }
+}

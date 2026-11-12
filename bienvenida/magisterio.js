@@ -281,30 +281,33 @@ if ("IntersectionObserver" in window) {
 // Navegación estrecha y CTA: no se oculta ningún control que conserve el foco.
 const menuEstrecho = document.querySelector(".navegacion");
 const accesoMovil = document.querySelector(".acceso-movil");
-const seccionPremium = document.getElementById("premium");
 const cabeceraLanding = document.querySelector(".cabecera");
+const accionesEnPagina = [...document.querySelectorAll("main a.boton")];
 let actualizacionMovil = null;
 
 function actualizarControlesMoviles() {
   actualizacionMovil = null;
-  if (menuEstrecho) {
-    const desplazable = window.matchMedia("(max-width: 360px)").matches
-      && menuEstrecho.scrollWidth > menuEstrecho.clientWidth;
-    if (desplazable) menuEstrecho.setAttribute("tabindex", "0");
-    else menuEstrecho.removeAttribute("tabindex");
+  const raiz = document.documentElement;
+  const bordeCabecera = Math.ceil(cabeceraLanding?.getBoundingClientRect().height || 0);
+  if (raiz.style.getPropertyValue("--alto-cabecera-landing") !== `${bordeCabecera}px`) {
+    raiz.style.setProperty("--alto-cabecera-landing", `${bordeCabecera}px`);
   }
   if (!accesoMovil) return;
   // visibility:hidden conserva la medida, también cuando cambian fuente o safe-area.
   const alto = Math.ceil(accesoMovil.getBoundingClientRect().height);
-  const raiz = document.documentElement;
-  if (alto > 0 && raiz.style.getPropertyValue("--alto-acceso-movil") !== `${alto}px`) {
+  if (raiz.style.getPropertyValue("--alto-acceso-movil") !== `${alto}px`) {
     raiz.style.setProperty("--alto-acceso-movil", `${alto}px`);
   }
-  if (!seccionPremium) return;
-  const limites = seccionPremium.getBoundingClientRect();
-  const bordeCabecera = Math.max(0, cabeceraLanding?.getBoundingClientRect().bottom || 0);
-  const premiumVisible = limites.bottom > bordeCabecera && limites.top < window.innerHeight;
-  const ocultar = premiumVisible && !accesoMovil.contains(document.activeElement);
+  // Ocultar solo si un CTA completo ya está al alcance, sin taparlo con la barra.
+  const accionVisible = accionesEnPagina.some(accion => {
+    const limites = accion.getBoundingClientRect();
+    // Al enfocar un CTA del contenido, retirar la barra libera también el
+    // espacio que ocupaba. Evita taparlo tras el desplazamiento de Tab/focus().
+    const enfocada = accion === document.activeElement;
+    return limites.height > 0 && limites.top >= bordeCabecera + (enfocada ? 0 : 12)
+      && limites.bottom <= window.innerHeight - (enfocada ? 0 : alto + 12);
+  });
+  const ocultar = accionVisible && !accesoMovil.contains(document.activeElement);
   accesoMovil.dataset.oculto = String(ocultar);
   if (ocultar) accesoMovil.setAttribute("aria-hidden", "true");
   else accesoMovil.removeAttribute("aria-hidden");
@@ -314,13 +317,8 @@ function programarControlesMoviles() {
   if (actualizacionMovil === null) actualizacionMovil = requestAnimationFrame(actualizarControlesMoviles);
 }
 
-menuEstrecho?.addEventListener("focusin", evento => {
-  if (!window.matchMedia("(max-width: 360px)").matches) return;
-  const enlace = evento.target.closest("a");
-  if (enlace) enlace.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
-});
-accesoMovil?.addEventListener("focusin", programarControlesMoviles);
-accesoMovil?.addEventListener("focusout", programarControlesMoviles);
+document.addEventListener("focusin", programarControlesMoviles);
+document.addEventListener("focusout", programarControlesMoviles);
 window.addEventListener("scroll", programarControlesMoviles, { passive: true });
 window.addEventListener("resize", programarControlesMoviles, { passive: true });
 if ("ResizeObserver" in window) {
