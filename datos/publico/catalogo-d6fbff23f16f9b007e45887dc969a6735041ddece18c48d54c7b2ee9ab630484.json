@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "capturado": "2026-11-13T01:09:44.734Z",
+  "capturado": "2026-11-13T02:44:58.915Z",
   "ofertas": [
     {
       "clave": "filosofia",
@@ -8,60 +8,6 @@
       "contexto": "no_rural",
       "lecciones_propias": 27,
       "preguntas_propias": 208,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "matematicas",
-      "nombre": "Matemáticas",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "lenguaje",
-      "nombre": "Lenguaje / Humanidades",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "preescolar",
-      "nombre": "Preescolar",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "primaria",
-      "nombre": "Primaria",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "fisica",
-      "nombre": "Física",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
-      "lecciones_comunes": 38,
-      "preguntas_comunes": 447
-    },
-    {
-      "clave": "quimica",
-      "nombre": "Química",
-      "contexto": "no_rural",
-      "lecciones_propias": 12,
-      "preguntas_propias": 120,
       "lecciones_comunes": 38,
       "preguntas_comunes": 447
     },
