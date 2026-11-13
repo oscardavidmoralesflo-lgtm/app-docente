@@ -393,9 +393,6 @@ details a { color: var(--tinta); font-weight: 650; }
   .boton:active { transform: translateY(0); }
   .respuesta, .selector-casos button { transition: background-color .16s, border-color .16s; }
   .navegacion a::after { transition: transform .22s; }
-  .portada h1 { animation: asentar .7s ease-out both; }
-  [data-reveal].esta-visto { animation: asentar .65s ease-out both; }
-  @keyframes asentar { from { opacity: .78; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
 @media print { .cabecera, .acceso-movil, .salto { display: none; } body { padding-bottom: 0; } .portada, .experiencia, .cierre, .plan-premium, .pie { color: #111; background: #fff; } .seccion { padding-block: 32px; } .preguntas-intro { position: static; } }

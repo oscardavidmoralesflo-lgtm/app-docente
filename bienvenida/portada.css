@@ -81,6 +81,20 @@
 .plan-premium { background-image: radial-gradient(ellipse at 90% 7%, #304c76, transparent 52%); }
 .pliego-planes { border-radius: 14px; overflow: clip; }
 
+/* Acento del recorrido sobre el borde existente, sin representar avance de estudio. */
+.secuencia > li { position: relative; }
+.secuencia > li.esta-visto::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline-start: 0;
+  inline-size: 18px;
+  block-size: 2px;
+  background: var(--oro-tinta);
+  transform-origin: left;
+  pointer-events: none;
+}
+
 @media (min-width: 881px) {
   .laboratorio-texto { position: sticky; top: calc(var(--alto-cabecera-landing, 82px) + 20px); }
 }
@@ -107,21 +121,16 @@
 }
 @media (max-width: 365px) { .portada-acciones .boton { width: 100%; } }
 @media (prefers-reduced-motion: no-preference) {
-  .portada h1 { animation: entrada-portada .54s cubic-bezier(.2,.75,.25,1) both; }
-  .portada .vista-escritorio::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px solid var(--oro);
-    border-radius: inherit;
-    pointer-events: none;
-    animation: borde-portada .7s ease-out both;
+  .esta-revelando:not(:focus-within) {
+    animation: entrada-portada .44s cubic-bezier(.2,.75,.25,1) var(--demora-entrada, 0ms) both;
   }
-  [data-reveal].esta-visto { animation: entrada-portada .46s cubic-bezier(.2,.75,.25,1) both; }
+  .secuencia > li.esta-revelando:not(:focus-within)::before {
+    animation: marca-metodo .4s cubic-bezier(.2,.75,.25,1) var(--demora-entrada, 0ms) both;
+  }
   .navegacion a::after { transition: transform .22s ease; }
   .selector-casos button, .respuesta { transition: background-color .17s ease, border-color .17s ease, color .17s ease; }
   .boton-oro span, .cuaderno-acciones .enlace span { transition: transform .2s ease; }
   .boton-oro:hover span, .cuaderno-acciones .enlace:hover span { transform: translate(2px, -2px); }
 }
-@keyframes entrada-portada { from { transform: translateY(9px); } to { transform: translateY(0); } }
-@keyframes borde-portada { from { opacity: .44; } to { opacity: 0; } }
+@keyframes entrada-portada { from { transform: translateY(14px); } to { transform: translateY(0); } }
+@keyframes marca-metodo { from { transform: scaleX(0); } to { transform: scaleX(1); } }

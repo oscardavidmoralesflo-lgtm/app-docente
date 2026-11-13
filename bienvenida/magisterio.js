@@ -312,15 +312,73 @@ void cargarPerfiles();
 
 // El contenido permanece visible si no hay animaciones, JavaScript o esta API.
 if ("IntersectionObserver" in window) {
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const revelar = new IntersectionObserver(entradas => entradas.forEach(entrada => {
-      if (entrada.isIntersecting) {
-        entrada.target.classList.add("esta-visto");
-        revelar.unobserve(entrada.target);
-      }
-    }), { threshold: 0.12 });
-    document.querySelectorAll("[data-reveal]").forEach(elemento => revelar.observe(elemento));
+  const elementos = [...document.querySelectorAll("[data-reveal], .herramientas > div")];
+  const pendientes = new Set(elementos);
+  const inicializados = new WeakSet();
+
+  function asentarEntrada(elemento) {
+    pendientes.delete(elemento);
+    revelar.unobserve(elemento);
+    elemento.classList.remove("esta-revelando");
+    elemento.classList.add("esta-visto");
+    elemento.style.removeProperty("--demora-entrada");
   }
+
+  const revelar = new IntersectionObserver(entradas => {
+    const grupos = new Map();
+    entradas.sort((a, b) => elementos.indexOf(a.target) - elementos.indexOf(b.target));
+    for (const entrada of entradas) {
+      const elemento = entrada.target;
+      const inicial = !inicializados.has(elemento);
+      inicializados.add(elemento);
+      if (!pendientes.has(elemento)) continue;
+      // El contenido visible al cargar y los bloques ya recorridos quedan en reposo.
+      if (entrada.boundingClientRect.bottom <= 0) {
+        asentarEntrada(elemento);
+        continue;
+      }
+      if (!entrada.isIntersecting || entrada.intersectionRatio < .12) continue;
+      if (inicial || movimiento.matches || elemento.contains(document.activeElement)) {
+        asentarEntrada(elemento);
+        continue;
+      }
+      const grupo = elemento.closest(".secuencia, .herramientas");
+      const orden = grupo ? grupos.get(grupo) || 0 : 0;
+      if (grupo) grupos.set(grupo, orden + 1);
+      // Escalona los hermanos que entran juntos y conserva el ritmo de lectura en móvil.
+      elemento.style.setProperty("--demora-entrada", `${Math.min(orden, 3) * 35}ms`);
+      pendientes.delete(elemento);
+      revelar.unobserve(elemento);
+      elemento.classList.add("esta-visto", "esta-revelando");
+    }
+  }, { threshold: .12 });
+
+  function asentarDestino(hash) {
+    const destino = document.getElementById(hash.slice(1));
+    if (destino) elementos.filter(elemento => destino.contains(elemento)).forEach(asentarEntrada);
+  }
+  asentarDestino(location.hash);
+  pendientes.forEach(elemento => revelar.observe(elemento));
+  document.addEventListener("click", evento => {
+    const enlace = evento.target.closest?.('a[href^="#"]');
+    if (enlace && !evento.defaultPrevented && !evento.ctrlKey && !evento.metaKey && !evento.shiftKey && !evento.altKey) {
+      asentarDestino(enlace.hash);
+    }
+  });
+  window.addEventListener("hashchange", () => asentarDestino(location.hash));
+
+  function terminarEntrada(evento) {
+    if (evento.animationName === "entrada-portada" && elementos.includes(evento.target)) asentarEntrada(evento.target);
+  }
+  document.addEventListener("animationend", terminarEntrada, { passive: true });
+  document.addEventListener("animationcancel", terminarEntrada, { passive: true });
+  document.addEventListener("focusin", evento => {
+    elementos.forEach(elemento => { if (elemento.contains(evento.target)) asentarEntrada(elemento); });
+  }, { capture: true, passive: true });
+  movimiento.addEventListener("change", () => {
+    if (movimiento.matches) elementos.filter(elemento => elemento.classList.contains("esta-revelando")).forEach(asentarEntrada);
+  }, { passive: true });
+
   const secciones = [...document.querySelectorAll("[data-nav-section]")];
   const enlaces = [...document.querySelectorAll("[data-nav]")];
   const visibles = new Set();
