@@ -1,0 +1,1 @@
+import{G as e,rt as t}from"./datos-lWu28vsX.js";function n(n){let r=n.filas??3;return e(`div`,{class:`esq`,"aria-busy":`true`,"aria-label":`Cargando`,children:[n.titulo!==!1&&e(t,{children:[e(`div`,{class:`esq-b esq-t`}),e(`div`,{class:`esq-b esq-s`})]}),e(`div`,{class:`esq-grid`,children:Array.from({length:r},()=>e(`div`,{class:`esq-b esq-c`}))})]})}export{n as t};
