@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "capturado": "2026-11-13T00:28:04.028Z",
+  "capturado": "2026-11-13T01:09:44.734Z",
   "ofertas": [
     {
       "clave": "filosofia",
@@ -9,7 +9,7 @@
       "lecciones_propias": 27,
       "preguntas_propias": 208,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "matematicas",
@@ -18,7 +18,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "lenguaje",
@@ -27,7 +27,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "preescolar",
@@ -36,7 +36,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "primaria",
@@ -45,7 +45,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "fisica",
@@ -54,7 +54,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "quimica",
@@ -63,7 +63,7 @@
       "lecciones_propias": 12,
       "preguntas_propias": 120,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     },
     {
       "clave": "artistica_escenicas",
@@ -72,7 +72,7 @@
       "lecciones_propias": 28,
       "preguntas_propias": 276,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 252
+      "preguntas_comunes": 447
     }
   ],
   "perfiles": [
