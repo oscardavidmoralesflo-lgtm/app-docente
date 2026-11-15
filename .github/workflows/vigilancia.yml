@@ -1,0 +1,45 @@
+# Plantilla pública R-4. Instalar en app-docente; la variable debe activarla Halley.
+# No necesita acceso al código fuente, a usuarios ni a claves privadas del negocio.
+name: Vigilancia pública de Stoa
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: stoa-vigilancia-publica
+  cancel-in-progress: false
+
+jobs:
+  vigilar:
+    if: >-
+      github.repository == 'oscardavidmoralesflo-lgtm/app-docente' &&
+      github.event.repository.private == false &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&
+      vars.STOA_VIGILANCIA_HABILITADA == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.1'
+      - name: Comprobar endpoints públicos y gestionar el incidente
+        env:
+          STOA_VIGILANCIA_HABILITADA: ${{ vars.STOA_VIGILANCIA_HABILITADA }}
+          STOA_REPOSITORIO_PUBLICO: ${{ github.event.repository.private == false && 'true' || 'false' }}
+          GITHUB_TOKEN: ${{ github.token }}
+          # Opcional: fine-grained, exclusivamente Issues read/write de stoa.
+          # Sin este secreto se usa el token efímero y el issue queda en app-docente.
+          STOA_ISSUES_TOKEN: ${{ secrets.STOA_ISSUES_TOKEN }}
+        run: node .github/scripts/vigilancia_publica.mjs
