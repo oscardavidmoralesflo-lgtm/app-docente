@@ -1,0 +1,102 @@
+# R-4. Plantilla para app-docente/main; no se ejecuta desde el repo fuente stoa.
+# El dueño activa STOA_MANTENER_ACTIVO_HABILITADO=true en Variables de app-docente.
+# Solo usa una clave PUBLICABLE de Supabase y, en el job mensual, github.token efímero.
+# No configurar secretos, PAT, service_role ni permisos contents: write.
+#
+# LIMITACIÓN por_confirmar: GitHub documenta la desactivación a los 60 días y que
+# PUT enable establece state=active; no documenta que reinicie el plazo de actividad.
+# Este intento mensual NO garantiza conservar el cron. Una vez desactivado,
+# el propio cron no puede ejecutarse para recuperarse. Revisar Actions a mano:
+#   gh workflow enable mantener-activo.yml --repo oscardavidmoralesflo-lgtm/app-docente
+#   gh workflow run mantener-activo.yml --repo oscardavidmoralesflo-lgtm/app-docente --ref main -f modo=consulta
+# Repetir enable para vigilancia.yml si procede y comprobar EJECUCIONES PROGRAMADAS.
+# Fuente: https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows
+# API: https://docs.github.com/en/rest/actions/workflows#enable-a-workflow
+# Cron: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
+# Un cron puede retrasarse o no ejecutarse. Una consulta no garantiza evitar pausas de Supabase.
+name: Comprobar actividad pública de Supabase
+
+on:
+  schedule:
+    - cron: '17 1,13 * * *' # Dos consultas/día UTC; 20:17 y 08:17 en Bogotá.
+    - cron: '29 2 1 * *' # Revisión mensual; no hace una tercera consulta a Supabase.
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: Consulta pública o revisión del cron por inactividad
+        type: choice
+        required: true
+        default: consulta
+        options:
+          - consulta
+          - mensual
+
+permissions:
+  contents: read
+
+concurrency:
+  group: actividad-publica-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  STOA_MANTENER_ACTIVO_HABILITADO: ${{ vars.STOA_MANTENER_ACTIVO_HABILITADO }}
+  STOA_REPOSITORIO_VISIBILIDAD: ${{ github.event.repository.visibility }}
+  STOA_RAMA_PREDETERMINADA: ${{ github.event.repository.default_branch }}
+  STOA_EVENTO_CRON: ${{ github.event.schedule }}
+  STOA_MODO_ACTIVIDAD: ${{ inputs.modo || 'consulta' }}
+
+jobs:
+  consulta:
+    if: >-
+      github.repository == 'oscardavidmoralesflo-lgtm/app-docente' &&
+      github.ref == 'refs/heads/main' &&
+      github.event.repository.visibility == 'public' &&
+      github.event.repository.default_branch == 'main' &&
+      vars.STOA_MANTENER_ACTIVO_HABILITADO == 'true' &&
+      ((github.event_name == 'schedule' && github.event.schedule == '17 1,13 * * *') ||
+       (github.event_name == 'workflow_dispatch' && inputs.modo == 'consulta'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts/mantener_activo.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.1'
+      - name: Consulta mínima sin sesión ni cuerpo de respuesta
+        run: node .github/scripts/mantener_activo.mjs consulta
+
+  mensual:
+    if: >-
+      github.repository == 'oscardavidmoralesflo-lgtm/app-docente' &&
+      github.ref == 'refs/heads/main' &&
+      github.event.repository.visibility == 'public' &&
+      github.event.repository.default_branch == 'main' &&
+      vars.STOA_MANTENER_ACTIVO_HABILITADO == 'true' &&
+      ((github.event_name == 'schedule' && github.event.schedule == '29 2 1 * *') ||
+       (github.event_name == 'workflow_dispatch' && inputs.modo == 'mensual'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts/mantener_activo.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.1'
+      - name: Revisar inactividad e intentar enable desde 45 días
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .github/scripts/mantener_activo.mjs mensual
