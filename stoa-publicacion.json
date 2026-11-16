@@ -4,64 +4,8 @@
   "fuenteArbol": "46ea5f7f481ceeeaf8937cd7681694dd41ed85d9",
   "manifiestoSha256": "2d29320cf2ceac51512afb4e43ad7a413f9ba354ea4f15e688494b981b74c870",
   "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43903371993",
-  "publicoAnterior": "5ad4f8f539d3725f25d3945409ad2b8c0c903694",
-  "conservados": [
-    {
-      "ruta": "assets/app-rQ1wrvPw.js",
-      "sha256": "ebc5d2d1e34f2ca9aecc9f7101dd31114348a5dae232973f57ad40d66b08ea33",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Concurso-BIufiGgU.js",
-      "sha256": "13a5d63c7860008b445e5bb5497253ba69e64432231ca405a1e333f1fa8d2d3c",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Consulta-KxEulTn3.js",
-      "sha256": "b0729f4672369f6e9090d224e96b1ae45da908952aee63d3589bd87da8cd76ba",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Errores-UpnSnck4.js",
-      "sha256": "31ad7e50e72fb33d79b9838bc147997d8e135eaab202f7dfe53685838483a50a",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/ModuloVista-rsbniN-Y.js",
-      "sha256": "41ea41288003a460afa87a1e926e59b3bd050b68c87907769acee687cd217344",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/NormasCasos-BwY4nKpi.js",
-      "sha256": "d8b60123a6dcdeb0919833a416e828c567dc40ec237bd7b421b1b6505f5205b2",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Practica-ByLuo0S3.js",
-      "sha256": "9e037a5932d178a52e7c8afc5c1698aaecb94b03e528678613d370b209f00e9a",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Premium-B8cscBxC.js",
-      "sha256": "a34b3ed2c5475c01fef6e8d7f66cef3cc5e873b0d0b9ed3d656555ba401dde33",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Progreso-CLYneT_X.js",
-      "sha256": "282a599bace21bbdbea19fe46a46ca1385df5349606a10e2a255b0e8f9ab4263",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Tarjetas-DXi7LO_y.js",
-      "sha256": "187c83f299f2535ab604a05f1043c5bd0191ee6eabec5c890304f99f51eb711e",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    },
-    {
-      "ruta": "assets/Temario-C-9_mN6s.js",
-      "sha256": "66934f7c8a47de1e07b011e7a5f14933213c89262bde67dfa66e8ab2ea4e80de",
-      "commit": "83ccab56ad998d754ee1b408f1044020fdce5588"
-    }
-  ],
+  "publicoAnterior": "693898793362f8bc1e0854636b9d4b0516446662",
+  "conservados": [],
   "automatizacion_conservada": [
     {
       "ruta": ".github/scripts/mantener_activo.mjs",
