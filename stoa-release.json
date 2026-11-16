@@ -3,9 +3,9 @@
   "tipo": "app",
   "fuente": {
     "repositorio": "oscardavidmoralesflo-lgtm/stoa",
-    "sha": "f4a0c61eccc5bb400306a47ed908f539f99f7385",
-    "arbol": "327da82ee5364f809cad6d415ef907adfdfaca14",
-    "fechaCommit": "2026-11-15T19:44:31-05:00",
+    "sha": "4f1e178b7ff3b8a0f91503c3774cd1cc3fb3677e",
+    "arbol": "46ea5f7f481ceeeaf8937cd7681694dd41ed85d9",
+    "fechaCommit": "2026-11-16T11:04:12-05:00",
     "lockSha256": "2e676b37a2b037a68b2ae9266eaef690264e6f5aad17b2b841af1b10ab112227",
     "node": "24.22.1",
     "vite": "8.3.4",
@@ -124,8 +124,8 @@
     },
     {
       "ruta": "bienvenida/index.html",
-      "bytes": 44572,
-      "sha256": "19038b0276b3fc6a95aa787a6832860d033cab35fd3152d73d8740a3b3ec7fca"
+      "bytes": 45941,
+      "sha256": "e05236f070bfb3b02d48b8fc16bf03127e4b257c12824c59008c795ed24be8de"
     },
     {
       "ruta": "bienvenida/magisterio.css",
@@ -134,8 +134,8 @@
     },
     {
       "ruta": "bienvenida/magisterio.js",
-      "bytes": 26711,
-      "sha256": "b5ddb0c71b9cb69bd81fd472ac4f3ae01e4d9d6c061f2c3806af5619471464b7"
+      "bytes": 31108,
+      "sha256": "6f32ed6eb04b9b77dc02cd671019ed374782455cf7782f6a66ca358d0b69b00c"
     },
     {
       "ruta": "bienvenida/oferta-entrada.js",
@@ -150,7 +150,7 @@
     {
       "ruta": "bienvenida/oferta.json",
       "bytes": 192,
-      "sha256": "3c2a202c616b5d51497015ac2b8d40b22d4b46f79b8910a23968dfa4875842ec"
+      "sha256": "89d06d08eff3e491593f60a8a5793eb929c67bd93a752217e2c779dd03f97058"
     },
     {
       "ruta": "bienvenida/og-stoa.png",
@@ -224,23 +224,23 @@
     },
     {
       "ruta": "bienvenida/portada.css",
-      "bytes": 7477,
-      "sha256": "32c29a1df85573937bd390dc7fd7d4b6ca5cc075c574798e4f05e106cd4222d3"
+      "bytes": 9249,
+      "sha256": "66d4752fb06fc1fa75afa70adeede5e0738f858045109b2885c2fb0ab659900f"
     },
     {
-      "ruta": "datos/publico/catalogo-2cff131d3c81dad07144ff7c043f1a148e51aa041c8ea5b88424cf492ae3ad41.json",
+      "ruta": "datos/publico/catalogo-d50cdfddd3eba7c7e008407e6502504cd8a9ae66cb820c02979ef35834a21999.json",
       "bytes": 3022,
-      "sha256": "2cff131d3c81dad07144ff7c043f1a148e51aa041c8ea5b88424cf492ae3ad41"
+      "sha256": "d50cdfddd3eba7c7e008407e6502504cd8a9ae66cb820c02979ef35834a21999"
     },
     {
-      "ruta": "datos/publico/perfiles-c3fe9555c20421fdc5cd8122d2c6bee77ba42f088601aa71c8b7281a130ffe6e.json",
+      "ruta": "datos/publico/perfiles-c990e25be3ef2e00b0c1f2c56952a4e13038528da8d58e902ef4aa3075ec5dc0.json",
       "bytes": 2317,
-      "sha256": "c3fe9555c20421fdc5cd8122d2c6bee77ba42f088601aa71c8b7281a130ffe6e"
+      "sha256": "c990e25be3ef2e00b0c1f2c56952a4e13038528da8d58e902ef4aa3075ec5dc0"
     },
     {
-      "ruta": "datos/publico/planes-df64df903fab0a701b8c6b42b3dc84e50214e6b9eb8bbffb2b40ff82ba1943bc.json",
+      "ruta": "datos/publico/planes-42f61418b2626189944df1943f9afc8ae0a0b670a9738bc5e6bff3cbcfc3f469.json",
       "bytes": 404,
-      "sha256": "df64df903fab0a701b8c6b42b3dc84e50214e6b9eb8bbffb2b40ff82ba1943bc"
+      "sha256": "42f61418b2626189944df1943f9afc8ae0a0b670a9738bc5e6bff3cbcfc3f469"
     },
     {
       "ruta": "icons/apple-touch-icon.png",
@@ -270,7 +270,7 @@
     {
       "ruta": "index.html",
       "bytes": 4710,
-      "sha256": "81e4301076878e1b5f9c983d00bdaaecabcc305b8f3dfc52a6d19f7ae9ebbdf2"
+      "sha256": "817332024671233c37ab7a4adbcae3773a5d8f9df6832e7c307d1149e54de643"
     },
     {
       "ruta": "inicio.js",
@@ -360,7 +360,7 @@
     {
       "ruta": "sw.js",
       "bytes": 8831,
-      "sha256": "76d1887d5ef156099050b6b34cef23a316fe5bde983bdd75fc3a683ab1c9bff3"
+      "sha256": "ee9688a81c21065a5ccc31aec0e87162b31bace4db7fec96afe8d7b006307d90"
     }
   ]
 }

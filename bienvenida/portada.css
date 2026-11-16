@@ -16,6 +16,8 @@
 .portada h1 { font-size: clamp(2.9rem, 4.8vw, 4.65rem); margin: 0 0 22px; }
 .portada-intro .bajada { max-width: 36ch; font-size: clamp(1.1rem, 1.65vw, 1.36rem); line-height: 1.38; margin: 0; }
 .portada-intro > p.portada-formato { font-size: .97rem; line-height: 1.56; max-width: 47ch; margin-top: 11px; }
+.portada-ruta-enlace { color: var(--oro); text-underline-offset: .22em; }
+.portada-ruta-enlace:focus-visible { outline-color: var(--oro); }
 .portada-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 17px; margin-top: 22px; }
 .portada-intro .boton { width: auto; margin: 0; }
 .portada-intro .enlace { font-size: .91rem; margin: 0; }
@@ -35,17 +37,40 @@
 .portada .vista-escritorio figcaption { padding: 10px 14px; }
 .franja-contexto ul { margin-block: 0; }
 .franja-contexto li::before { content: "✓"; color: var(--oro-tinta); margin-right: 10px; }
-.ruta-ocho { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
-.ruta-ocho-presentacion h2 { margin-top: 12px; }
-.ruta-ocho-presentacion > p { max-width: 52ch; }
-.ruta-ocho-presentacion .boton { margin-top: 12px; }
-.ruta-ocho-etapas { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--linea); }
-.ruta-ocho-etapas li { position: relative; padding: 22px 0 22px 24px; border-bottom: 1px solid var(--linea); }
-.ruta-ocho-etapas li::before { content: ""; position: absolute; left: 0; top: 30px; width: 7px; height: 7px; border-radius: 50%; background: var(--oro-tinta); }
-.ruta-ocho-etapas li > span { color: var(--oro-tinta); font-size: .8rem; font-weight: 750; letter-spacing: .035em; }
-.ruta-ocho-etapas h3 { margin: 8px 0; font-size: 1.12rem; }
+.ruta-ocho { background: #f3eee4; border-block: 1px solid var(--linea); }
+.ruta-ocho-malla {
+  display: grid;
+  grid-template: "presentacion ficha" auto "cierre ficha" 1fr / minmax(0, .9fr) minmax(0, 1.1fr);
+  column-gap: clamp(26px, 6vw, 88px);
+  align-items: start;
+}
+.ruta-ocho-presentacion { grid-area: presentacion; }
+.ruta-ocho-cierre { grid-area: cierre; }
+.ruta-ocho-presentacion h2 { margin: 0 0 18px; }
+.ruta-ocho-presentacion > p, .ruta-ocho-cierre > p { max-width: 46ch; }
+.ruta-ocho-cierre .boton { margin-top: 20px; }
+.ruta-ocho-cierre .nota { margin-top: 10px; }
+.selector-rutas:not([hidden]) { margin: 20px 0; }
+.selector-rutas[hidden] { display: none; }
+.selector-rutas button { flex: 0 1 auto; }
+.ruta-ocho-ficha { grid-area: ficha; min-width: 0; overflow: clip; background: var(--papel); border: 1px solid var(--linea); border-radius: 15px; box-shadow: 0 20px 44px #1728460d; }
+.ruta-ocho-cabecera { padding: clamp(17px, 2vw, 27px) clamp(16px, 2.5vw, 34px); background: var(--lapis); color: var(--papel); }
+.ruta-ocho-cabecera h3 { color: inherit; font-size: clamp(1.55rem, 2.65vw, 2.35rem); }
+.ruta-ocho-cabecera p { color: #e2d8c6; font-size: .9rem; margin-top: 4px; }
+.ruta-ocho-etapas { list-style: none; margin: 0; padding: 0 clamp(16px, 2.5vw, 34px); }
+.ruta-ocho-etapas li { position: relative; padding: 18px 0 18px 22px; }
+.ruta-ocho-etapas li + li { border-top: 1px solid var(--linea); }
+.ruta-ocho-etapas li::before { content: ""; position: absolute; left: 0; top: 27px; width: 7px; height: 7px; border-radius: 50%; background: var(--oro-tinta); }
+.ruta-ocho-etapas li > span { color: var(--oro-tinta); font-size: .8rem; font-weight: 800; letter-spacing: .035em; }
+.ruta-ocho-etapas h4 { color: var(--lapis); font: 630 clamp(1.15rem, 1.6vw, 1.4rem)/1.2 var(--serif); margin: 6px 0; }
 .ruta-ocho-etapas p { margin: 0; }
-@media (max-width: 760px) { .ruta-ocho { grid-template-columns: minmax(0, 1fr); } }
+.ruta-ocho-etapas .ruta-ocho-comun { color: var(--gris); font-size: .83rem; margin-top: 6px; }
+#ruta-ocho-estado { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 760px) {
+  .ruta-ocho-malla { grid-template: "presentacion" "ficha" "cierre" / minmax(0, 1fr); row-gap: 22px; }
+  .selector-rutas:not([hidden]) { margin-bottom: 0; }
+  .ruta-ocho-etapas li { padding-inline-start: 16px; }
+}
 .laboratorio {
   background: radial-gradient(ellipse at 20% 20%, #f8fbfc, transparent 66%), #e9eef3;
   padding-block: clamp(46px, 6.8vw, 98px);
@@ -138,6 +163,9 @@
   .secuencia > li.esta-revelando:not(:focus-within)::before {
     animation: marca-metodo .4s cubic-bezier(.2,.75,.25,1) var(--demora-entrada, 0ms) both;
   }
+  .ruta-ocho-etapas > li.esta-revelando::before {
+    animation: marca-ruta .36s cubic-bezier(.2,.75,.25,1) var(--demora-entrada, 0ms) both;
+  }
   .navegacion a::after { transition: transform .22s ease; }
   .selector-casos button, .respuesta { transition: background-color .17s ease, border-color .17s ease, color .17s ease; }
   .boton-oro span, .cuaderno-acciones .enlace span { transition: transform .2s ease; }
@@ -145,3 +173,4 @@
 }
 @keyframes entrada-portada { from { transform: translateY(14px); } to { transform: translateY(0); } }
 @keyframes marca-metodo { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes marca-ruta { from { opacity: .25; transform: scale(.55); } to { opacity: 1; transform: scale(1); } }

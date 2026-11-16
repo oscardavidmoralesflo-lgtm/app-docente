@@ -310,6 +310,76 @@ mostrarTotalPerfiles();
 mostrarPerfil();
 void cargarPerfiles();
 
+function prepararSelectorDeRutas() {
+  const selectorRutas = document.querySelector(".selector-rutas");
+  const ficha = document.getElementById("ruta-ocho-ficha");
+  if (!selectorRutas || !ficha) return;
+
+  const botones = [...selectorRutas.querySelectorAll("button[data-ruta-materia]")];
+  const titulo = document.getElementById("ruta-ocho-materia");
+  const alcance = document.getElementById("ruta-ocho-alcance");
+  const anuncio = document.getElementById("ruta-ocho-estado");
+  const etapas = [...ficha.querySelectorAll(".ruta-ocho-etapas > li")].map(fila => ({
+    titulo: fila.querySelector("h4"),
+    actividad: fila.querySelector("p"),
+  }));
+  const guiada = alcance.textContent;
+  const orientativa = "Ejemplo orientativo. Tu cuenta muestra el plan y el contenido disponibles para este perfil.";
+  const rutas = new Map([
+    ["filosofia", { alcance: guiada, etapas: etapas.map(({titulo, actividad}) => [titulo.textContent, actividad.textContent]) }],
+    ["artistica_escenicas", { alcance: guiada, etapas: [
+      ["Escena, voz y espacio", "Lee los indicios de una escena y prueba cómo cambia su sentido con la voz, el movimiento y el espacio."],
+      ["Composición y recepción", "Compón una acción breve. Observa cómo la interpreta el público y usa esa evidencia para revisar la escena."],
+      ["Improvisación y territorio", "Improvisa un giro con una consigna accesible y explora un recurso escénico de tu comunidad."],
+      ["Relectura y simulacro", "Retoma una escena, explica qué cambió al revisarla y revisa tus errores del simulacro."],
+    ] }],
+    ["primaria", { alcance: orientativa, etapas: [
+      ["Lectura inicial", "Distingue si la dificultad está en reconocer las palabras o en comprender lo que sucede en la historia."],
+      ["Números y operaciones", "Compara dos maneras de resolver un problema y explica qué representa cada cantidad."],
+      ["Medida y datos", "Elige una unidad para comparar longitudes y registra los resultados en una tabla."],
+      ["Indagación y retroalimentación", "Formula una pregunta que el grupo pueda poner a prueba. Usa sus observaciones para decidir qué enseñar después."],
+    ] }],
+    ["fisica", { alcance: orientativa, etapas: [
+      ["Medición e incertidumbre", "Compara varias mediciones y explica qué diferencias puede distinguir tu instrumento."],
+      ["Movimiento y fuerzas", "Interpreta una gráfica de posición y dibuja las fuerzas que actúan sobre el objeto."],
+      ["Trabajo y energía", "Explica qué cambia y qué se conserva cuando un objeto se frena."],
+      ["Circuitos eléctricos", "Predice cómo cambia la corriente si varía la resistencia y contrasta tu predicción con los datos."],
+    ] }],
+    ["quimica", { alcance: orientativa, etapas: [
+      ["Átomos y periodicidad", "Compara dos elementos y explica qué tendencia ayuda a entender la diferencia."],
+      ["Enlace y propiedades", "Relaciona la estructura de dos sustancias con una propiedad que se pueda observar."],
+      ["Soluciones y dilución", "Calcula cómo cambia la concentración al añadir agua y explica qué cantidad permanece constante."],
+      ["Estequiometría", "Ajusta una ecuación y usa sus proporciones para determinar qué reactivo se agota primero."],
+    ] }],
+  ]);
+
+  let transicion;
+  for (const boton of botones) {
+    boton.addEventListener("click", () => {
+      const ruta = rutas.get(boton.dataset.rutaMateria);
+      if (!ruta || boton.getAttribute("aria-pressed") === "true") return;
+      for (const opcion of botones) opcion.setAttribute("aria-pressed", String(opcion === boton));
+      titulo.textContent = boton.textContent.trim();
+      alcance.textContent = ruta.alcance;
+      etapas.forEach(({titulo, actividad}, indice) => {
+        [titulo.textContent, actividad.textContent] = ruta.etapas[indice];
+      });
+      anuncio.textContent = `Ruta de ${titulo.textContent}. ${ruta.alcance}`;
+      transicion?.cancel();
+      if (!movimiento.matches && ficha.animate) {
+        transicion = ficha.animate([{ opacity: .82, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }], {
+          duration: 230,
+          easing: "cubic-bezier(.2,.75,.25,1)",
+        });
+      }
+    });
+  }
+  movimiento.addEventListener("change", () => { if (movimiento.matches) transicion?.cancel(); });
+  selectorRutas.hidden = false;
+}
+
+prepararSelectorDeRutas();
+
 // El contenido permanece visible si no hay animaciones, JavaScript o esta API.
 if ("IntersectionObserver" in window) {
   const elementos = [...document.querySelectorAll("[data-reveal], .herramientas > div")];
@@ -342,7 +412,7 @@ if ("IntersectionObserver" in window) {
         asentarEntrada(elemento);
         continue;
       }
-      const grupo = elemento.closest(".secuencia, .herramientas");
+      const grupo = elemento.closest(".secuencia, .herramientas, .ruta-ocho-etapas");
       const orden = grupo ? grupos.get(grupo) || 0 : 0;
       if (grupo) grupos.set(grupo, orden + 1);
       // Escalona los hermanos que entran juntos y conserva el ritmo de lectura en móvil.
