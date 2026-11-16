@@ -1,11 +1,82 @@
 {
   "formato": 1,
-  "fuente": "4f1e178b7ff3b8a0f91503c3774cd1cc3fb3677e",
-  "fuenteArbol": "46ea5f7f481ceeeaf8937cd7681694dd41ed85d9",
-  "manifiestoSha256": "2d29320cf2ceac51512afb4e43ad7a413f9ba354ea4f15e688494b981b74c870",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43903371993",
-  "publicoAnterior": "693898793362f8bc1e0854636b9d4b0516446662",
-  "conservados": [],
+  "fuente": "019b17354dac2e805ec80365b3cc46834025ca8a",
+  "fuenteArbol": "fd436e08d2cc32195dfa91b85fb7ff973bca5ffb",
+  "manifiestoSha256": "ed1002e077cb9772c76bc88afcfd0f441fb0d7acc67cf7bf44559635bae34fde",
+  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/43934471619",
+  "publicoAnterior": "13434543ee48b9d50b4a837e9a5da9b0403abf83",
+  "conservados": [
+    {
+      "ruta": "assets/app-BBOew3FT.css",
+      "sha256": "ec65c72348deae985a8589933b0c49771049619895339b52737dc7ba138d5164",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/app-CEDw1kVB.js",
+      "sha256": "dd761b53c72be732f05adea57f4c54d86b5488d0beba1fe0893155b347a233c6",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Buscador-D7ygpl4N.js",
+      "sha256": "b770b0f40581b1d93648a31d7e008a55f81d32d8936ccc156ea566ffd45de4f1",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Concurso-DTM3dVaY.js",
+      "sha256": "4583fb763424301c9ba3e11d6310a8e28f9b41c09d1c955d4a515f5d7b9aaed6",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Consulta-CyOxOiV4.js",
+      "sha256": "da3031c3de500649b4f12b0882e92aa0e79aa65af2321030a93c2204d65cd79b",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Errores-BOC70BXU.js",
+      "sha256": "d371d2032ada30b9d9b993ad5a8f948efd9475c7f7bff20531674334d4d9f6e2",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/fuentes-DxoXJT8k.js",
+      "sha256": "7f3f417b72173f27a58fa7286ae5637266f4d6e9a45401c005c0699cf893b80d",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/ModuloVista-CSHAGSf6.js",
+      "sha256": "694bf2c9557b4cbc370764cfe3f854c0f88a993c28d5719a5b417308d85f7f89",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/NormasCasos-Bogw94Q-.js",
+      "sha256": "4b92ea60f8704fd4f549c0c327620600507d484c7215367f26211ded080139c1",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Practica-BMff9hUJ.js",
+      "sha256": "238a47bfa7e348ac4bfe4e0478aaf7d1be9b2b16960133d3253829a58e584d84",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Premium-Di5YuNFM.js",
+      "sha256": "4f5d4c1d7ea7cdd95387d543dd301c25b6c5b0d0a1d239799e51c055021d132a",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Progreso-DjqF1NCw.js",
+      "sha256": "26451895490e8da5aff291b68f4f7331e21e8b4bc4e3cb4a47ab6ab796e5d37a",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Tarjetas-mTtq5W2_.js",
+      "sha256": "75901911f79a0a82cd189bbbb9228b94aa030a172b5e8251b256c9d28c040e32",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    },
+    {
+      "ruta": "assets/Temario-CJZfitnP.js",
+      "sha256": "364c36b04ecfb5e1d0d052c80c21bf9209f056f201fbc8ee19824776cd6830c1",
+      "commit": "693898793362f8bc1e0854636b9d4b0516446662"
+    }
+  ],
   "automatizacion_conservada": [
     {
       "ruta": ".github/scripts/mantener_activo.mjs",
