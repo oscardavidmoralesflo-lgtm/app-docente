@@ -35,6 +35,17 @@
 .portada .vista-escritorio figcaption { padding: 10px 14px; }
 .franja-contexto ul { margin-block: 0; }
 .franja-contexto li::before { content: "✓"; color: var(--oro-tinta); margin-right: 10px; }
+.ruta-ocho { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.ruta-ocho-presentacion h2 { margin-top: 12px; }
+.ruta-ocho-presentacion > p { max-width: 52ch; }
+.ruta-ocho-presentacion .boton { margin-top: 12px; }
+.ruta-ocho-etapas { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--linea); }
+.ruta-ocho-etapas li { position: relative; padding: 22px 0 22px 24px; border-bottom: 1px solid var(--linea); }
+.ruta-ocho-etapas li::before { content: ""; position: absolute; left: 0; top: 30px; width: 7px; height: 7px; border-radius: 50%; background: var(--oro-tinta); }
+.ruta-ocho-etapas li > span { color: var(--oro-tinta); font-size: .8rem; font-weight: 750; letter-spacing: .035em; }
+.ruta-ocho-etapas h3 { margin: 8px 0; font-size: 1.12rem; }
+.ruta-ocho-etapas p { margin: 0; }
+@media (max-width: 760px) { .ruta-ocho { grid-template-columns: minmax(0, 1fr); } }
 .laboratorio {
   background: radial-gradient(ellipse at 20% 20%, #f8fbfc, transparent 66%), #e9eef3;
   padding-block: clamp(46px, 6.8vw, 98px);
