@@ -653,8 +653,36 @@ const accesoMovil = document.getElementById("acceso-movil") ?? document.querySel
 const cabeceraLanding = document.querySelector(".cabecera");
 const portada = document.querySelector(".portada");
 const zonasSinBarra = [document.getElementById("premium"), document.querySelector("footer")].filter(Boolean);
+const soporteWhatsApp = document.getElementById("soporte-whatsapp");
+const zonasSinSoporte = [...document.querySelectorAll(
+  "main a, main button, main input, main select, footer a, [role='alert'], [role='status'], .banner, .vigencia, .medios-wompi, .acceso-movil"
+)];
 let actualizacionMovil = null;
 let altoAccesoMovil = 0;
+let desplazamientoSoporte = 0;
+
+function situarSoporte(bordeCabecera, enfocado) {
+  if (!soporteWhatsApp) return;
+  const caja = soporteWhatsApp.getBoundingClientRect();
+  const arribaInicial = caja.top + desplazamientoSoporte;
+  const margen = 8;
+  const zonas = [...zonasSinSoporte, enfocado].filter(elemento => elemento && elemento !== soporteWhatsApp)
+    .map(elemento => elemento.getBoundingClientRect())
+    .filter(r => r.width && r.height && r.bottom > bordeCabecera && r.top < innerHeight
+      && r.left < caja.right + margen && r.right > caja.left - margen)
+    .sort((a, b) => b.bottom - a.bottom);
+  let arriba = arribaInicial;
+  for (const zona of zonas) {
+    if (arriba < zona.bottom + margen && arriba + caja.height + margen > zona.top) {
+      arriba = zona.top - caja.height - margen;
+    }
+  }
+  const desplazamiento = Math.max(0, arribaInicial - Math.max(bordeCabecera + margen, arriba));
+  if (desplazamiento !== desplazamientoSoporte) {
+    soporteWhatsApp.style.setProperty("--desplazamiento-soporte", `${desplazamiento}px`);
+    desplazamientoSoporte = desplazamiento;
+  }
+}
 
 function actualizarControlesMoviles() {
   actualizacionMovil = null;
@@ -689,6 +717,7 @@ function actualizarControlesMoviles() {
     if (ocultar) accesoMovil.setAttribute("aria-hidden", "true");
     else accesoMovil.removeAttribute("aria-hidden");
   }
+  situarSoporte(bordeCabecera, enfocado === document.body ? null : enfocado);
 }
 
 function programarControlesMoviles() {
@@ -697,6 +726,7 @@ function programarControlesMoviles() {
 
 document.addEventListener("focusin", programarControlesMoviles);
 document.addEventListener("focusout", programarControlesMoviles);
+document.addEventListener("toggle", programarControlesMoviles, true);
 window.addEventListener("scroll", programarControlesMoviles, { passive: true });
 window.addEventListener("resize", programarControlesMoviles, { passive: true });
 if ("ResizeObserver" in window) {
