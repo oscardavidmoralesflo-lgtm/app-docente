@@ -1,70 +1,70 @@
 {
   "formato": 1,
-  "fuente": "39745821895b733d12e2b9495cb3ac2aac778cab",
-  "fuenteArbol": "a821c34203be06c72e5088d698a2cafc6ca12538",
-  "manifiestoSha256": "ad84265974c6e4f9a77db9be7237856c0a39e74170be604555e1b21e066f0592",
-  "ejecucion": "https://github.com/oscardavidmoralesflo-lgtm/stoa/actions/runs/44002353845",
-  "publicoAnterior": "98a2cabc4b8acec7b34da8bc969323fd41eca39a",
+  "fuente": "dc6b492a41c893a75965df292c7742c2f41b7002",
+  "fuenteArbol": "da5eda6aae6a51ca68165feb0ed003085ca23d1b",
+  "manifiestoSha256": "a019ee21ef92a2acfad2df24b05704eb134b8c7b1f01a4480f3d37eaeea690d9",
+  "ejecucion": "https://app.circleci.com/workflow-run/439f383f-2e13-4333-90c1-e9d896d3ee18",
+  "publicoAnterior": "329ef7f5f218c361194287caf93bd511b9e49a60",
   "conservados": [
     {
       "ruta": "assets/app-CCvGxLNf.css",
       "sha256": "07562584100723a7e2e9933e149723449c89bed1b441d6e3609ca8b8255d5111",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/app-DDQSLfYJ.js",
       "sha256": "2e7a4cf787a00f1636cb5489f968fc3df7a4fa5f1fa9c00c86abb51504796fa7",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Concurso-De6n4iUS.js",
       "sha256": "5a99c35162258f64722a7ad177b9fd47836ef9ef3cd10926f2f8ab89c70d06cc",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Consulta-CErva_bn.js",
       "sha256": "a6d902424a20e5cee25d5227a6623d4280f259834d07638278dae471414306ef",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Errores-Cx_hQ6zB.js",
       "sha256": "cfb334ca6383799ceba6aeb37cd18d26f38345ac765cd0522d62d8e058a8d55b",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/ModuloVista--oyZrX1X.js",
       "sha256": "f232260df591c326a3ca93b56e701d1969a324271daa82a5110d3b5a02365414",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/NormasCasos-C4ikA3cD.js",
       "sha256": "f47f1581aa237fa4e0463551485d3b234bd210c9a33985a20ce9d69de0bea8a2",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Practica-C5FPDRgF.js",
       "sha256": "e5e71296e6cc3e0d9a779619cf4910960d24dc58748055a9f37084ba2657c1ed",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Premium-ni1Ua4yX.js",
       "sha256": "b6de2c7541815fb2acf9a405c75c36d1736126086042f69f27d621f554bda75e",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Progreso-B9nETngI.js",
       "sha256": "c050f1912994894575789fe9154258f36c4e80a553ced77cf9e597325eb0adfc",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Tarjetas-DD1DYEEB.js",
       "sha256": "d6fab28b4d6576710577ee3e3f2b32e013f6c27945ad82d5047a50d557cea6c1",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     },
     {
       "ruta": "assets/Temario-G1hD3SEn.js",
       "sha256": "e63f9e6defd4c765e30bea4c33be0f53e234ab824af9de00c7b0a9c47e00b844",
-      "commit": "7fad73027da0210fde7d2636aa1e51794d5112d9"
+      "commit": "98a2cabc4b8acec7b34da8bc969323fd41eca39a"
     }
   ],
   "automatizacion_conservada": [

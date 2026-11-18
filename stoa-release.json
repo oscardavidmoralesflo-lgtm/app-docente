@@ -3,9 +3,9 @@
   "tipo": "app",
   "fuente": {
     "repositorio": "oscardavidmoralesflo-lgtm/stoa",
-    "sha": "39745821895b733d12e2b9495cb3ac2aac778cab",
-    "arbol": "a821c34203be06c72e5088d698a2cafc6ca12538",
-    "fechaCommit": "2026-11-16T21:21:16-05:00",
+    "sha": "dc6b492a41c893a75965df292c7742c2f41b7002",
+    "arbol": "da5eda6aae6a51ca68165feb0ed003085ca23d1b",
+    "fechaCommit": "2026-11-18T14:29:48-05:00",
     "lockSha256": "2e676b37a2b037a68b2ae9266eaef690264e6f5aad17b2b841af1b10ab112227",
     "node": "24.22.1",
     "vite": "8.3.4",
@@ -129,18 +129,18 @@
     },
     {
       "ruta": "bienvenida/index.html",
-      "bytes": 45941,
-      "sha256": "44f1b99e977b96902e1b25af867979f80c0c2cc5169fabf81b5647c96e7fcff4"
+      "bytes": 44383,
+      "sha256": "56bc72bde38bf23244fce3a565df73d6557533e8059cdbe1b197e77db81a2663"
     },
     {
       "ruta": "bienvenida/magisterio.css",
-      "bytes": 31382,
-      "sha256": "f6d826ea29109808e88f77dd4971d20fbc5eca2f878052159ae81f58b5f41d79"
+      "bytes": 31084,
+      "sha256": "df365165a74763504e3bb4474d8d838f8b43eb653feef3e94b089a76c21e044d"
     },
     {
       "ruta": "bienvenida/magisterio.js",
-      "bytes": 31108,
-      "sha256": "6f32ed6eb04b9b77dc02cd671019ed374782455cf7782f6a66ca358d0b69b00c"
+      "bytes": 40678,
+      "sha256": "3a9f9f0d24bc166cfbdca4f8f92e1c430d14d9d902e017733669b415446b06ff"
     },
     {
       "ruta": "bienvenida/oferta-entrada.js",
@@ -149,13 +149,13 @@
     },
     {
       "ruta": "bienvenida/oferta.js",
-      "bytes": 5744,
-      "sha256": "7541d030fd7e869c0f2ae708f4807fa86744ba1a3dff1d1deab44adaf568f25d"
+      "bytes": 5575,
+      "sha256": "83499ce1c2b1ef3f715e9e88ad9a13fdb6403dd49390b9e90a3ce7487cfd4c51"
     },
     {
       "ruta": "bienvenida/oferta.json",
       "bytes": 192,
-      "sha256": "fe3d7c4b4f61f2f0ed6d4516fcac851ded387a82731b967f9ded4d61b3043c98"
+      "sha256": "e85a4f27effcf67dd262fb4b6f1cecf25e841513bef1a8ab7fc2b246cfb36ce3"
     },
     {
       "ruta": "bienvenida/og-stoa.png",
@@ -229,23 +229,23 @@
     },
     {
       "ruta": "bienvenida/portada.css",
-      "bytes": 9249,
-      "sha256": "66d4752fb06fc1fa75afa70adeede5e0738f858045109b2885c2fb0ab659900f"
+      "bytes": 15289,
+      "sha256": "9ea6f9dde932f5812bd1c94228369fbb48a5d7c3e1c223aa2b91b9891e3a1824"
     },
     {
-      "ruta": "datos/publico/catalogo-f52856eca7ff06f2b46847a982052a70a8bf9d164d55226d4d02ebb88267dda7.json",
+      "ruta": "datos/publico/catalogo-366c35da25d4e27c9e7afb9b943cb22c946c12bcfeab1058961fa3ace802aaa6.json",
       "bytes": 3022,
-      "sha256": "f52856eca7ff06f2b46847a982052a70a8bf9d164d55226d4d02ebb88267dda7"
+      "sha256": "366c35da25d4e27c9e7afb9b943cb22c946c12bcfeab1058961fa3ace802aaa6"
     },
     {
-      "ruta": "datos/publico/perfiles-60be02cebcbc14b0b90239782c06d727a75fe4e88a63a822c872124541d22db5.json",
+      "ruta": "datos/publico/perfiles-ab92a3f3a4ef38f87014cc748d40e3a85c8c5849412a8a9139fd409074ef505b.json",
       "bytes": 2317,
-      "sha256": "60be02cebcbc14b0b90239782c06d727a75fe4e88a63a822c872124541d22db5"
+      "sha256": "ab92a3f3a4ef38f87014cc748d40e3a85c8c5849412a8a9139fd409074ef505b"
     },
     {
-      "ruta": "datos/publico/planes-83e8517b2ba543a4b8b8a698a3c937e8f604508d524ad0e50f16203d9996a23a.json",
+      "ruta": "datos/publico/planes-87d77bcaa1fa419e8a3e73beb5f2b2d36f4d578b162c3ff561b1e10da73ddcec.json",
       "bytes": 404,
-      "sha256": "83e8517b2ba543a4b8b8a698a3c937e8f604508d524ad0e50f16203d9996a23a"
+      "sha256": "87d77bcaa1fa419e8a3e73beb5f2b2d36f4d578b162c3ff561b1e10da73ddcec"
     },
     {
       "ruta": "icons/apple-touch-icon.png",
@@ -275,7 +275,7 @@
     {
       "ruta": "index.html",
       "bytes": 4710,
-      "sha256": "3bb54c2d1fedcb51b471ca09a95bf4859fb10235e813d75678e702f5d2d9056e"
+      "sha256": "87937c42bb31560d27175823d103f7ae55b223a262062f166bab6af9da6d3cee"
     },
     {
       "ruta": "inicio.js",
@@ -365,7 +365,7 @@
     {
       "ruta": "sw.js",
       "bytes": 8966,
-      "sha256": "22e7775f6dbd341ae928f25907d1931eed31f61c46952f224613a22cca9e7110"
+      "sha256": "baa2b75fe22859d9520862b71e85a9a9049d6acdfd65562d9f09876f062d10ec"
     }
   ]
 }

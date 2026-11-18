@@ -61,8 +61,7 @@ export function calcularEquivalencia(oferta, ahora) {
 
 export function textoEquivalencia(resultado) {
   if (!resultado) return '';
-  return `Como referencia, el pago único de $${pesos.format(resultado.precio_cop)} COP equivale a unos $${pesos.format(resultado.semanal_cop)} COP por semana de preparación hasta el ${resultado.fecha_fin}. `
-    + `Incluye una especialidad y su base común. Equivalencia orientativa calculada al ${resultado.fecha_referencia}.`;
+  return `Unos $${pesos.format(resultado.semanal_cop)} COP por semana si empiezas hoy y estudias hasta el ${resultado.fecha_fin}. Equivalencia del pago único.`;
 }
 
 // La integración pasa oferta.json una vez. Despertar y cambiar de día solo vuelven a calcular.
