@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es-CO" data-catalogo="/datos/publico/catalogo-aebdf24f7d7b6036776445ffb18974bca62633dc7ff69e342f42dedc69d6f5bf.json">
+<html lang="es-CO" data-catalogo="/datos/publico/catalogo-b8abf7238ae87beda26fc663952618bcece22aac035dacaaf42f3b81f35aa84b.json">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -24,7 +24,7 @@
   <link rel="preload" href="../assets/bodoni-moda-latin-opsz-normal-X2BzlAjV.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/bodoni-moda-latin-opsz-italic-BCRrlh7t.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./magisterio.css?v=8">
-  <script type="module" src="./magisterio.js?v=12" fetchpriority="low"></script>
+  <script type="module" src="./magisterio.js?v=14" fetchpriority="low"></script>
   <script type="module" src="./oferta-entrada.js"></script>
   <title>Magisterio Stoa · Tu preparación, con dirección</title>
   <link rel="stylesheet" href="./portada.css?v=6">
@@ -137,6 +137,11 @@
             <button type="button" data-ruta-materia="primaria" aria-pressed="false" aria-controls="ruta-ocho-ficha">Primaria</button>
             <button type="button" data-ruta-materia="fisica" aria-pressed="false" aria-controls="ruta-ocho-ficha">Física</button>
             <button type="button" data-ruta-materia="quimica" aria-pressed="false" aria-controls="ruta-ocho-ficha">Química</button>
+            <button type="button" data-ruta-materia="sociales" aria-pressed="false" aria-controls="ruta-ocho-ficha">Ciencias Sociales</button>
+            <button type="button" data-ruta-materia="matematicas" aria-pressed="false" aria-controls="ruta-ocho-ficha">Matemáticas</button>
+            <button type="button" data-ruta-materia="lenguaje" aria-pressed="false" aria-controls="ruta-ocho-ficha">Lengua Castellana</button>
+            <button type="button" data-ruta-materia="preescolar" aria-pressed="false" aria-controls="ruta-ocho-ficha">Preescolar</button>
+            <button type="button" data-ruta-materia="ingles" aria-pressed="false" aria-controls="ruta-ocho-ficha">Inglés</button>
           </div>
         </div>
         <article class="ruta-ocho-ficha" id="ruta-ocho-ficha" aria-labelledby="ruta-ocho-materia">
@@ -207,39 +212,26 @@
     </section>
     <section class="perfiles seccion" id="perfiles" data-nav-section aria-labelledby="titulo-perfiles">
       <div class="marco">
-        <div class="apertura" data-reveal><div><p class="ceja">ESPECIALIDADES</p><h2 id="titulo-perfiles">¿Qué necesitas estudiar<br> <em>para tu cargo?</em></h2></div><div class="apertura-texto"><p>Explora los temas de tu materia, nivel o cargo y consulta el material disponible.</p></div></div>
+        <div class="apertura" data-reveal><div><p class="ceja">PERFILES DE ESTUDIO</p><h2 id="titulo-perfiles">¿Qué necesitas estudiar<br> <em>para tu perfil?</em></h2></div><div class="apertura-texto"><p>Explora los temas de diez perfiles. Desde tu cuenta puedes consultar el material y las opciones de acceso de la materia o el nivel que elijas.</p></div></div>
         <div class="perfiles-malla" id="perfiles-disponibles">
           <div class="explorador">
-            <label for="buscar-perfil" id="buscar-perfil-etiqueta" hidden>Busca tu materia o cargo</label>
+            <label for="buscar-perfil" id="buscar-perfil-etiqueta" hidden>Busca tu materia o nivel</label>
             <input type="search" id="buscar-perfil" aria-controls="selector-perfil" placeholder="Ej. Física" autocomplete="off" hidden>
             <p id="buscar-perfil-estado" class="solo-lector" role="status"></p>
             <label for="selector-perfil">Explora tu perfil</label>
-            <select id="selector-perfil" aria-describedby="ayuda-perfil">
+            <select id="selector-perfil" aria-describedby="ayuda-perfil" disabled>
               <option value="filosofia">Filosofía</option>
-              <option value="primaria">Primaria</option>
-              <option value="preescolar">Preescolar</option>
-              <option value="matematicas">Matemáticas</option>
-              <option value="lenguaje">Lenguaje</option>
-              <option value="ciencias">Ciencias Naturales</option>
-              <option value="sociales">Ciencias Sociales</option>
-              <option value="ingles">Inglés</option>
-              <option value="educacion_fisica">Educación Física</option>
-              <option value="tecnologia">Tecnología e Informática</option>
-              <option value="etica">Ética y Valores</option>
-              <option value="artistica">Educación Artística</option>
-              <option value="artistica_plasticas">Artes Plásticas</option>
               <option value="artistica_escenicas">Artes Escénicas</option>
-              <option value="artistica_musica">Música</option>
-              <option value="religion">Educación Religiosa</option>
+              <option value="primaria">Primaria</option>
               <option value="fisica">Física</option>
               <option value="quimica">Química</option>
-              <option value="economia_politica">Ciencias Económicas y Políticas</option>
-              <option value="orientador">Docente orientador</option>
-              <option value="coordinador">Coordinador</option>
-              <option value="rector">Rector</option>
-              <option value="director_rural" data-contexto="rural">Director rural</option>
+              <option value="sociales">Ciencias Sociales</option>
+              <option value="matematicas">Matemáticas</option>
+              <option value="lenguaje">Lengua Castellana</option>
+              <option value="preescolar">Preescolar</option>
+              <option value="ingles">Inglés</option>
             </select>
-            <p class="nota" id="ayuda-perfil">Tu cuenta muestra el contenido publicado para tu plaza.</p>
+            <p class="nota" id="ayuda-perfil">Para ver el material disponible para tu plaza, elige tu perfil en tu cuenta de Stoa.</p>
             <div class="cobertura" id="cobertura" aria-live="polite" aria-atomic="true">
               <span class="estado-cobertura" id="cobertura-etiqueta" data-estado="sin-confirmar" hidden></span>
               <p class="nota" id="cobertura-detalle" hidden></p>
@@ -248,7 +240,7 @@
                 <div><dt>De la base común</dt><dd><strong id="comunes-lecciones"></strong> lecciones <span aria-hidden="true">/</span> <strong id="comunes-preguntas"></strong> preguntas</dd></div>
               </dl>
             </div>
-            <a class="enlace" id="perfil-cta" href="https://magisteriostoa.lat/#crear" data-cta-location="especialidades">Ver el temario de Filosofía gratis</a>
+            <a class="enlace" id="perfil-cta" href="https://magisteriostoa.lat/#crear" data-cta-location="especialidades">Crear mi cuenta gratis</a>
           </div>
           <article class="ficha" data-grupo="humanidades" id="ficha-perfil" aria-labelledby="nombre-perfil">
             <div class="folio">TEMAS ORIENTATIVOS</div>

@@ -193,7 +193,6 @@ const grupos = {
   ciencias: ["Ciencias, matemática y tecnología", "Relaciona modelos, representaciones y evidencia para explicar decisiones de aula."],
   infancia: ["Infancia y primeros aprendizajes", "Estudia cómo observar procesos, planear experiencias y acompañar aprendizajes."],
   artes: ["Artes y expresión", "Conecta la técnica, la interpretación y los criterios con los que valorarías una producción."],
-  gestion: ["Orientación y gestión", "Trabaja situaciones de acompañamiento, convivencia y gestión según el alcance de tu cargo."],
 };
 const temarios = {
   filosofia: ["humanidades", "Argumentación", "Lectura crítica", "Didáctica filosófica"],
@@ -202,30 +201,17 @@ const temarios = {
   matematicas: ["ciencias", "Sentido numérico y proporcionalidad", "Álgebra y funciones", "Geometría y demostración"],
   fisica: ["ciencias", "Medición e incertidumbre", "Movimiento y gráficas", "Fuerzas y leyes de Newton"],
   quimica: ["ciencias", "Átomo y periodicidad", "Enlace y propiedades", "Ecuaciones y estequiometría"],
-  ciencias: ["ciencias", "Célula y organización de los seres vivos", "Genética y herencia", "Evolución y evidencia"],
   lenguaje: ["humanidades", "Comprensión inferencial y crítica", "Argumentación", "Escritura como proceso"],
   ingles: ["humanidades", "Enfoque comunicativo", "Estrategias de lectura", "Escucha e inteligibilidad"],
   sociales: ["humanidades", "Tiempo histórico y fuentes", "Territorio y cartografía", "Estado y participación"],
-  etica: ["humanidades", "Juicio moral y autonomía", "Equidad y participación", "Responsabilidad reparadora"],
-  religion: ["humanidades", "Libertad de conciencia", "Símbolos y contextos", "Relatos y tradiciones"],
-  economia_politica: ["humanidades", "Escasez y costo de oportunidad", "Oferta y demanda", "Inflación y poder adquisitivo"],
-  artistica: ["artes", "Experiencia estética", "Composición visual", "Ritmo y escucha"],
-  artistica_plasticas: ["artes", "Composición y contraste", "Color y valor tonal", "Dibujo y representación"],
   artistica_escenicas: ["artes", "Acción dramática", "Cuerpo y espacio", "Voz y escucha"],
-  artistica_musica: ["artes", "Pulso y subdivisión", "Contorno y afinación", "Timbre y producción sonora"],
-  educacion_fisica: ["ciencias", "Competencia motriz", "Condición física y dosificación", "Juego y aprendizaje táctico"],
-  tecnologia: ["ciencias", "Sistemas y necesidades", "Diseño y prototipos", "Pensamiento computacional"],
-  orientador: ["gestion", "Rol de orientación", "Convivencia y rutas", "Orientación de trayectorias"],
-  coordinador: ["gestion", "Liderazgo pedagógico", "Currículo y evaluación", "Trabajo colegiado"],
-  rector: ["gestion", "Gobierno escolar", "Gestión académica e inclusión", "Transparencia de recursos"],
-  director_rural: ["gestion", "PEI y pertinencia territorial", "Aula multigrado", "Permanencia y comunidad"],
 };
 
 const selector = document.getElementById("selector-perfil");
 const buscarPerfil = document.getElementById("buscar-perfil");
 const estadoBusqueda = document.getElementById("buscar-perfil-estado");
 const perfiles = new Map(Array.from(selector?.options ?? [], opcion => [opcion.value, {
-  nombre: opcion.label.trim(), contexto: opcion.dataset.contexto || "no_rural", opcion,
+  nombre: opcion.label.trim(), opcion,
 }]));
 const conteosIds = ["propias-lecciones", "propias-preguntas", "comunes-lecciones", "comunes-preguntas"];
 const camposConteo = ["lecciones_propias", "preguntas_propias", "lecciones_comunes", "preguntas_comunes"];
@@ -239,13 +225,8 @@ const ficha = document.getElementById("ficha-perfil");
 const grupoPerfil = document.getElementById("grupo-perfil");
 const nombrePerfil = document.getElementById("nombre-perfil") ?? document.getElementById("perfil-temas-titulo");
 const textoPerfil = document.getElementById("texto-perfil");
-const ayudaPerfil = document.getElementById("ayuda-perfil");
 const listaTemas = document.getElementById("temas-perfil");
-const perfilCta = document.getElementById("perfil-cta");
 const claveInicial = Array.from(selector?.options ?? []).find(opcion => opcion.defaultSelected)?.value ?? selector?.options[0]?.value;
-const nombreInicial = perfiles.get(claveInicial)?.nombre;
-const ctaInicial = perfilCta?.textContent;
-const ayudaInicial = ayudaPerfil?.textContent.trim();
 const fichaInicial = nombrePerfil?.textContent.trim() ? {
   grupo: grupoPerfil?.textContent,
   descripcion: textoPerfil?.textContent,
@@ -270,21 +251,15 @@ function mostrarPerfil() {
   grupoPerfil.textContent = inicial?.grupo ?? etiqueta.toLocaleUpperCase("es-CO");
   nombrePerfil.textContent = perfil.nombre;
   textoPerfil.textContent = inicial?.descripcion ?? descripcion;
-  ayudaPerfil.textContent = perfil.contexto === "rural"
-    ? "Contexto de referencia: plaza rural. Confirma tu perfil desde tu cuenta."
-    : ayudaInicial;
   listaTemas.replaceChildren(...(inicial?.temas ?? temas).map(tema => {
     const li = document.createElement("li");
     li.textContent = tema;
     return li;
   }));
-  if (nombreInicial && ctaInicial?.includes(nombreInicial)) {
-    perfilCta.textContent = ctaInicial.replace(nombreInicial, () => perfil.nombre);
-  }
   ficha.hidden = false;
 
   const oferta = ofertas.get(clave);
-  const referencia = capturaReciente(capturado) && oferta?.contexto === perfil.contexto;
+  const referencia = capturaReciente(capturado) && oferta?.contexto === "no_rural";
   etiquetaCobertura.dataset.estado = referencia ? "referencia" : "sin-confirmar";
   etiquetaCobertura.textContent = referencia ? "Cobertura de referencia" : "";
   etiquetaCobertura.hidden = !referencia;
@@ -342,18 +317,6 @@ function validarFilas(filas, sonOfertas) {
   return validadas;
 }
 
-function incorporarPerfiles(filas) {
-  for (const [clave, fila] of filas) {
-    const anterior = perfiles.get(clave);
-    const opcion = anterior?.opcion || document.createElement("option");
-    const nombre = fila.nombre.trim();
-    opcion.value = clave;
-    opcion.textContent = nombre;
-    perfiles.set(clave, { nombre, contexto: fila.contexto, opcion });
-    if (!anterior) selector.add(opcion);
-  }
-}
-
 async function leerCatalogo(ruta) {
   const controlador = new AbortController();
   const limite = setTimeout(() => controlador.abort(), 2000);
@@ -404,22 +367,22 @@ async function cargarPerfiles() {
   const referencias = validarFilas(copia.ofertas, true);
   if (!directorio?.size || !referencias || [...referencias.values()].some(fila => directorio.get(fila.clave)?.contexto !== fila.contexto)) return;
 
-  incorporarPerfiles(directorio);
-  ofertas = referencias;
+  ofertas = new Map([...referencias].filter(([clave]) => perfiles.has(clave)));
   capturado = fecha;
   filtrarPerfiles();
   mostrarPerfil();
   setTimeout(mostrarPerfil, Math.max(0, fecha + vigenciaCatalogo - Date.now() + 1));
-  window.addEventListener("pageshow", mostrarPerfil);
-  document.addEventListener("visibilitychange", mostrarPerfil);
 }
 
 if (selector) {
+  selector.addEventListener("input", mostrarPerfil);
   selector.addEventListener("change", () => {
     filtrarPerfiles();
     mostrarPerfil();
     if (perfiles.has(selector.value)) emitirEvento("profile_selected", { profile_id: selector.value });
   });
+  window.addEventListener("pageshow", mostrarPerfil);
+  document.addEventListener("visibilitychange", mostrarPerfil);
   if (buscarPerfil) {
     buscarPerfil.addEventListener("input", filtrarPerfiles);
     buscarPerfil.hidden = false;
@@ -428,6 +391,7 @@ if (selector) {
     if (buscarPerfil.value) filtrarPerfiles();
   }
   if (selector.value !== claveInicial) mostrarPerfil();
+  selector.disabled = false;
   void cargarPerfiles();
 }
 
@@ -534,6 +498,36 @@ function prepararSelectorDeRutas() {
       ["Enlace y propiedades", "Relaciona la estructura de dos sustancias con una propiedad que se pueda observar."],
       ["Soluciones y dilución", "Calcula cómo cambia la concentración al añadir agua y explica qué cantidad permanece constante."],
       ["Estequiometría", "Ajusta una ecuación y usa sus proporciones para determinar qué reactivo se agota primero."],
+    ] }],
+    ["sociales", { alcance: orientativa, etapas: [
+      ["Historia y territorio", "Compara un acta con un testimonio y usa un mapa para explicar qué cambia con la escala."],
+      ["Participación y desigualdad", "Examina a quién beneficia una decisión colectiva y qué datos faltan para evaluar su alcance."],
+      ["Memoria y fuentes", "Contrasta relatos de un mismo hecho y precisa qué sostiene cada registro."],
+      ["Investigar y enseñar", "Formula una pregunta sobre un problema del territorio y decide cómo evaluar las explicaciones del curso."],
+    ] }],
+    ["matematicas", { alcance: orientativa, etapas: [
+      ["Números y proporcionalidad", "Compara dos procedimientos y explica qué se conserva cuando cambian las cantidades."],
+      ["Álgebra y funciones", "Contrasta una tabla con su modelo y comprueba en qué valores deja de servir."],
+      ["Geometría y datos", "Justifica una relación geométrica y revisa qué puede afirmarse con una muestra."],
+      ["Modelación y retroalimentación", "Elige un modelo, verifica su resultado y usa el error de un estudiante para planear la siguiente actividad."],
+    ] }],
+    ["lenguaje", { alcance: orientativa, etapas: [
+      ["Lectura y oralidad", "Sustenta una inferencia con pistas del texto y escucha cómo la defiende otra persona."],
+      ["Escritura y destinatario", "Revisa un borrador según lo que el lector necesita saber y hacer."],
+      ["Literatura y medios", "Compara qué cambia cuando una historia pasa del texto a una imagen o a un relato oral."],
+      ["Evaluación del lenguaje", "Escribe una devolución para que el grupo revise cómo sostiene una interpretación."],
+    ] }],
+    ["preescolar", { alcance: orientativa, etapas: [
+      ["Juego y exploración", "Parte de una pregunta de las niñas y los niños para planear una experiencia que puedan transformar."],
+      ["Seguimiento y participación", "Recoge evidencia en el juego y ajusta materiales para que más niños puedan intervenir."],
+      ["Lenguajes y experiencias", "Relaciona dibujos, gestos y relatos con las ideas que el grupo quiere comunicar."],
+      ["Familias y transiciones", "Acuerda qué observaciones compartir para dar continuidad a los aprendizajes al pasar a primero."],
+    ] }],
+    ["ingles", { alcance: orientativa, etapas: [
+      ["Comprensión e interacción", "Interpreta un aviso y formula una pregunta que permita aclarar una condición antes de responder."],
+      ["Evaluación y acceso", "Elige evidencias de comprensión y ajusta el canal para que todos puedan mostrar lo aprendido."],
+      ["Comunicación intercultural", "Compara testimonios en inglés y atribuye cada relato a quien lo compartió."],
+      ["Producción y retroalimentación", "Diseña un intercambio entre dos grupos y usa sus respuestas para ajustar la próxima práctica."],
     ] }],
   ]);
 
