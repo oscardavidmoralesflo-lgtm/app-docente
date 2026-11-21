@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "capturado": "2026-11-19T02:31:51.336Z",
+  "capturado": "2026-11-21T16:16:44.596Z",
   "ofertas": [
     {
       "clave": "filosofia",
@@ -8,6 +8,15 @@
       "contexto": "no_rural",
       "lecciones_propias": 27,
       "preguntas_propias": 316,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 447
+    },
+    {
+      "clave": "sociales",
+      "nombre": "Ciencias sociales",
+      "contexto": "no_rural",
+      "lecciones_propias": 27,
+      "preguntas_propias": 318,
       "lecciones_comunes": 38,
       "preguntas_comunes": 447
     },
