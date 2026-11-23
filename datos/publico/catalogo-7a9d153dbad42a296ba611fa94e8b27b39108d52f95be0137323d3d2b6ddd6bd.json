@@ -1,24 +1,24 @@
 {
   "version": 1,
-  "capturado": "2026-11-21T16:16:44.596Z",
+  "capturado": "2026-11-23T23:36:46.334Z",
   "ofertas": [
     {
       "clave": "filosofia",
       "nombre": "Filosofía",
       "contexto": "no_rural",
-      "lecciones_propias": 27,
-      "preguntas_propias": 316,
+      "lecciones_propias": 28,
+      "preguntas_propias": 325,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 447
+      "preguntas_comunes": 492
     },
     {
       "clave": "sociales",
       "nombre": "Ciencias sociales",
       "contexto": "no_rural",
-      "lecciones_propias": 27,
-      "preguntas_propias": 318,
+      "lecciones_propias": 28,
+      "preguntas_propias": 321,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 447
+      "preguntas_comunes": 492
     },
     {
       "clave": "artistica_escenicas",
@@ -27,7 +27,7 @@
       "lecciones_propias": 28,
       "preguntas_propias": 342,
       "lecciones_comunes": 38,
-      "preguntas_comunes": 447
+      "preguntas_comunes": 492
     }
   ],
   "perfiles": [
