@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "capturado": "2026-11-26T19:09:05.353Z",
+  "capturado": "2026-11-26T23:33:26.411Z",
   "ofertas": [
     {
       "clave": "filosofia",
       "nombre": "Filosofía",
       "contexto": "no_rural",
       "lecciones_propias": 28,
-      "preguntas_propias": 346,
+      "preguntas_propias": 352,
       "lecciones_comunes": 38,
       "preguntas_comunes": 492
     },
@@ -26,6 +26,51 @@
       "contexto": "no_rural",
       "lecciones_propias": 27,
       "preguntas_propias": 318,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "ciencias",
+      "nombre": "Ciencias naturales",
+      "contexto": "no_rural",
+      "lecciones_propias": 27,
+      "preguntas_propias": 318,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "tecnologia",
+      "nombre": "Tecnología e informática",
+      "contexto": "no_rural",
+      "lecciones_propias": 27,
+      "preguntas_propias": 318,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "primaria",
+      "nombre": "Primaria",
+      "contexto": "no_rural",
+      "lecciones_propias": 25,
+      "preguntas_propias": 312,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "fisica",
+      "nombre": "Física",
+      "contexto": "no_rural",
+      "lecciones_propias": 25,
+      "preguntas_propias": 339,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "quimica",
+      "nombre": "Química",
+      "contexto": "no_rural",
+      "lecciones_propias": 25,
+      "preguntas_propias": 327,
       "lecciones_comunes": 38,
       "preguntas_comunes": 492
     },
