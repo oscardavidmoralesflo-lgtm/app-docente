@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "capturado": "2026-11-25T20:08:00.065Z",
+  "capturado": "2026-11-26T19:09:05.353Z",
   "ofertas": [
     {
       "clave": "filosofia",
       "nombre": "Filosofía",
       "contexto": "no_rural",
       "lecciones_propias": 28,
-      "preguntas_propias": 325,
+      "preguntas_propias": 346,
       "lecciones_comunes": 38,
       "preguntas_comunes": 492
     },
@@ -17,6 +17,15 @@
       "contexto": "no_rural",
       "lecciones_propias": 28,
       "preguntas_propias": 321,
+      "lecciones_comunes": 38,
+      "preguntas_comunes": 492
+    },
+    {
+      "clave": "ingles",
+      "nombre": "Inglés",
+      "contexto": "no_rural",
+      "lecciones_propias": 27,
+      "preguntas_propias": 318,
       "lecciones_comunes": 38,
       "preguntas_comunes": 492
     },
