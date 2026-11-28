@@ -1,80 +1,125 @@
 {
   "formato": 1,
-  "fuente": "e55489bb2c2a9644b318417eecad330ad4d434b9",
-  "fuenteArbol": "6fe35316aa5926f5c4fc459af5293acfc95c7179",
-  "manifiestoSha256": "1fcc7eca89e258cf167319793adb80f65ab0f6daa2e69b16b4edf057774fd851",
-  "ejecucion": "https://app.circleci.com/workflow-run/b8052d47-a33b-4cd5-8084-23b23a6e1860",
-  "publicoAnterior": "afe1737738106158dfeb336a6c948e8aa97e9d0b",
+  "fuente": "7038baf8592159140c3c4133da2578db51e63cb4",
+  "fuenteArbol": "4b2b6aadf84bcf4849b0ce1bcd230c20e5a9366f",
+  "manifiestoSha256": "92af3b437c09273c5fa3f1540ce5f32f8cf6ae6be7aa07152ecc255dbd64d63c",
+  "ejecucion": "https://app.circleci.com/workflow-run/b953aebf-5ce2-4b22-bd8b-cfd247b604bf",
+  "publicoAnterior": "606688fb8d7ce1a379220fe6c280a57f06c8a1d7",
   "conservados": [
     {
-      "ruta": "assets/Acceso-BgI1vLvL.js",
-      "sha256": "5aa77adfdf6c2d4b54d54336983779344bfb7e8217e7ea1b4c5b8b8b656da12d",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Acceso-LVTppov2.js",
+      "sha256": "dfdf78de2c77535fe92872c3026cb178c2ffbb1053c8414b42dd3ff1d5e9eb4d",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/app-jga2-cnw.js",
-      "sha256": "583ab401a8096af6b7a83653dd7d26d2092c030552c2514149fb47198eb3f497",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/app-o4JlyGRk.js",
+      "sha256": "f176695deaf9948f9fb2f5c9f1054f6c6fa01f0df980a006a19695b0a37875d9",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Concurso-By5jRcLx.js",
-      "sha256": "e727e3ee3717b6be0cb5f18229111c776d206d899dcf7cc847bc5502324727b8",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Buscador-DQNZBZFc.js",
+      "sha256": "a9a43f1526e43c1abbd89fea34e948857a95feb7934f1e6faacfd2def98b2156",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Consulta-DE8T7517.js",
-      "sha256": "e808e9d45bdcdfa89efe10fed8c6a7e583f82908f858ed25531bbcfd71683599",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Candado-DHS7O47d.js",
+      "sha256": "475d061eaa9e897574d475ed036477b9355e11b1aea623bbfa20f54cbd6f66bb",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Errores-H2RCWFdE.js",
-      "sha256": "97a13d2b1966c40c2b88e0559edab2e3f5796865857e7e50b2778c9554c7654d",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Concurso-CIsGGzj0.js",
+      "sha256": "f7610221e1a0c5f8d2ae53e2aad8f1dcf4e50bce699c2f162d4aed72e784c817",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Legal-CPVAgNJH.js",
-      "sha256": "e8bb8923293ef2c9cd4712fda2220dc112b695f144151572ff74d32cbab6de6b",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Consulta-CwEPAxui.js",
+      "sha256": "5c726ec13c0bd301a5f26124f6adeee92d43bc5e23cfb2a0ba56eeb8d6cae15a",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/ModuloVista-BMg7ubX9.js",
-      "sha256": "d64852a1c6a68b0ed1d62b3298e53d1d21030a31c9d264e9bfb2cd776c7e89ff",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Errores-C3qiv0tm.js",
+      "sha256": "dd35767416c10c83a08c49cf566933156d3d1006dc4a382ecea6c3c7653aa1eb",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/NormasCasos-Dq4GLCAM.js",
-      "sha256": "e01dd3e11524ef208bd91baa702ea3350f2f4b30f4fdfdf04ae6d90816c4948c",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/EstadoCobertura-BfU7Tovt.js",
+      "sha256": "67a2df446a719a82d9467d8ef2fe6a806d3b702b3af3378c6deb9053c1aec3eb",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Perfil-Czm5o867.js",
-      "sha256": "bfaa6c0b3ae617b5d436096d92f14dd3328e795f829388bc7f427dee63554e64",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/fuentes-BtzkvSBl.js",
+      "sha256": "7bbd02da03f0fc5346058fb35414b5eb30a33af6e097f75bfdbc4484da6bc2cc",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Practica-BAbZE-ew.js",
-      "sha256": "c2dab076f5956007e9d9c2fdbfc5ff8b6c1420395c577b6c7ce467e098299c13",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/HistorialSimulacros-BGlqAvi2.js",
+      "sha256": "e0ddcc110b1dd66dd9aa5c10d84d9fda20ea29e3a7248d5a6d02ad43a54ee1f8",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Premium-CMMSKmdJ.js",
-      "sha256": "a5e62b381912a8b5123f96dd15efcbe44bc86576c6ed4520b682533734b4f12c",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/jsxRuntime-BmLkVcFa.js",
+      "sha256": "7969ae4a6cfa639e9146f55b22e6b41092a1f973ae8371ac6fe2ef70ed1c6a00",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Progreso-BtLsgBon.js",
-      "sha256": "0295d822c990623123e64fd0f954b350cb15530bf22b7b3ba62aa2226b49eb6c",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/Legal-B7vPURvh.js",
+      "sha256": "393531eed068a95176138d42c631e963f125ecf5863d142067c942eecede8bb5",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Tarjetas-Cr-lUR37.js",
-      "sha256": "0f792862d984805c4a97d6e657c5c3e27ffc74c10f5100c74d45d326fc3d1b3e",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/ModuloVista-BeEHsOl7.js",
+      "sha256": "8d4094c7ae75fea646afaf34d68f977e0f42e130f2654b488f0e3438af3c7843",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     },
     {
-      "ruta": "assets/Temario-CHmPe4F0.js",
-      "sha256": "69d42b90158ac5fbbeca3e57e0c990e9a64904a89b8459d11047e671f22d6d45",
-      "commit": "d00aa5ce2567f315193c90ac04199c4459ef2c9d"
+      "ruta": "assets/NormasCasos-BuL7M8w2.js",
+      "sha256": "2ed4c547393d6e3a1364d6377bc711b7577618e32e25d703f552387d2094154a",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/normograma-DtaVCLCv.js",
+      "sha256": "a9065bf9e610de4cc011364ed27944808ed3d44730d8982ebd955a6cf4807345",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Perfil-DlK3v8fa.js",
+      "sha256": "a293a0c2781dcd43cf2c8bd744d8053bb1a95bd14843d58cf480982640df66a4",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Practica-D7KUipob.js",
+      "sha256": "601fc11253e79f230076c53160eec990735598d62512372f8857535905b67417",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Premium-D9HumjBw.js",
+      "sha256": "d22902cfcbb69f67673600b21410408d702c3894063735c72a29d78a3f00fe18",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Progreso-CUtVXTlV.js",
+      "sha256": "2b9fb5b186392058d43421b98492130eaa870c6802887cc9a767a2332835d3b4",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/ReportarError-vxxnVLFk.js",
+      "sha256": "c6975f84f7b10ebd84277f60227de3df115dc8ac1b928118c63e034531021f9b",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/SoporteStoa-BQz86CbG.js",
+      "sha256": "c9a00dfcdcb43154e479b9d053398f8ab986e72473acfcb30c5085aa02ad4305",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Tarjetas-bTvjUUwR.js",
+      "sha256": "0a4facdd2941da787bbaa2259306b9f403cce40f6742d5907faba639cca6e8d7",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
+    },
+    {
+      "ruta": "assets/Temario-Cn8UneeU.js",
+      "sha256": "56c88ed8e4a04d4a6c31d4a023d75a7d3f5f0c5a97be11ee25bd242a2dddf9e8",
+      "commit": "afe1737738106158dfeb336a6c948e8aa97e9d0b"
     }
   ],
   "automatizacion_conservada": [
