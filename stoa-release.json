@@ -159,8 +159,8 @@
     },
     {
       "ruta": "bienvenida/index.html",
-      "bytes": 44013,
-      "sha256": "8bf9fd44c824e7a273f549b0e0e24daed0615643373e0d30b2415b6beeda44a8"
+      "bytes": 44255,
+      "sha256": "dff98e60202659ccda9e0c8493454733cfd35eac81a31cd11d016ab18ace19af"
     },
     {
       "ruta": "bienvenida/magisterio.css",
@@ -210,7 +210,7 @@
     {
       "ruta": "bienvenida/oferta.json",
       "bytes": 192,
-      "sha256": "ff092767b0b296a992e0b5413bac247f46cfafdfe9572a636a40003e21c5b4b7"
+      "sha256": "929b89c159677e3f1c60bd5075dcfb14388d291aad03d468348110eab13edced"
     },
     {
       "ruta": "bienvenida/og-stoa.png",
@@ -288,19 +288,19 @@
       "sha256": "a3cb3bc6b5cea27e89487747611e0bc2beee7eb55c04d2eb8345aaafa9467891"
     },
     {
-      "ruta": "datos/publico/catalogo-851bf4d4af71983058d8ce59bb2d9908a031bcd441c286ee169fc3982c89e53e.json",
-      "bytes": 2507,
-      "sha256": "851bf4d4af71983058d8ce59bb2d9908a031bcd441c286ee169fc3982c89e53e"
+      "ruta": "datos/publico/catalogo-8f24af5f6d99c3b6d50120d60d37efece82c1980a706afbbba72a53e11ca5b11.json",
+      "bytes": 5309,
+      "sha256": "8f24af5f6d99c3b6d50120d60d37efece82c1980a706afbbba72a53e11ca5b11"
     },
     {
-      "ruta": "datos/publico/perfiles-80bf2b37b67ed387f62e59afb12752f7f88810d24e1ea5d6153921fd60feefa1.json",
+      "ruta": "datos/publico/perfiles-816a70fa631990420c6d6c69e1a28924152e420196fc7155680164f25d1db045.json",
       "bytes": 2317,
-      "sha256": "80bf2b37b67ed387f62e59afb12752f7f88810d24e1ea5d6153921fd60feefa1"
+      "sha256": "816a70fa631990420c6d6c69e1a28924152e420196fc7155680164f25d1db045"
     },
     {
-      "ruta": "datos/publico/planes-9ce317fd966d41bc0da4671db72565408f44b60a6a3c197fe077982e2f7b84a0.json",
+      "ruta": "datos/publico/planes-ac75f566eeeca04a9bc0edefd27d3ec6a9d82c9d167422bd7791ad552a9e4e23.json",
       "bytes": 404,
-      "sha256": "9ce317fd966d41bc0da4671db72565408f44b60a6a3c197fe077982e2f7b84a0"
+      "sha256": "ac75f566eeeca04a9bc0edefd27d3ec6a9d82c9d167422bd7791ad552a9e4e23"
     },
     {
       "ruta": "icons/apple-touch-icon.png",
@@ -330,7 +330,7 @@
     {
       "ruta": "index.html",
       "bytes": 4889,
-      "sha256": "ab689c12f741bbedbeb4ff38f64ec4cc06ff8cb7fd306a54b4d79fe00b6bfa50"
+      "sha256": "ae7e0a322bb8c73c0e07a4d3f8b8da3eff83db0dcea20fb6cb5f601d5959c4da"
     },
     {
       "ruta": "inicio.js",
@@ -420,7 +420,7 @@
     {
       "ruta": "sw.js",
       "bytes": 9917,
-      "sha256": "09afe6727a78604deb712076443cdeb0c381f9f0f44209c32d8d56919f9dd2b5"
+      "sha256": "ed9855d5f279bdbd50da652c293f24ebfb5f306dd7791c6f947f4945dc793137"
     }
   ]
 }
